@@ -30,7 +30,6 @@ func initialize(base,player):
 	emit_signal('entered')
 
 func physics_update(delta):
-	pass
 	if climb_input and player.facing_dir != Vector2(0,0):
 		player.facing_dir = Vector2(0,0)
 		if not y_offset: 
@@ -46,6 +45,11 @@ func transitions_update():
 	if walk_input and not spray_input:
 		base.current_state = null
 		base.queue_state = base.get_state('Walking')
+		exit()
+	#IDLE TO CLIMBING#
+	elif climb_input and player.on_ladder:
+		base.current_state = null
+		base.queue_state = base.get_state('Climbing')
 		exit()
 	else: 
 		return

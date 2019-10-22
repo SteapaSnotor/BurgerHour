@@ -12,7 +12,11 @@ Vector2(-1,0):{'anim':'Idle-Sides','flip':false}},
 	
 	'Walking':{Vector2(0,0):{'anim':'Walking','flip':false},
 Vector2(1,0):{'anim':'Walking','flip':true},
-Vector2(-1,0):{'anim':'Walking','flip':false}}
+Vector2(-1,0):{'anim':'Walking','flip':false}},
+
+	'Climbing':{Vector2(0,0):{'anim':'Climbing','flip':false,'stop':true},
+Vector2(0,1):{'anim':'Climbing','flip':false,'stop':false},
+Vector2(0,-1):{'anim':'Climbing','flip':false,'stop':false}}
 }
 
 #stats
@@ -25,6 +29,12 @@ onready var debug_label = $_CurrentState
 onready var anim_node = $Animations
 
 var facing_dir = Vector2(0,0)
+var ladder_pos = Vector2(0,0)
+var on_ladder = false
+var on_edge = false
+var floor_tiles = []
+
+const base_z_index = 0
 
 #initialize
 func _ready():
@@ -49,6 +59,13 @@ Input.is_action_pressed('ui_down')]
 
 func update_animations():
 	var state = FSM.get_current_state().name
+	
+	if animations_data[state][facing_dir].keys().find('stop') != -1:
+		if animations_data[state][facing_dir]['stop']:
+			if anim_node.get_animation() == animations_data[state][facing_dir]['anim']:
+				anim_node.stop()
+				return
+	
 	anim_node.play(animations_data[state][facing_dir]['anim'])
 	anim_node.set_flip_h(animations_data[state][facing_dir]['flip'])
 

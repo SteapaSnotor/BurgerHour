@@ -12,7 +12,8 @@ var queue_state = null
 func init():
 	var states = {
 		$Walking.name:$Walking,
-		$Idle.name:$Idle
+		$Idle.name:$Idle,
+		$Climbing.name:$Climbing
 	}
 	
 	for state in states.values():

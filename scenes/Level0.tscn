@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/LevelManager.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tiles/ladder.png" type="Texture" id=2]
 [ext_resource path="res://sprites/tiles/prototype1.png" type="Texture" id=3]
-[ext_resource path="res://sprites/tiles/collision.png" type="Texture" id=4]
-[ext_resource path="res://sprites/tiles/player_spawn.png" type="Texture" id=5]
-[ext_resource path="res://sprites/backgrounds/prototype.png" type="Texture" id=6]
-[ext_resource path="res://sprites/enemies/ball.png" type="Texture" id=7]
+[ext_resource path="res://sprites/tiles/burger_full.png" type="Texture" id=4]
+[ext_resource path="res://sprites/tiles/collision.png" type="Texture" id=5]
+[ext_resource path="res://sprites/tiles/player_spawn.png" type="Texture" id=6]
+[ext_resource path="res://sprites/tiles/exit_ladder_signal.png" type="Texture" id=7]
+[ext_resource path="res://sprites/backgrounds/prototype.png" type="Texture" id=8]
+[ext_resource path="res://sprites/enemies/ball.png" type="Texture" id=9]
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="TileSet" id=6]
 0/name = "ladder.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -20,7 +22,7 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=7]
 0/name = "prototype1.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -32,12 +34,24 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="TileSet" id=8]
+0/name = "burger_full.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 192, 60 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 59, 0, 59, 36, 0, 36 )
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=5]
 0/name = "collision.png 0"
-0/texture = ExtResource( 4 )
+0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 59, 36 )
@@ -48,12 +62,12 @@ points = PoolVector2Array( 0, 0, 59, 0, 59, 36, 0, 36 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
 1/name = "player_spawn.png 1"
-1/texture = ExtResource( 5 )
+1/texture = ExtResource( 6 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 59, 72 )
@@ -62,35 +76,68 @@ points = PoolVector2Array( 0, 0, 59, 0, 59, 36, 0, 36 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shapes = [  ]
 1/z_index = 0
+2/name = "exitLadder"
+2/texture = ExtResource( 7 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 59, 36 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [  ]
+2/z_index = 0
 
 [node name="Level0" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Ladders" type="TileMap" parent="."]
 z_index = 2
-tile_set = SubResource( 1 )
+tile_set = SubResource( 6 )
 cell_size = Vector2( 47, 62 )
 format = 1
-tile_data = PoolIntArray( 65539, 0, 0, 65544, 0, 0, 131075, 0, 0, 131080, 0, 0, 196611, 0, 0, 196616, 0, 0, 262147, 0, 0, 262152, 0, 0, 327683, 0, 0, 327688, 0, 0, 393219, 0, 0, 393224, 0, 0, 458755, 0, 0, 458760, 0, 0, 524291, 0, 0, 524296, 0, 0, 589827, 0, 0, 589832, 0, 0 )
+tile_data = PoolIntArray( 65538, 0, 0, 65544, 0, 0, 131074, 0, 0, 131080, 0, 0, 196610, 0, 0, 196616, 0, 0, 262146, 0, 0, 262152, 0, 0, 327682, 0, 0, 327688, 0, 0, 393218, 0, 0, 393224, 0, 0, 458754, 0, 0, 458760, 0, 0, 524290, 0, 0, 524296, 0, 0, 589826, 0, 0, 589832, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LevelMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+tile_set = SubResource( 7 )
 cell_size = Vector2( 59, 36 )
 format = 1
-tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720912, 1, 0, 786448, 1, 0, 851984, 1, 0, 917520, 1, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0 )
+tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 786448, 1, 0, 851984, 1, 0, 917520, 1, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Burger" type="TileMap" parent="."]
+position = Vector2( -12.69, -18.62 )
+tile_set = SubResource( 8 )
+cell_size = Vector2( 59, 36 )
+format = 1
+tile_data = PoolIntArray( 196611, 0, 0, 458755, 0, 0, 720899, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LevelSignals" type="TileMap" parent="."]
-tile_set = SubResource( 4 )
+visible = false
+tile_set = SubResource( 5 )
 cell_size = Vector2( 59, 36 )
 format = 1
-tile_data = PoolIntArray( 65535, 0, 0, 10, 0, 0, 18, 0, 0, 131071, 0, 0, 65546, 0, 0, 65554, 0, 0, 196607, 0, 0, 131077, 1, 0, 131082, 0, 0, 131090, 0, 0, 262143, 0, 0, 196618, 0, 0, 196626, 0, 0, 327679, 0, 0, 262162, 0, 0, 393215, 0, 0, 327691, 0, 0, 327698, 0, 0, 458751, 0, 0, 393227, 0, 0, 393234, 0, 0, 524287, 0, 0, 458763, 0, 0, 458770, 0, 0, 589823, 0, 0, 524306, 0, 0, 655359, 0, 0, 589837, 0, 0, 589842, 0, 0, 720895, 0, 0, 655373, 0, 0, 655378, 0, 0, 786431, 0, 0, 720909, 0, 0, 720914, 0, 0, 851967, 0, 0, 786450, 0, 0, 917503, 0, 0, 851986, 0, 0, 983039, 0, 0, 917522, 0, 0, 1048575, 0, 0, 983058, 0, 0, 1114111, 0, 0, 1048594, 0, 0 )
+tile_data = PoolIntArray( 65535, 0, 0, 10, 0, 0, 18, 0, 0, 131071, 0, 0, 65546, 0, 0, 65554, 0, 0, 196607, 0, 0, 131082, 0, 0, 131090, 0, 0, 262143, 0, 0, 196609, 2, 0, 196614, 2, 0, 196618, 0, 0, 196626, 0, 0, 327679, 0, 0, 262162, 0, 0, 393215, 0, 0, 327691, 0, 0, 327698, 0, 0, 458751, 0, 0, 393227, 0, 0, 393234, 0, 0, 524287, 0, 0, 458753, 2, 0, 458758, 2, 0, 458763, 0, 0, 458770, 0, 0, 589823, 0, 0, 524306, 0, 0, 655359, 0, 0, 589837, 0, 0, 589842, 0, 0, 720895, 0, 0, 655369, 1, 0, 655373, 0, 0, 655378, 0, 0, 786431, 0, 0, 720897, 2, 0, 720902, 2, 0, 720909, 0, 0, 720914, 0, 0, 851967, 0, 0, 786450, 0, 0, 917503, 0, 0, 851986, 0, 0, 983039, 0, 0, 917522, 0, 0, 1048575, 0, 0, 983058, 0, 0, 1114111, 0, 0, 1048577, 2, 0, 1048582, 2, 0, 1048594, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Background" type="Sprite" parent="."]
 z_index = -1
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 offset = Vector2( 512, 300 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 857.054, 542.583 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
