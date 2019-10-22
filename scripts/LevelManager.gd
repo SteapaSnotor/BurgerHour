@@ -21,6 +21,7 @@ func spawn_player():
 	player = preload('res://scenes/Player.tscn').instance()
 	player.global_position = get_spawn_position()
 	player.floor_tiles = $LevelMap
+	player.ladder_tiles = $Ladders
 	add_child(player)
 	
 #spawn ladders detection areas

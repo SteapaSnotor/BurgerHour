@@ -33,6 +33,7 @@ var ladder_pos = Vector2(0,0)
 var on_ladder = false
 var on_edge = false
 var floor_tiles = []
+var ladder_tiles = []
 
 const base_z_index = 0
 

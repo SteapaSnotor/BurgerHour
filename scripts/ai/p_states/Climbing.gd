@@ -12,6 +12,8 @@ var player = null
 var ladder_position = null
 var climb_input = false
 var walk_input = false
+var max_y = 0
+var min_y = 0
 
 #constructor
 func initialize(base,player):
@@ -20,11 +22,32 @@ func initialize(base,player):
 	self.player.set_z_index(2)
 	self.player.global_position.x = self.player.ladder_pos.x
 	
+	#sets the maximum/minimum height the player can climb on this ladder
+	var map_ladder = player.ladder_tiles.world_to_map(player.global_position)
+	var max_map = map_ladder
+	var min_map = map_ladder
+	for tile in player.ladder_tiles.get_used_cells():
+		if tile.x == map_ladder.x:
+			if tile.y > max_map.y: max_map = tile
+			if tile.y < min_map.y: min_map = tile
+	max_map = player.ladder_tiles.map_to_world(max_map)
+	min_map = player.ladder_tiles.map_to_world(min_map)
+	
+	max_y = max_map.y
+	min_y = min_map.y
+	
 	emit_signal('entered')
 
 func physics_update(delta):
 	climb_input = player.get_climb_keys().has(true)
 	walk_input = player.get_walk_keys().has(true)
+	
+	#apply constraints of the ladder
+	if climb_input and player.get_climb_keys()[0]:
+		if player.global_position.y <= min_y: return
+	elif climb_input and player.get_climb_keys()[1]:
+		if player.global_position.y >= max_y: return
+	
 	
 	var move_dir = -int(player.get_climb_keys()[0]) + int(player.get_climb_keys()[1])
 	player.move(Vector2(0,move_dir))
@@ -55,4 +78,6 @@ func exit():
 	self.player = null
 	self.climb_input = false
 	self.walk_input = false
+	self.max_y = 0
+	self.min_y = 0
 	emit_signal('exited')
