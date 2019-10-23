@@ -15,6 +15,8 @@ func _ready():
 	spawn_player()
 	spawn_ladder()
 	spawn_edges()
+	spawn_food()
+	spawn_base()
 
 #spawn the player on this level
 func spawn_player():
@@ -42,6 +44,30 @@ func spawn_edges():
 		detection.global_position = $LevelSignals.map_to_world(tile)
 		#edge offset
 		detection.global_position.x += 42
+
+#spawn all the food parts in game
+func spawn_food():
+	#TODO: check the id for different food parts
+	for part in $Burger.get_used_cells():
+		var world_pos = $Burger.map_to_world(part)
+		var food = preload('res://scenes/FoodPart.tscn').instance()
+		add_child(food)
+		#TODO: sprite must always be 192x64 for this to work...
+		food.global_position = world_pos
+		food.global_position.x +=96+$Burger.global_position.x
+		food.global_position.y +=32+$Burger.global_position.y
+		food.init()
+	
+#spawn all solid bases the food will fall
+func spawn_base():
+	for tile in $LevelSignals.get_used_cells_by_id(3):
+		var world_pos = $LevelSignals.map_to_world(tile)
+		var base = preload('res://scenes/BurgerBase.tscn').instance()
+		add_child(base)
+		base.global_position = world_pos
+		#aplly offset
+		base.global_position.x += 25
+		base.global_position.y += 11
 
 #return the place where the player must spawn on this level
 func get_spawn_position():

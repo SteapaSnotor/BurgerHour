@@ -35,7 +35,7 @@ var on_edge = false
 var floor_tiles = []
 var ladder_tiles = []
 
-const base_z_index = 0
+const base_z_index = 1
 
 #initialize
 func _ready():
