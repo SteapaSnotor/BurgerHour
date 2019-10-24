@@ -10,16 +10,13 @@ var queue_state = null
 
 #initialize states
 func init():
-	var states = {
-		$Walking.name:$Walking,
-		$Idle.name:$Idle,
-		$Climbing.name:$Climbing
-	}
+	var states = get_children()
 	
-	for state in states.values():
+	for state in states:
+		if not state.has_method('initialize'): continue
 		state.connect('exited',self,'set_state')
 	
-	queue_state = $Idle
+	queue_state = get_child(0)
 	set_state()
 	
 #go to a new state

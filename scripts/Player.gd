@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 """
-	Manager the player character's information.
+	Manage the player character's information.
 """
 
 #all player's animation according to state and facing direction
@@ -35,7 +35,7 @@ var on_edge = false
 var floor_tiles = []
 var ladder_tiles = []
 
-const base_z_index = 1
+const base_z_index = 5
 
 #initialize
 func _ready():

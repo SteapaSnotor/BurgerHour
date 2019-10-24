@@ -17,6 +17,8 @@ func _ready():
 	spawn_edges()
 	spawn_food()
 	spawn_base()
+	spawn_final_bases()
+	randomize()#THIS SHOULD BE CALLED ON THE MAIN NODE. REMOVE IT FROM HERE LATER.
 
 #spawn the player on this level
 func spawn_player():
@@ -69,6 +71,16 @@ func spawn_base():
 		base.global_position.x += 25
 		base.global_position.y += 11
 
+#spawn the final bases where the food should fall
+func spawn_final_bases():
+	for tile in $LevelMap.get_used_cells_by_id(1):
+		var detection = preload('res://scenes/FinalBaseDetection.tscn').instance()
+		add_child(detection)
+		detection.global_position = $LevelMap.map_to_world(tile)
+		#apply offset
+		detection.global_position.x += 29
+		detection.global_position.y += 16
+ 
 #return the place where the player must spawn on this level
 func get_spawn_position():
 	var pos = level_signals.map_to_world(level_signals.get_used_cells_by_id(1)[0])

@@ -19,7 +19,7 @@ var min_y = 0
 func initialize(base,player):
 	self.base = base
 	self.player = player
-	self.player.set_z_index(2)
+	self.player.set_z_index(player.base_z_index+1)
 	self.player.global_position.x = self.player.ladder_pos.x
 	
 	#sets the maximum/minimum height the player can climb on this ladder

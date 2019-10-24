@@ -8,6 +8,7 @@ var step_points = 0
 var last_base = null
 var is_falling = false
 var falling_base = null
+var on_final_base = false setget set_on_final_base
 
 const max_step_points = 99
 
@@ -27,6 +28,12 @@ func init():
 func _process(delta):
 	$TextureProgress.value = step_points
 	
+	if on_final_base:
+		#prevent from falling when on the final base
+		set_gravity_scale(0)
+		set_linear_velocity(Vector2(0,0))
+		return
+	
 	#stop falling when it reaches a base
 	if falling_base != null:
 		if falling_base.global_position.distance_to(global_position) <=4:
@@ -36,7 +43,6 @@ func _process(delta):
 			
 			#reset points
 			
-
 func connect_parts():
 	for part in $Parts.get_children():
 		if not part.is_connected('body_entered',self,'break_part'):
@@ -44,6 +50,7 @@ func connect_parts():
 	step_points = 0
 
 func break_part(body,part):
+	if on_final_base: return
 	if body.name == 'Player':
 		step_points += 33
 		part.disconnect('body_entered',self,'break_part')
@@ -53,12 +60,22 @@ func break_part(body,part):
 
 #the food will start to fall
 func break_free():
-	set_gravity_scale(2)
+	if not on_final_base:
+		set_gravity_scale(2)
 
 #check if collided with other food parts
 func body_collision(body):
+	#food order of drawing
+	if body.global_position.y > global_position.y:
+		set_z_index(body.get_z_index()+1)
+	
 	if body.is_in_group('FoodPart'):
-		body.break_free()
+		if not body.on_final_base:
+			body.break_free()
+		else:
+			set_on_final_base(true)
+			set_gravity_scale(0)
+			set_linear_velocity(Vector2(0,0))
 
 #check if it collided with the base
 func area_collision(area):
@@ -66,11 +83,17 @@ func area_collision(area):
 		falling_base = area
 		last_base = area
 		connect_parts()
+	elif area.is_in_group('FinalBase'):
+		set_on_final_base(true)
+		set_gravity_scale(0)
+		set_linear_velocity(Vector2(0,0))
 
 
-
-
-
+func set_on_final_base(value):
+	on_final_base = value
+	
+	if on_final_base: 
+		set_z_index(get_z_index()+7)
 
 
 
