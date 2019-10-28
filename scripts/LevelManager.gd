@@ -27,7 +27,13 @@ func spawn_player():
 	player.floor_tiles = $LevelMap
 	player.ladder_tiles = $Ladders
 	add_child(player)
-	
+
+#spawn all enemies on this level
+func spawn_enemies():
+	#TODO: spawn by id
+	for enemie in $LevelSignals.get_used_cells_by_id(4):
+		pass
+
 #spawn ladders detection areas
 func spawn_ladder():
 	for tile in $Ladders.get_used_cells():

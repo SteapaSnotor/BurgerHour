@@ -25,7 +25,7 @@ func init():
 	connect_parts()
 
 #TODO: update animations
-func _process(delta):
+func _physics_process(delta):
 	$TextureProgress.value = step_points
 	
 	if on_final_base:

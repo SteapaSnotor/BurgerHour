@@ -76,15 +76,3 @@ func move(dir):
 	facing_dir = dir
 
 
-
-
-
-
-
-
-
-
-
-
-
-

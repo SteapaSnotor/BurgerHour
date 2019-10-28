@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/ball.png" type="Texture" id=2]
 [ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=3]
-[ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ai/ai_states/Idle.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=5]
+[ext_resource path="res://scripts/ai/ai_states/Climbing.gd" type="Script" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -14,10 +16,10 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 29.1835
+radius = 21.8356
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 39.7898
+radius = 28.7407
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "Enemy",
@@ -41,18 +43,21 @@ text = "State"
 align = 1
 autowrap = true
 
-[node name="LadderDetection" type="Area2D" parent="."]
-editor/display_folded = true
+[node name="HitDetection" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderDetection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetection"]
 position = Vector2( 0.540359, 4.32291 )
 shape = SubResource( 3 )
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="Searching" type="Node" parent="FSM"]
+[node name="Idle" type="Node" parent="FSM"]
 script = ExtResource( 4 )
 
+[node name="Searching" type="Node" parent="FSM"]
+script = ExtResource( 5 )
+
 [node name="Climbing" type="Node" parent="FSM"]
+script = ExtResource( 6 )
 
