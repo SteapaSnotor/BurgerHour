@@ -9,8 +9,8 @@ func body_entered(body):
 	if body.name == 'Player':
 		body.on_ladder = true
 		body.ladder_pos = Vector2($Sprite.global_position.x+7,$Sprite.global_position.y)
-	elif body.is_in_group('Enemy'):
-		body.on_ladder = true
+	elif body.name == 'AILadderDetection':
+		body.get_parent().on_ladder = true
 	else: return
 	
 func body_exited(body):
@@ -18,6 +18,6 @@ func body_exited(body):
 	if body.name == 'Player':
 		body.on_ladder = false
 		body.ladder_pos = Vector2(0,0)
-	elif body.is_in_group('Enemy'):
-		body.on_ladder = false
+	elif body.name == 'AILadderDetection':
+		body.get_parent().on_ladder = false
 	else: return

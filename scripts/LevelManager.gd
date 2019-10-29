@@ -17,6 +17,7 @@ func _ready():
 	spawn_edges()
 	spawn_food()
 	spawn_base()
+	spawn_enemies()
 	spawn_final_bases()
 	randomize()#THIS SHOULD BE CALLED ON THE MAIN NODE. REMOVE IT FROM HERE LATER.
 
@@ -31,8 +32,15 @@ func spawn_player():
 #spawn all enemies on this level
 func spawn_enemies():
 	#TODO: spawn by id
-	for enemie in $LevelSignals.get_used_cells_by_id(4):
-		pass
+	for tile in $LevelSignals.get_used_cells_by_id(4):
+		var enemy = preload('res://scenes/Enemy.tscn').instance()
+		enemy.ladder_tiles = $Ladders
+		enemy.floor_tiles = $LevelMap
+		add_child(enemy)
+		enemy.global_position = $LevelSignals.map_to_world(tile)
+		#apply custom offset for enemies
+		enemy.global_position.x+= 28
+		enemy.global_position.y+= 8
 
 #spawn ladders detection areas
 func spawn_ladder():

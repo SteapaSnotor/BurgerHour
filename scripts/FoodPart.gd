@@ -65,15 +65,17 @@ func break_free():
 
 #check if collided with other food parts
 func body_collision(body):
+	if body.is_in_group('Enemy') or body.name == 'Player': return
 	#food order of drawing
 	if body.global_position.y > global_position.y:
 		set_z_index(body.get_z_index()+1)
+		#print('changed food part z-index')
 	
 	if body.is_in_group('FoodPart'):
 		if not body.on_final_base:
 			body.break_free()
 		else:
-			set_on_final_base(true)
+			if not on_final_base: set_on_final_base(true)
 			set_gravity_scale(0)
 			set_linear_velocity(Vector2(0,0))
 

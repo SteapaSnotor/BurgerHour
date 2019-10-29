@@ -9,7 +9,11 @@ onready var FSM = $FSM
 #stats
 var speed = 70
 var facing_dir = Vector2(0,0)
+
 var on_ladder = false
+var on_edge = false
+var ladder_tiles = null
+var floor_tiles = null
 
 #initialize
 func _ready():

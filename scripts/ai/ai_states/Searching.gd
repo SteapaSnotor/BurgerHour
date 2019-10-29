@@ -10,6 +10,7 @@ signal exited
 var base = null
 var enemy = null
 var dir = Vector2(0,0)
+var idle = false
 
 #constructor
 func initialize(base,enemy):
@@ -25,6 +26,8 @@ func physics_update(delta):
 	enemy.move(dir)
 	if enemy.get_slide_count() > 0:
 		dir.x*= -1
+		
+		if not base.last_state.name == 'idle': idle = true
 
 func input_update(event):
 	pass
@@ -35,14 +38,17 @@ func transitions_update():
 		base.current_state = null
 		base.queue_state = base.get_state('Climbing')
 		exit()
-	
-	
-	pass
+	elif idle:
+		base.current_state = null
+		base.queue_state = base.get_state('Idle')
+		exit()
+	else: return
 
 #destructor
 func exit():
 	base = null
 	enemy = null
+	idle = false
 	
 	emit_signal('exited')
 
