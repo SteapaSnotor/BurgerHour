@@ -18,6 +18,7 @@ var checking_edge = false
 func initialize(base,enemy):
 	self.base = base
 	self.enemy = enemy
+	self.enemy.set_z_index(self.enemy.base_z_index+1)
 	self.ladder_tilemap = enemy.ladder_tiles
 	
 	var available_steps_above = 0  #tiles below the AI
@@ -65,9 +66,9 @@ func transitions_update():
 		enemy.global_position.y += 8
 		exit()
 	
-
 #destructor
 func exit():
+	enemy.set_z_index(self.enemy.base_z_index-1)
 	base = null
 	enemy = null
 	ladder_tilemap = null

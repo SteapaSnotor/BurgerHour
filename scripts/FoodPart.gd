@@ -27,11 +27,12 @@ func init():
 #TODO: update animations
 func _physics_process(delta):
 	$TextureProgress.value = step_points
-	
+	#print(is_falling)
 	if on_final_base:
 		#prevent from falling when on the final base
 		set_gravity_scale(0)
 		set_linear_velocity(Vector2(0,0))
+		is_falling = false
 		return
 	
 	#stop falling when it reaches a base
@@ -40,7 +41,7 @@ func _physics_process(delta):
 			set_gravity_scale(0)
 			set_linear_velocity(Vector2(0,0))
 			falling_base = null
-			
+			is_falling = false
 			#reset points
 			
 func connect_parts():
@@ -62,6 +63,7 @@ func break_part(body,part):
 func break_free():
 	if not on_final_base:
 		set_gravity_scale(2)
+		is_falling = true
 
 #check if collided with other food parts
 func body_collision(body):
@@ -78,6 +80,7 @@ func body_collision(body):
 			if not on_final_base: set_on_final_base(true)
 			set_gravity_scale(0)
 			set_linear_velocity(Vector2(0,0))
+			is_falling = false
 
 #check if it collided with the base
 func area_collision(area):
@@ -89,6 +92,7 @@ func area_collision(area):
 		set_on_final_base(true)
 		set_gravity_scale(0)
 		set_linear_velocity(Vector2(0,0))
+		is_falling = false
 
 
 func set_on_final_base(value):
