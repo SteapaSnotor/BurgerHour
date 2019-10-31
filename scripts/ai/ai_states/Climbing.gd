@@ -45,7 +45,6 @@ func initialize(base,enemy):
 func physics_update(delta):
 	if not can_climb(dir):
 		dir.y *= -1
-		pass
 	
 	self.enemy.move(dir)
 	
@@ -69,7 +68,7 @@ func can_climb(dir):
 			available_steps_above += 1
 	
 	if dir == Vector2(0,1) and available_steps_below <= 1: return false
-	elif dir == Vector2(0,-1) and available_steps_above <= 1: return false
+	elif dir == Vector2(0,-1) and available_steps_above < 1: return false
 	else: return true
 	
 

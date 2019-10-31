@@ -61,7 +61,6 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		timer.one_shot = true
 		$LevelSignals.add_child(timer)
 		timer.start()
-		
 	else:
 		var enemy = preload('res://scenes/Enemy.tscn').instance()
 		enemy.ladder_tiles = $Ladders
@@ -71,6 +70,13 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		#apply custom offset for enemies
 		enemy.global_position.x+= 28
 		enemy.global_position.y+= 8
+		
+		#enemy respawning
+		var _spawn_dict = {}
+		_spawn_dict['spawns'] = 0
+		_spawn_dict['time'] = [spawn_interval+1]
+		_spawn_dict['tile'] = [$LevelSignals.world_to_map(enemy.global_position)]
+		enemy.connect('died',self,'spawn_enemies',[_spawn_dict,false])
 		
 		$LevelSignals.get_child(0).queue_free()
 		

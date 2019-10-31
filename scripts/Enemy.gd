@@ -5,6 +5,7 @@ extends KinematicBody2D
 """
 
 signal wall_collision
+signal died
 
 onready var FSM = $FSM
 
@@ -19,12 +20,14 @@ var current_food = null
 var ladder_tiles = null
 var floor_tiles = null
 var _current_collisions = []
+#var initial_spawn = Vector2(0,0)
 
 const base_z_index = 5
 
 #initialize
 func _ready():
 	FSM.init()
+	#initial_spawn = global_position
 
 func _process(delta):
 	#debug only
@@ -42,6 +45,7 @@ func on_hit_detection(body):
 	elif body.name == 'BaseDetection':
 		#TODO: maybe delegate this to a "dead" state?
 		if not body.get_parent().on_final_base:
+			emit_signal("died")
 			call_deferred('free')
 	elif body.name == 'PlayerHit':
 		body.get_parent().hit = true
