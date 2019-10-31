@@ -28,6 +28,10 @@ func set_state():
 	set_process(true)
 	set_physics_process(true)
 
+func force_state(state):
+	current_state.exit()
+	queue_state = get_node(state)
+
 func set_queue_state(value):
 	last_state = queue_state
 	queue_state = value

@@ -16,12 +16,17 @@ Vector2(-1,0):{'anim':'Walking','flip':false}},
 
 	'Climbing':{Vector2(0,0):{'anim':'Climbing','flip':false,'stop':true},
 Vector2(0,1):{'anim':'Climbing','flip':false,'stop':false},
-Vector2(0,-1):{'anim':'Climbing','flip':false,'stop':false}}
+Vector2(0,-1):{'anim':'Climbing','flip':false,'stop':false}},
+
+	'Dead':{Vector2(0,0):{'anim':'Idle-Down','flip':false},
+Vector2(1,0):{'anim':'Idle-Sides','flip':true},
+Vector2(-1,0):{'anim':'Idle-Sides','flip':false}}
 }
 
 #stats
 var sprays = 3
 var speed = 100
+var hit = false setget set_hit
 
 #nodes
 onready var FSM = $FSM
@@ -57,6 +62,13 @@ Input.is_action_pressed('ui_right')]
 func get_climb_keys():
 	return [Input.is_action_pressed('ui_up'),
 Input.is_action_pressed('ui_down')]
+
+#when the player is hit
+func set_hit(value):
+	hit = value
+	
+	if hit:
+		FSM.force_state('Dead')
 
 func update_animations():
 	var state = FSM.get_current_state().name

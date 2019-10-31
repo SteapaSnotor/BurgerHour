@@ -42,6 +42,8 @@ func on_hit_detection(body):
 	elif body.name == 'BaseDetection':
 		#TODO: maybe delegate this to a "dead" state?
 		call_deferred('free')
+	elif body.name == 'PlayerHit':
+		body.get_parent().hit = true
 	else: pass#print(body.name)
 
 func on_food_detection(area):

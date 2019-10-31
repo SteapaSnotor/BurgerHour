@@ -13,6 +13,7 @@ var direction = Vector2(0,0)
 var ladder_tilemap = null
 var dir = Vector2(0,0)
 var checking_edge = false
+var skipped_ladder = false
 
 #constructor
 func initialize(base,enemy):
@@ -42,19 +43,46 @@ func initialize(base,enemy):
 	emit_signal('entered')
 
 func physics_update(delta):
+	if not can_climb(dir):
+		dir.y *= -1
+		pass
+	
 	self.enemy.move(dir)
 	
 	if not checking_edge and not self.enemy.on_edge:
 		checking_edge = true
-		
-	
 
 func input_update(event):
 	pass
 
+#returns true or false if the AI can climb or not in a given direction
+#on the y-axis
+func can_climb(dir):
+	var available_steps_above = 0  #tiles below the AI
+	var available_steps_below = 0  #tiles above the AI
+	var current_ladder = ladder_tilemap.world_to_map(enemy.global_position)
+	
+	for y in range(10):
+		if ladder_tilemap.get_cell(current_ladder.x,current_ladder.y+y) != TileMap.INVALID_CELL:
+			available_steps_below += 1 
+		if ladder_tilemap.get_cell(current_ladder.x,current_ladder.y-y) != TileMap.INVALID_CELL:
+			available_steps_above += 1
+	
+	if dir == Vector2(0,1) and available_steps_below <= 1: return false
+	elif dir == Vector2(0,-1) and available_steps_above <= 1: return false
+	else: return true
+	
+
 func transitions_update():
 	#CLIMBING TO SEARCHING#
 	if self.enemy.on_edge and checking_edge:
+		#chances to use or skip this ladder
+		var r = int(rand_range(0,100))
+		if r >=50 and not skipped_ladder:
+			checking_edge = false
+			skipped_ladder = true
+			return
+		
 		base.current_state = null
 		base.queue_state = base.get_state('Searching')
 		#closest floor tile
@@ -73,6 +101,7 @@ func exit():
 	enemy = null
 	ladder_tilemap = null
 	checking_edge = false
+	skipped_ladder = false
 	dir = Vector2(0,0)
 	emit_signal('exited')
 
