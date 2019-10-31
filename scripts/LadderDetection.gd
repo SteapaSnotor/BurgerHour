@@ -17,7 +17,7 @@ func body_exited(body):
 	#TODO: check for enemies too
 	if body.name == 'Player':
 		body.on_ladder = false
-		body.ladder_pos = Vector2(0,0)
+		#body.ladder_pos = Vector2(0,0)
 	elif body.name == 'AILadderDetection':
 		body.get_parent().on_ladder = false
 	else: return

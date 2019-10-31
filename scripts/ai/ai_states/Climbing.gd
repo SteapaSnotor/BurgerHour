@@ -60,9 +60,9 @@ func transitions_update():
 		#closest floor tile
 		var map_pos = enemy.floor_tiles.world_to_map(enemy.global_position)
 		var world_pos = enemy.floor_tiles.map_to_world(map_pos)
-		enemy.global_position = world_pos
+		enemy.global_position.y = world_pos.y
 		#apply offset
-		enemy.global_position.x += 36
+		#enemy.global_position.x += 36
 		enemy.global_position.y += 8
 		exit()
 	

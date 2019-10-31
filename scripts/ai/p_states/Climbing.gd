@@ -64,9 +64,10 @@ func transitions_update():
 		#go to the closest tile
 		var map_pos = player.floor_tiles.world_to_map(player.global_position)
 		var world_pos = player.floor_tiles.map_to_world(map_pos)
-		player.global_position = world_pos
+		player.global_position.y = world_pos.y
+		player.on_ladder = true
 		#apply offset
-		player.global_position.x += 28
+	#	player.global_position.x += 28
 		player.global_position.y += 8
 		
 		exit()
