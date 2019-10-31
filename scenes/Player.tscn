@@ -119,7 +119,7 @@ radius = 10.9229
 height = 1.85324
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 14.4188
+radius = 12.9589
 height = 67.5707
 
 [node name="Player" type="KinematicBody2D"]
@@ -129,7 +129,7 @@ script = ExtResource( 1 )
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle-Down"
-frame = 20
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -146,6 +146,7 @@ align = 1
 valign = 1
 
 [node name="FSM" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 86 )
 
 [node name="Idle" type="Node" parent="FSM"]
@@ -163,9 +164,11 @@ script = ExtResource( 89 )
 script = ExtResource( 90 )
 
 [node name="PlayerHit" type="Area2D" parent="."]
+editor/display_folded = true
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHit"]
+position = Vector2( -3, 0 )
 shape = SubResource( 3 )
 

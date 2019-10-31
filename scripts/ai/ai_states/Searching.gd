@@ -16,7 +16,9 @@ var idle = false
 func initialize(base,enemy):
 	self.base = base
 	self.enemy = enemy
-	self.dir = Vector2(1  -(int(rand_range(0,2)) * 2) ,0)
+	if not self.base.last_state.name == 'Spawning':
+		self.dir = Vector2(1  -(int(rand_range(0,2)) * 2) ,0)
+	else: self.dir = self.enemy.facing_dir 
 	self.enemy.connect('wall_collision',self,'new_direction')
 	
 	emit_signal('entered')

@@ -41,7 +41,8 @@ func on_hit_detection(body):
 		emit_signal("wall_collision")
 	elif body.name == 'BaseDetection':
 		#TODO: maybe delegate this to a "dead" state?
-		call_deferred('free')
+		if not body.get_parent().on_final_base:
+			call_deferred('free')
 	elif body.name == 'PlayerHit':
 		body.get_parent().hit = true
 	else: pass#print(body.name)

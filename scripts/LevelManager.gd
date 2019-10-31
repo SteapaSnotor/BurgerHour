@@ -6,9 +6,12 @@ extends Node2D
 """
 
 var player
+var spawn_queue = []
 
 #tiles
 onready var level_signals = $LevelSignals
+
+export var spawn_interval = 2.0
 
 #initialize the level
 func _ready():
@@ -20,7 +23,9 @@ func _ready():
 	spawn_enemies()
 	spawn_final_bases()
 	randomize()#THIS SHOULD BE CALLED ON THE MAIN NODE. REMOVE IT FROM HERE LATER.
-
+	
+	
+	
 #spawn the player on this level
 func spawn_player():
 	player = preload('res://scenes/Player.tscn').instance()
@@ -29,8 +34,54 @@ func spawn_player():
 	player.ladder_tiles = $Ladders
 	add_child(player)
 
-#spawn all enemies on this level
-func spawn_enemies():
+#spawn enemies along the level
+func spawn_enemies(_signal={},spawn=false,_timer=null):
+	if _signal.values() == []:
+		#first time spawn
+		var spawns = 0
+		var spawn_time = spawn_interval
+		var signal_dict  = {'spawns':[],'time':[],'tile':[]}
+		for tile in $LevelSignals.get_used_cells_by_id(4):
+			#TODO: id
+			signal_dict['spawns'] = spawns
+			signal_dict['time'].append(spawn_time)
+			signal_dict['tile'].append(tile)
+			
+			spawns += 1
+			spawn_time += spawn_interval/2.0
+		signal_dict['time'].invert()
+		spawn_enemies(signal_dict)
+		
+	elif not spawn: #use _signal information to spawn
+		#timer that controls the interval between spawns
+		var timer = Timer.new()
+		timer.connect('timeout',self,'spawn_enemies',[_signal,true,timer])
+		timer.set_wait_time(_signal['time'][_signal['spawns']])
+		timer.name = 'SpawnTimer'
+		timer.one_shot = true
+		$LevelSignals.add_child(timer)
+		timer.start()
+		
+	else:
+		var enemy = preload('res://scenes/Enemy.tscn').instance()
+		enemy.ladder_tiles = $Ladders
+		enemy.floor_tiles = $LevelMap
+		enemy.global_position = $LevelSignals.map_to_world(_signal['tile'][_signal['spawns']])
+		add_child(enemy)
+		#apply custom offset for enemies
+		enemy.global_position.x+= 28
+		enemy.global_position.y+= 8
+		
+		$LevelSignals.get_child(0).queue_free()
+		
+		var new_dict = _signal
+		new_dict['spawns']-= 1
+		
+		if new_dict['spawns'] != -1:
+			spawn_enemies(new_dict)
+ 		
+		
+	""" Old method of spawning without "queues":
 	#TODO: spawn by id
 	for tile in $LevelSignals.get_used_cells_by_id(4):
 		var enemy = preload('res://scenes/Enemy.tscn').instance()
@@ -41,6 +92,7 @@ func spawn_enemies():
 		#apply custom offset for enemies
 		enemy.global_position.x+= 28
 		enemy.global_position.y+= 8
+	"""
 
 #spawn ladders detection areas
 func spawn_ladder():

@@ -53,5 +53,4 @@ func exit():
 	walk_input = false
 	spray_input = false
 	climb_input = false
-	
 	emit_signal('exited')

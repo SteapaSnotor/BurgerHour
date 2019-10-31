@@ -20,7 +20,9 @@ Vector2(0,-1):{'anim':'Climbing','flip':false,'stop':false}},
 
 	'Dead':{Vector2(0,0):{'anim':'Idle-Down','flip':false},
 Vector2(1,0):{'anim':'Idle-Sides','flip':true},
-Vector2(-1,0):{'anim':'Idle-Sides','flip':false}}
+Vector2(-1,0):{'anim':'Idle-Sides','flip':false},
+Vector2(0,1):{'anim':'Idle-Sides','flip':false},
+Vector2(0,-1):{'anim':'Idle-Sides','flip':false}}
 }
 
 #stats
