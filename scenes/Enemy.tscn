@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/ball.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=6]
 [ext_resource path="res://scripts/ai/ai_states/Climbing.gd" type="Script" id=7]
 [ext_resource path="res://scripts/ai/ai_states/Falling.gd" type="Script" id=8]
+[ext_resource path="res://scripts/ai/ai_states/Attacking.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,6 +29,9 @@ radius = 14.7715
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 30.9854, 3.04891 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 122.568, 19.4127 )
 
 [node name="Enemy" type="KinematicBody2D" groups=[
 "Enemy",
@@ -76,6 +80,15 @@ editor/display_folded = true
 position = Vector2( 0, 40 )
 shape = SubResource( 5 )
 
+[node name="PlayerDetection" type="Area2D" parent="."]
+editor/display_folded = true
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2( 0, 6.25862 )
+shape = SubResource( 6 )
+
 [node name="FSM" type="Node" parent="."]
 script = ExtResource( 3 )
 
@@ -94,8 +107,13 @@ script = ExtResource( 7 )
 [node name="Falling" type="Node" parent="FSM"]
 script = ExtResource( 8 )
 
+[node name="Attacking" type="Node" parent="FSM"]
+script = ExtResource( 9 )
+
 [connection signal="area_entered" from="HitDetection" to="." method="on_hit_detection"]
 [connection signal="body_entered" from="HitDetection" to="." method="on_hit_detection"]
 [connection signal="body_exited" from="HitDetection" to="." method="exit_hit_detection"]
 [connection signal="area_entered" from="FoodDetection" to="." method="on_food_detection"]
 [connection signal="area_exited" from="FoodDetection" to="." method="on_exit_food_detection"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="on_player_sight"]
+[connection signal="area_exited" from="PlayerDetection" to="." method="out_player_sight"]

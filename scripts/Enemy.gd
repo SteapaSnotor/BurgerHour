@@ -20,6 +20,8 @@ var current_food = null
 var ladder_tiles = null
 var floor_tiles = null
 var _current_collisions = []
+var is_seeing_player = false
+var player = null
 #var initial_spawn = Vector2(0,0)
 
 const base_z_index = 5
@@ -69,9 +71,16 @@ func exit_hit_detection(body):
 func get_collision_count():
 	return _current_collisions.size()
 
+func on_player_sight(area):
+	if area.name == 'PlayerHit':
+		if area.get_parent().FSM.get_current_state().name != 'Climbing':
+			is_seeing_player = true
+			player = area.get_parent()
+		
 
-
-
+func out_player_sight(area):
+	if area.name == 'PlayerHit':
+		is_seeing_player = false
 
 
 

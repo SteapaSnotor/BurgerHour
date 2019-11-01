@@ -197,6 +197,10 @@ flip_h = true
 position = Vector2( 984.231, 509.701 )
 texture = ExtResource( 12 )
 
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 984.231, 649.701 )
+texture = ExtResource( 12 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 612.513, 238.141 )
 zoom = Vector2( 1.2, 1.2 )

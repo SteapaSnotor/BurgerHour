@@ -61,6 +61,11 @@ func transitions_update():
 		base.current_state = null
 		base.queue_state = base.get_state('Idle')
 		exit()
+	#SEARCHING TO ATTACKING#
+	elif enemy.is_seeing_player:
+		base.current_state = null
+		base.queue_state = base.get_state('Attacking')
+		exit()
 	else: return
 
 #destructor
