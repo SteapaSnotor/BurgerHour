@@ -28,7 +28,9 @@ func input_update(event):
 
 func transitions_update():
 	#DEAD END#
-	if not enemy.current_food.is_falling: enemy.call_deferred('free')
+	if not enemy.current_food.is_falling:
+		enemy.emit_signal('died')
+		enemy.call_deferred('free')
 	return
 	
 

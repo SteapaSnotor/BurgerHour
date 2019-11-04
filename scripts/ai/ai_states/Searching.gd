@@ -16,7 +16,7 @@ var idle = false
 func initialize(base,enemy):
 	self.base = base
 	self.enemy = enemy
-	if not self.base.last_state.name == 'Spawning':
+	if not self.base.last_state.name == 'Spawning' and not self.base.last_state.name == 'Attacking':
 		self.dir = Vector2(1  -(int(rand_range(0,2)) * 2) ,0)
 	else: self.dir = self.enemy.facing_dir 
 	self.enemy.connect('wall_collision',self,'new_direction')

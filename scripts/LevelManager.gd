@@ -6,7 +6,6 @@ extends Node2D
 """
 
 var player
-var spawn_queue = []
 
 #tiles
 onready var level_signals = $LevelSignals
@@ -23,8 +22,6 @@ func _ready():
 	spawn_enemies()
 	spawn_final_bases()
 	randomize()#THIS SHOULD BE CALLED ON THE MAIN NODE. REMOVE IT FROM HERE LATER.
-	
-	
 	
 #spawn the player on this level
 func spawn_player():
@@ -163,9 +160,3 @@ func get_spawn_position():
 
 func get_ladder_tiles():
 	return $Ladders.get_used_cells()
-	
-
-
-
-
-

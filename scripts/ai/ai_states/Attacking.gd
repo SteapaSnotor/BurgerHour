@@ -21,7 +21,8 @@ func physics_update(delta):
 	
 	var dir = enemy.player.global_position - enemy.global_position
 	dir = dir.normalized()
-	enemy.move(Vector2(int(dir.x),0))
+	if int(dir.x) != 0:
+		enemy.move(Vector2(int(dir.x),0))
 	
 func input_update(event):
 	pass
