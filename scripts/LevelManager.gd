@@ -5,7 +5,10 @@ extends Node2D
 	when the player dies etc...
 """
 
+signal spawning
+
 var player
+var spawning = {} #data of the last enemy to start to spawn on the level
 
 #tiles
 onready var level_signals = $LevelSignals
@@ -48,7 +51,6 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 			spawn_time += spawn_interval/2.0
 		signal_dict['time'].invert()
 		spawn_enemies(signal_dict)
-		
 	elif not spawn: #use _signal information to spawn
 		#timer that controls the interval between spawns
 		var timer = Timer.new()
@@ -58,6 +60,8 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		timer.one_shot = true
 		$LevelSignals.add_child(timer)
 		timer.start()
+		spawning = {'at':$LevelSignals.map_to_world(_signal['tile'][_signal['spawns']]),'time':_signal['time'][_signal['spawns']]+spawn_interval}
+		call_deferred('emit_signal','spawning')
 	else:
 		var enemy = preload('res://scenes/Enemy.tscn').instance()
 		enemy.ladder_tiles = $Ladders
