@@ -28,7 +28,7 @@ radius = 30.6768
 radius = 14.7715
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 30.9854, 3.04891 )
+extents = Vector2( 21.4196, 3.04891 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 122.568, 19.4127 )
@@ -74,7 +74,6 @@ position = Vector2( 1.472, -0.453 )
 shape = SubResource( 4 )
 
 [node name="FoodDetection" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetection"]
 position = Vector2( 0, 40 )
@@ -90,6 +89,7 @@ position = Vector2( 0, 6.25862 )
 shape = SubResource( 6 )
 
 [node name="FSM" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Spawning" type="Node" parent="FSM"]

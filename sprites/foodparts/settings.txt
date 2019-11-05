@@ -1,0 +1,3 @@
+z = -0.607263m on each side
+
+extrude the whole area for a better sight

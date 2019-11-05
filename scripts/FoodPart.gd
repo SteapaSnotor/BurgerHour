@@ -4,13 +4,15 @@ extends RigidBody2D
 	Manage all the food's object in game.
 """
 
+var id = 0
 var step_points = 0
 var last_base = null
 var is_falling = false
 var falling_base = null
 var on_final_base = false setget set_on_final_base
+var current_state = [0,0,0,0]
 
-const max_step_points = 99
+const max_step_points = 100
 
 #initialize
 func init():
@@ -27,6 +29,10 @@ func init():
 #TODO: update animations
 func _physics_process(delta):
 	$TextureProgress.value = step_points
+	#update anims according to the food state
+	var anim = str(current_state[0]) + str(current_state[1]) + str(current_state[2]) + str(current_state[3])
+	$States.play(anim)
+	
 	#print(is_falling)
 	if on_final_base:
 		#prevent from falling when on the final base
@@ -49,12 +55,14 @@ func connect_parts():
 		if not part.is_connected('body_entered',self,'break_part'):
 			part.connect('body_entered',self,'break_part',[part])
 	step_points = 0
-
+	current_state = [0,0,0,0]
+	
 func break_part(body,part):
 	if on_final_base: return
 	if body.name == 'Player':
-		step_points += 33
+		step_points += 25
 		part.disconnect('body_entered',self,'break_part')
+		current_state[$Parts.get_children().find(part)] = 1
 	
 	if step_points >= max_step_points:
 		break_free()
@@ -100,6 +108,7 @@ func set_on_final_base(value):
 	
 	if on_final_base: 
 		set_z_index(get_z_index()+7)
+	current_state = [0,0,0,0]
 
 
 
