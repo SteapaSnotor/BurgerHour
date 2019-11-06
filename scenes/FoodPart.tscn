@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/FoodPart.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tiles/burger_full.png" type="Texture" id=2]
@@ -7,11 +7,17 @@
 [ext_resource path="res://sprites/foodparts/pads/0011.png" type="Texture" id=5]
 [ext_resource path="res://sprites/foodparts/pads/0001.png" type="Texture" id=6]
 [ext_resource path="res://sprites/foodparts/pads/1111.png" type="Texture" id=7]
-[ext_resource path="res://sprites/ui/bar_b.png" type="Texture" id=8]
-[ext_resource path="res://sprites/ui/bar_h.png" type="Texture" id=9]
-[ext_resource path="res://scenes/BurgerBase.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/foodparts/pads/1001.png" type="Texture" id=8]
+[ext_resource path="res://sprites/foodparts/pads/1101.png" type="Texture" id=9]
+[ext_resource path="res://sprites/foodparts/pads/1011png.png" type="Texture" id=10]
+[ext_resource path="res://sprites/foodparts/pads/1110.png" type="Texture" id=11]
+[ext_resource path="res://sprites/foodparts/pads/1000.png" type="Texture" id=12]
+[ext_resource path="res://sprites/foodparts/pads/1100.png" type="Texture" id=13]
+[ext_resource path="res://sprites/ui/bar_b.png" type="Texture" id=14]
+[ext_resource path="res://sprites/ui/bar_h.png" type="Texture" id=15]
+[ext_resource path="res://scenes/BurgerBase.tscn" type="PackedScene" id=16]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -37,12 +43,42 @@ animations = [ {
 "loop": true,
 "name": "1111",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "1001",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "1101",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "1011",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "1110",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "1000",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "1100",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 86.0684, 10 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 19.2547, 28.6903 )
 
 [node name="Food" type="RigidBody2D" groups=[
@@ -61,13 +97,13 @@ visible = false
 texture = ExtResource( 2 )
 
 [node name="States" type="AnimatedSprite" parent="."]
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "0000"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, 10 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
 visible = false
@@ -77,8 +113,8 @@ margin_right = 67.0
 margin_bottom = 81.0
 rect_scale = Vector2( 1, 0.24 )
 max_value = 99.0
-texture_under = ExtResource( 8 )
-texture_progress = ExtResource( 9 )
+texture_under = ExtResource( 14 )
+texture_progress = ExtResource( 15 )
 
 [node name="Parts" type="Node2D" parent="."]
 
@@ -88,7 +124,7 @@ position = Vector2( -137, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Part1"]
 position = Vector2( 65.4671, -16.0736 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Part2" type="Area2D" parent="Parts"]
 editor/display_folded = true
@@ -96,7 +132,7 @@ position = Vector2( -92, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Part2"]
 position = Vector2( 65.4671, -16.0736 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Part3" type="Area2D" parent="Parts"]
 editor/display_folded = true
@@ -104,16 +140,16 @@ position = Vector2( -46, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Part3"]
 position = Vector2( 65.4671, -16.0736 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Part4" type="Area2D" parent="Parts"]
 editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Part4"]
 position = Vector2( 65.4671, -16.0736 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
-[node name="Base" parent="." instance=ExtResource( 10 )]
+[node name="Base" parent="." instance=ExtResource( 16 )]
 visible = false
 
 [node name="BaseDetection" type="Area2D" parent="."]
@@ -122,7 +158,7 @@ visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BaseDetection"]
 position = Vector2( 0, 10 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="body_collision"]
 [connection signal="area_entered" from="BaseDetection" to="." method="area_collision"]
