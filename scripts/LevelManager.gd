@@ -6,9 +6,11 @@ extends Node2D
 """
 
 signal spawning
+signal finished
 
 var player
 var spawning = {} #data of the last enemy to start to spawn on the level
+var food_count = 0
 
 #tiles
 onready var level_signals = $LevelSignals
@@ -78,6 +80,7 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		_spawn_dict['time'] = [spawn_interval+1]
 		_spawn_dict['tile'] = [$LevelSignals.world_to_map(enemy.global_position)]
 		enemy.connect('died',self,'spawn_enemies',[_spawn_dict,false])
+		connect('finished',enemy,'set_level_finished',[true])
 		
 		$LevelSignals.get_child(0).queue_free()
 		
@@ -127,11 +130,13 @@ func spawn_food():
 		var world_pos = $Burger.map_to_world(part)
 		var food = preload('res://scenes/FoodPart.tscn').instance()
 		add_child(food)
+		food_count += 1
 		#TODO: sprite must always be 192x64 for this to work...
 		food.global_position = world_pos
 		food.global_position.x +=96+$Burger.global_position.x
 		food.global_position.y +=32+$Burger.global_position.y
 		food.init()
+		food.connect('on_final_base',self,'check_level_progress')
 	
 #spawn all solid bases the food will fall
 func spawn_base():
@@ -164,3 +169,8 @@ func get_spawn_position():
 
 func get_ladder_tiles():
 	return $Ladders.get_used_cells()
+
+#check if the level has been finished
+func check_level_progress():
+	food_count -= 1
+	if food_count == 0: emit_signal("finished")

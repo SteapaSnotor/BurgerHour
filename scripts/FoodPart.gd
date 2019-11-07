@@ -4,6 +4,8 @@ extends RigidBody2D
 	Manage all the food's object in game.
 """
 
+signal on_final_base
+
 var id = 0
 var step_points = 0
 var last_base = null
@@ -102,8 +104,8 @@ func area_collision(area):
 		set_linear_velocity(Vector2(0,0))
 		is_falling = false
 
-
 func set_on_final_base(value):
+	if not on_final_base: emit_signal("on_final_base")
 	on_final_base = value
 	
 	if on_final_base: 

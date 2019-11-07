@@ -5,9 +5,11 @@ extends Node2D
 """
 
 signal new_enemy
+signal level_finished
 
 var current_level = null
 var new_enemy_data = {}
+var lives = 3
 
 #path for each level scene
 var levels = {
@@ -18,7 +20,7 @@ var levels = {
 func load_level(id):
 	if levels.keys().find(id) == -1:
 		print('Level not found.')
-		return
+		return false
 		
 	var _scene = load(levels[id]).instance()
 	current_level = _scene
@@ -26,6 +28,13 @@ func load_level(id):
 	
 	#level signals
 	_scene.connect('spawning',self,'on_enemy_spawn')
+	
+	return true
+
+#restart the current loaded level
+func restart_level():
+	print('restart level')
+	pass
 
 #when a new enemy is being spawn on the level scene
 func on_enemy_spawn():

@@ -4,6 +4,9 @@ extends CanvasLayer
 	Manages all the graphical user interface in the game.
 """
 
+signal restart_btn
+signal next_btn
+
 onready var timer = $GUITimer
 
 var level_score = 0
@@ -45,9 +48,45 @@ func hide_graphics(graphic,_signal = null):
 	
 	if _signal != null: _signal.queue_free()
 
+func show_screen(scr):
+	var screen = $Screens.get_node(scr)
+	screen.show()
+	for element in screen.get_children():
+		if element is Button or element is TextureButton: #screen buttons
+			element.connect('pressed',self,'on_btn_pressed',[element])
+		#TODO: screen animations
+	
+	"""
+	match screen.name:
+		'WonLevel':
+			$Screens/WonLevel.show()
+			$Screens/WonLevel/Restart.connect('pressed',self,'on_btn_pressed',[$Screens/WonLevel/Restart])
+			$Screens/WonLevel/Next.connect('pressed',self,'on_btn_pressed',[$Screens/WonLevel/Next])
+	"""
+		
+func hide_screen(scr):
+	var screen = $Screens.get_node(scr)
+	for element in screen.get_children():
+		if element is Button or element is TextureButton: #screen buttons
+			element.disconnect('pressed',self,'on_btn_pressed')
+	
+	
+	"""
+	match screen.name:
+		'WonLevel':
+			$Screens/WonLevel.hide()
+			$Screens/WonLevel/Restart.disconnect('pressed',self,'on_btn_pressed')
+			$Screens/WonLevel/Next.disconnect('pressed',self,'on_btn_pressed')
+	"""
 
-
-
+func on_btn_pressed(btn):
+	match btn.name:
+		'Restart':
+			emit_signal('restart_btn')
+			hide_screen('WonLevel')
+		'Next':
+			emit_signal('next_btn')
+			hide_screen('WonLevel')
 
 
 

@@ -74,6 +74,7 @@ position = Vector2( 1.472, -0.453 )
 shape = SubResource( 4 )
 
 [node name="FoodDetection" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetection"]
 position = Vector2( 0, 40 )
@@ -89,7 +90,6 @@ position = Vector2( 0, 6.25862 )
 shape = SubResource( 6 )
 
 [node name="FSM" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Spawning" type="Node" parent="FSM"]

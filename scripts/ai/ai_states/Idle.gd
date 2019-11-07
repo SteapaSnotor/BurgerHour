@@ -23,12 +23,12 @@ func input_update(event):
 	pass
 
 func transitions_update():
-	#IDLE TO CLIMBING#
-	base.current_state = null
-	base.queue_state = base.get_state('Searching')
-	exit()
+	#IDLE TO SEARCHING#
+	if not enemy.finished:
+		base.current_state = null
+		base.queue_state = base.get_state('Searching')
+		exit()
 	
-
 #destructor
 func exit():
 	base = null

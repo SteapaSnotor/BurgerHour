@@ -22,6 +22,7 @@ var floor_tiles = null
 var _current_collisions = []
 var is_seeing_player = false
 var player = null
+var finished = false setget set_level_finished #when the player wins 
 #var initial_spawn = Vector2(0,0)
 
 const base_z_index = 5
@@ -81,7 +82,13 @@ func on_player_sight(area):
 func out_player_sight(area):
 	if area.name == 'PlayerHit':
 		is_seeing_player = false
-
+		
+func set_level_finished(value):
+	finished = value
+	
+	if finished:
+		#don't move when the level is over
+		FSM.force_state('Idle')
 
 
 
