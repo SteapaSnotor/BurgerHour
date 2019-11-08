@@ -28,6 +28,7 @@ func init_world():
 	_world.connect('new_enemy',self,'on_new_enemy')
 	_world.load_level(selected_level)
 	_world.current_level.connect('finished',self,'on_level_finished')
+	_world.current_level.connect('player_died',self,'on_player_lose')
 	
 func init_gui():
 	_gui.init(score[selected_level])
@@ -44,6 +45,9 @@ func on_level_finished():
 	#TODO: player animation
 	#TODO: scene showing the player score for this level and his total score
 	_gui.show_screen('WonLevel')
+
+func on_player_lose():
+	_gui.show_screen('LostLevel')
 
 func on_next_level():
 	selected_level += 1

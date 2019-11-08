@@ -33,7 +33,7 @@ func load_level(id):
 
 #restart the current loaded level
 func restart_level():
-	print('restart level')
+	get_tree().reload_current_scene()
 	pass
 
 #when a new enemy is being spawn on the level scene

@@ -7,6 +7,7 @@ extends Node2D
 
 signal spawning
 signal finished
+signal player_died
 
 var player
 var spawning = {} #data of the last enemy to start to spawn on the level
@@ -35,6 +36,7 @@ func spawn_player():
 	player.floor_tiles = $LevelMap
 	player.ladder_tiles = $Ladders
 	add_child(player)
+	player.FSM.connect('changed_state',self,'check_player_state')
 
 #spawn enemies along the level
 func spawn_enemies(_signal={},spawn=false,_timer=null):
@@ -77,7 +79,7 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		#enemy respawning
 		var _spawn_dict = {}
 		_spawn_dict['spawns'] = 0
-		_spawn_dict['time'] = [spawn_interval+1]
+		_spawn_dict['time'] = [spawn_interval*2]
 		_spawn_dict['tile'] = [$LevelSignals.world_to_map(enemy.global_position)]
 		enemy.connect('died',self,'spawn_enemies',[_spawn_dict,false])
 		connect('finished',enemy,'set_level_finished',[true])
@@ -174,3 +176,20 @@ func get_ladder_tiles():
 func check_level_progress():
 	food_count -= 1
 	if food_count == 0: emit_signal("finished")
+
+#detect some events through the player's states.
+func check_player_state():
+	#check if the player died and the level is over
+	if player.FSM.get_current_state().name == 'Dead':
+		emit_signal("player_died")
+	
+
+
+
+
+
+
+
+
+
+

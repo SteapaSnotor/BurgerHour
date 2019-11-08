@@ -129,7 +129,7 @@ script = ExtResource( 1 )
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle-Down"
-frame = 20
+frame = 8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -146,7 +146,6 @@ align = 1
 valign = 1
 
 [node name="FSM" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 86 )
 
 [node name="Idle" type="Node" parent="FSM"]

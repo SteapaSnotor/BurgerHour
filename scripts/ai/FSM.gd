@@ -4,6 +4,8 @@ extends Node
 	Finite state machine.
 """
 
+signal changed_state
+
 onready var current_state = null
 
 var queue_state = null setget set_queue_state
@@ -27,6 +29,7 @@ func set_state():
 	current_state.initialize(self,get_parent())
 	set_process(true)
 	set_physics_process(true)
+	emit_signal("changed_state")
 
 func force_state(state):
 	queue_state = get_node(state)

@@ -5,11 +5,30 @@
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
 
+[node name="LevelInfo" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="SCORE" type="Label" parent="LevelInfo"]
+margin_left = 930.0
+margin_top = 40.0
+margin_right = 971.0
+margin_bottom = 54.0
+text = "00000000"
+align = 1
+
+[node name="MainMenu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="Screens" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="WonLevel" type="Control" parent="Screens"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -34,6 +53,34 @@ margin_top = 310.0
 margin_right = 672.0
 margin_bottom = 373.0
 text = "NEXT LEVEL"
+
+[node name="LostLevel" type="Control" parent="Screens"]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="You lose!" type="Label" parent="Screens/LostLevel"]
+margin_left = 463.07
+margin_top = 284.899
+margin_right = 559.07
+margin_bottom = 298.899
+text = "You lose!"
+align = 1
+
+[node name="LRestart" type="Button" parent="Screens/LostLevel"]
+margin_left = 350.0
+margin_top = 310.0
+margin_right = 502.0
+margin_bottom = 373.0
+text = "PLAY AGAIN!"
+
+[node name="Quit" type="Button" parent="Screens/LostLevel"]
+margin_left = 520.0
+margin_top = 310.0
+margin_right = 672.0
+margin_bottom = 373.0
+text = "QUIT"
 
 [node name="GUITimer" type="Timer" parent="."]
 wait_time = 2.0
