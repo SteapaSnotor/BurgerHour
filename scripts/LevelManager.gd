@@ -8,10 +8,13 @@ extends Node2D
 signal spawning
 signal finished
 signal player_died
+signal new_points
 
 var player
 var spawning = {} #data of the last enemy to start to spawn on the level
 var food_count = 0
+var new_points = 0
+var new_points_position = Vector2(0,0)
 
 #tiles
 onready var level_signals = $LevelSignals
@@ -82,6 +85,8 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		_spawn_dict['time'] = [spawn_interval*2]
 		_spawn_dict['tile'] = [$LevelSignals.world_to_map(enemy.global_position)]
 		enemy.connect('died',self,'spawn_enemies',[_spawn_dict,false])
+		enemy.connect('died',self,'add_points',[100,enemy])
+		enemy.connect('fall',self,'add_points',[500,enemy])
 		connect('finished',enemy,'set_level_finished',[true])
 		
 		$LevelSignals.get_child(0).queue_free()
@@ -139,6 +144,7 @@ func spawn_food():
 		food.global_position.y +=32+$Burger.global_position.y
 		food.init()
 		food.connect('on_final_base',self,'check_level_progress')
+		food.connect('broke_free',self,'add_points',[10,food])
 	
 #spawn all solid bases the food will fall
 func spawn_base():
@@ -182,8 +188,14 @@ func check_player_state():
 	#check if the player died and the level is over
 	if player.FSM.get_current_state().name == 'Dead':
 		emit_signal("player_died")
-	
 
+#add points to the level score
+func add_points(value,at=Vector2(0,0)):
+	new_points = value
+	if at is Vector2:
+		new_points_position = at
+	else: new_points_position = at.global_position #position as object
+	emit_signal("new_points")
 
 
 

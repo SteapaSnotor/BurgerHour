@@ -5,6 +5,7 @@ extends RigidBody2D
 """
 
 signal on_final_base
+signal broke_free
 
 var id = 0
 var step_points = 0
@@ -74,6 +75,7 @@ func break_free():
 	if not on_final_base:
 		set_gravity_scale(2)
 		is_falling = true
+		emit_signal("broke_free")
 
 #check if collided with other food parts
 func body_collision(body):

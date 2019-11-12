@@ -5,7 +5,8 @@ extends Node
 """
 
 var score = {
-	0:0
+	0:0,
+	1:0
 }
 
 var _world = null
@@ -26,12 +27,13 @@ func _ready():
 	
 func init_world():
 	_world.connect('new_enemy',self,'on_new_enemy')
+	_world.connect('new_score',self,'on_new_score')
 	_world.load_level(selected_level)
 	_world.current_level.connect('finished',self,'on_level_finished')
 	_world.current_level.connect('player_died',self,'on_player_lose')
 	
 func init_gui():
-	_gui.init(score[selected_level])
+	_gui.init(_world.level_new_score)
 	
 	#gui signals
 	_gui.connect('restart_btn',_world,'restart_level')
@@ -45,14 +47,36 @@ func on_level_finished():
 	#TODO: player animation
 	#TODO: scene showing the player score for this level and his total score
 	_gui.show_screen('WonLevel')
+	score[selected_level] = _world.level_new_score
+
+func on_new_score():
+	_gui.set_level_score(_world.level_new_score)
+	_gui.flying_label(_world.current_level.new_points_position,str(_world.level_new_score - _world.level_old_score))
 
 func on_player_lose():
 	_gui.show_screen('LostLevel')
 
 func on_next_level():
 	selected_level += 1
-	
+
 	_world.exit_level()
 	if not _world.load_level(selected_level):
 		print('No more levels! The game has been beaten!')
+		return
+	_gui.init(_world.level_new_score)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

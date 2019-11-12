@@ -6,6 +6,7 @@ extends KinematicBody2D
 
 signal wall_collision
 signal died
+signal fall
 
 onready var FSM = $FSM
 

@@ -9,12 +9,12 @@ signal next_btn
 
 onready var timer = $GUITimer
 
-var level_score = 0
+var level_score = 0 setget set_level_score
 var total_score = 0
 
 #constructor
 func init(score):
-	level_score = score
+	set_level_score(score)
 
 #show a spawning arrow mark
 func spawning_arrow(at,duration):
@@ -26,6 +26,17 @@ func spawning_arrow(at,duration):
 	else: new_at = Vector2(at.x-75,at.y)
 	
 	show_graphics(preload('res://sprites/ui/arrow.png'),new_at,duration,flip)
+
+#show a label animation
+func flying_label(pos,txt):
+	var new_label = $FlyingLabel/LabelAnims.duplicate()
+	$FlyingLabel.add_child(new_label)
+	new_label.get_child(0).get_child(0).rect_global_position = pos
+	new_label.get_child(0).get_child(0).text = txt
+	new_label.get_child(0).show()
+	
+	new_label.connect("animation_finished",self,'finished_label_animation',[new_label])
+	new_label.play("Vertical")
 
 func show_graphics(texture,position,duration=-1,flip=false):
 	var spr = Sprite.new()
@@ -42,6 +53,10 @@ func show_graphics(texture,position,duration=-1,flip=false):
 	graphics_timer.wait_time = duration
 	graphics_timer.connect('timeout',self,'hide_graphics',[spr,graphics_timer])
 	graphics_timer.start()
+
+func set_level_score(value):
+	level_score = value
+	$LevelInfo/SCORE.text = str(level_score)
 
 func hide_graphics(graphic,_signal = null):
 	graphic.queue_free()
@@ -76,6 +91,7 @@ func on_btn_pressed(btn):
 			emit_signal('next_btn')
 			hide_screen('WonLevel')
 
-
+func finished_label_animation(animation,label):
+	label.queue_free()
 
 

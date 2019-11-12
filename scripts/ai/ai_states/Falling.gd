@@ -16,6 +16,7 @@ func initialize(base,enemy):
 	self.base = base
 	self.initial_y = enemy.global_position.y - enemy.current_food.global_position.y
 	self.enemy = enemy
+	self.enemy.emit_signal('fall')
 	emit_signal('entered')
 
 func physics_update(delta):
