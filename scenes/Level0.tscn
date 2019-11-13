@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/LevelManager.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tiles/ladder.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sprites/tiles/ball_tile.png" type="Texture" id=10]
 [ext_resource path="res://sprites/backgrounds/prototype.png" type="Texture" id=11]
 [ext_resource path="res://_blender/render_test.png" type="Texture" id=12]
+[ext_resource path="res://_blender/render_test2.png" type="Texture" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ladder.png 0"
@@ -176,4 +177,8 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 747.593, 364.059 )
 texture = ExtResource( 12 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 667.593, 373.059 )
+texture = ExtResource( 13 )
 
