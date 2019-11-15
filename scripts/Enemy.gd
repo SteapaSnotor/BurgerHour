@@ -9,11 +9,13 @@ signal died
 signal fall
 
 onready var FSM = $FSM
+onready var anim_node = $AnimatedSprite
 
 #stats
 var speed = 70
 var facing_dir = Vector2(0,0)
 
+var id = 0 #will define things like animations and stats
 var on_ladder = false
 var on_edge = false
 var on_food = false
@@ -34,6 +36,7 @@ func _ready():
 	#initial_spawn = global_position
 
 func _process(delta):
+	update_animations()
 	#debug only
 	$_CurrentState.text = FSM.get_current_state().name
 
@@ -91,7 +94,10 @@ func set_level_finished(value):
 		#don't move when the level is over
 		FSM.force_state('Idle')
 
-
+func update_animations():
+	$AnimatedSprite.set_flip_h(facing_dir.x == 1)
+	$AnimatedSprite.play(str(id)+':'+FSM.get_current_state().name)
+	pass
 
 
 

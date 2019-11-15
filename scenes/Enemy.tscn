@@ -1,49 +1,86 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://sprites/enemies/ball.png" type="Texture" id=2]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0001.png" type="Texture" id=3]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0002.png" type="Texture" id=4]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0003.png" type="Texture" id=5]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0004.png" type="Texture" id=6]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0005.png" type="Texture" id=7]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0006.png" type="Texture" id=8]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0007.png" type="Texture" id=9]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0008.png" type="Texture" id=10]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0009.png" type="Texture" id=11]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0010.png" type="Texture" id=12]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0011.png" type="Texture" id=13]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0012.png" type="Texture" id=14]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0013.png" type="Texture" id=15]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0014.png" type="Texture" id=16]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0015.png" type="Texture" id=17]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0016.png" type="Texture" id=18]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0017.png" type="Texture" id=19]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0018.png" type="Texture" id=20]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0019.png" type="Texture" id=21]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0020.png" type="Texture" id=22]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0021.png" type="Texture" id=23]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0022.png" type="Texture" id=24]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0023.png" type="Texture" id=25]
-[ext_resource path="res://sprites/enemies/badbanana/walking/walking0024.png" type="Texture" id=26]
-[ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=27]
-[ext_resource path="res://scripts/ai/ai_states/Spawning.gd" type="Script" id=28]
-[ext_resource path="res://scripts/ai/ai_states/Idle.gd" type="Script" id=29]
-[ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=30]
-[ext_resource path="res://scripts/ai/ai_states/Climbing.gd" type="Script" id=31]
-[ext_resource path="res://scripts/ai/ai_states/Falling.gd" type="Script" id=32]
-[ext_resource path="res://scripts/ai/ai_states/Attacking.gd" type="Script" id=33]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0001.png" type="Texture" id=2]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0002.png" type="Texture" id=3]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0003.png" type="Texture" id=4]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0004.png" type="Texture" id=5]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0005.png" type="Texture" id=6]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0006.png" type="Texture" id=7]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0007.png" type="Texture" id=8]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0008.png" type="Texture" id=9]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0009.png" type="Texture" id=10]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0010.png" type="Texture" id=11]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0011.png" type="Texture" id=12]
+[ext_resource path="res://sprites/enemies/badbanana/climbing/climbing0012.png" type="Texture" id=13]
+[ext_resource path="res://sprites/enemies/ball.png" type="Texture" id=14]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0001.png" type="Texture" id=15]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0002.png" type="Texture" id=16]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0003.png" type="Texture" id=17]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0004.png" type="Texture" id=18]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0005.png" type="Texture" id=19]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0006.png" type="Texture" id=20]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0007.png" type="Texture" id=21]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0008.png" type="Texture" id=22]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0009.png" type="Texture" id=23]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0010.png" type="Texture" id=24]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0011.png" type="Texture" id=25]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0012.png" type="Texture" id=26]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0013.png" type="Texture" id=27]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0014.png" type="Texture" id=28]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0015.png" type="Texture" id=29]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0016.png" type="Texture" id=30]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0017.png" type="Texture" id=31]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0018.png" type="Texture" id=32]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0019.png" type="Texture" id=33]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0020.png" type="Texture" id=34]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0021.png" type="Texture" id=35]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0022.png" type="Texture" id=36]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0023.png" type="Texture" id=37]
+[ext_resource path="res://sprites/enemies/badbanana/walking/walking0024.png" type="Texture" id=38]
+[ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=39]
+[ext_resource path="res://scripts/ai/ai_states/Spawning.gd" type="Script" id=40]
+[ext_resource path="res://scripts/ai/ai_states/Idle.gd" type="Script" id=41]
+[ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=42]
+[ext_resource path="res://scripts/ai/ai_states/Climbing.gd" type="Script" id=43]
+[ext_resource path="res://scripts/ai/ai_states/Falling.gd" type="Script" id=44]
+[ext_resource path="res://scripts/ai/ai_states/Attacking.gd" type="Script" id=45]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "0:Climbing",
+"speed": 14.0
+}, {
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "Prototype",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": true,
-"name": "BananaWalking",
+"name": "0:Idle",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "0:Searching",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "0:Attacking",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "0:Spawning",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "0:Falling",
 "speed": 24.0
 } ]
 
@@ -70,8 +107,8 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "BananaWalking"
-frame = 9
+animation = "0:Searching"
+frame = 15
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -121,25 +158,25 @@ position = Vector2( 0, 6.25862 )
 shape = SubResource( 6 )
 
 [node name="FSM" type="Node" parent="."]
-script = ExtResource( 27 )
+script = ExtResource( 39 )
 
 [node name="Spawning" type="Node" parent="FSM"]
-script = ExtResource( 28 )
+script = ExtResource( 40 )
 
 [node name="Idle" type="Node" parent="FSM"]
-script = ExtResource( 29 )
+script = ExtResource( 41 )
 
 [node name="Searching" type="Node" parent="FSM"]
-script = ExtResource( 30 )
+script = ExtResource( 42 )
 
 [node name="Climbing" type="Node" parent="FSM"]
-script = ExtResource( 31 )
+script = ExtResource( 43 )
 
 [node name="Falling" type="Node" parent="FSM"]
-script = ExtResource( 32 )
+script = ExtResource( 44 )
 
 [node name="Attacking" type="Node" parent="FSM"]
-script = ExtResource( 33 )
+script = ExtResource( 45 )
 
 [connection signal="area_entered" from="HitDetection" to="." method="on_hit_detection"]
 [connection signal="body_entered" from="HitDetection" to="." method="on_hit_detection"]

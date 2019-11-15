@@ -22,6 +22,9 @@ func initialize(base,enemy):
 	self.enemy.set_z_index(self.enemy.base_z_index+1)
 	self.ladder_tilemap = enemy.ladder_tiles
 	
+	#the animations of this state have a slight offset
+	self.enemy.anim_node.global_position.x -= 4
+	
 	var available_steps_above = 0  #tiles below the AI
 	var available_steps_below = 0  #tiles above the AI
 	var current_ladder = ladder_tilemap.world_to_map(enemy.global_position)
@@ -96,6 +99,7 @@ func transitions_update():
 #destructor
 func exit():
 	enemy.set_z_index(self.enemy.base_z_index-1)
+	enemy.anim_node.global_position.x += 4
 	base = null
 	enemy = null
 	ladder_tilemap = null
