@@ -88,7 +88,7 @@ animations = [ {
 radius = 7.71322
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 30.6768
+radius = 15.5507
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 14.7715
@@ -108,7 +108,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "0:Searching"
-frame = 15
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -130,9 +130,15 @@ editor/display_folded = true
 collision_layer = 5
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetection"]
-position = Vector2( 0.540359, 6.80893 )
+[node name="Banana" type="CollisionPolygon2D" parent="HitDetection"]
+position = Vector2( 0.540359, 1.80893 )
+polygon = PoolVector2Array( -33.3289, 17.411, -6.3148, 5.1462, 5.54366, -11.1921, 1.06379, -25.9493, 6.59774, -36.7537, 9.75999, -34.6455, 11.8682, -20.9424, 14.2399, -7.2393, -2.36198, 17.0047, -18.4368, 22.2751, -33.3289, 21.6931 )
+
+[node name="standard" type="CollisionShape2D" parent="HitDetection"]
+visible = false
+position = Vector2( 0.540359, 1.80893 )
 shape = SubResource( 3 )
+disabled = true
 
 [node name="AILadderDetection" type="Area2D" parent="."]
 editor/display_folded = true
@@ -149,15 +155,15 @@ position = Vector2( 0, 40 )
 shape = SubResource( 5 )
 
 [node name="PlayerDetection" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2( 0, 6.25862 )
+position = Vector2( 0.263519, 6.25862 )
 shape = SubResource( 6 )
 
 [node name="FSM" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 39 )
 
 [node name="Spawning" type="Node" parent="FSM"]

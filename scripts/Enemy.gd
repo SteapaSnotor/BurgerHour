@@ -96,6 +96,7 @@ func set_level_finished(value):
 
 func update_animations():
 	$AnimatedSprite.set_flip_h(facing_dir.x == 1)
+	$HitDetection.set_scale(Vector2(1 - (int(facing_dir.x == 1)+ int(facing_dir.x == 1)),1))
 	$AnimatedSprite.play(str(id)+':'+FSM.get_current_state().name)
 	pass
 
