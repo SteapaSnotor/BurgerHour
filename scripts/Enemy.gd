@@ -8,6 +8,15 @@ signal wall_collision
 signal died
 signal fall
 
+onready var colliders = {$FSM/Spawning: [$HitDetection/BananaSearching],
+$FSM/Idle: [$HitDetection/BananaSearching],
+$FSM/Searching: [$HitDetection/BananaSearching],
+$FSM/Climbing: [$HitDetection/BananaClimbing],
+$FSM/Falling: [$HitDetection/BananaSearching],
+$FSM/Attacking: [$HitDetection/BananaSearching]}
+
+var current_collider = null
+
 onready var FSM = $FSM
 onready var anim_node = $AnimatedSprite
 
@@ -33,6 +42,11 @@ const base_z_index = 5
 #initialize
 func _ready():
 	FSM.init()
+	#init colliders
+	current_collider = colliders[FSM.get_current_state()][id]
+	update_colliders()
+	FSM.connect('changed_state',self,'update_colliders')
+	
 	#initial_spawn = global_position
 
 func _process(delta):
@@ -98,8 +112,11 @@ func update_animations():
 	$AnimatedSprite.set_flip_h(facing_dir.x == 1)
 	$HitDetection.set_scale(Vector2(1 - (int(facing_dir.x == 1)+ int(facing_dir.x == 1)),1))
 	$AnimatedSprite.play(str(id)+':'+FSM.get_current_state().name)
-	pass
-
+	
+func update_colliders():
+	current_collider.call_deferred('set_disabled',true)
+	current_collider = colliders[FSM.get_current_state()][id]
+	current_collider.call_deferred('set_disabled',false)
 
 
 

@@ -79,7 +79,7 @@ animations = [ {
 extents = Vector2( 86.0684, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 19.2547, 28.6903 )
+extents = Vector2( 10.2431, 28.6903 )
 
 [node name="Food" type="RigidBody2D" groups=[
 "FoodPart",
@@ -118,11 +118,10 @@ texture_progress = ExtResource( 15 )
 [node name="Parts" type="Node2D" parent="."]
 
 [node name="Part1" type="Area2D" parent="Parts"]
-editor/display_folded = true
 position = Vector2( -137, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Part1"]
-position = Vector2( 65.4671, -16.0736 )
+position = Vector2( 58.4671, -16.0736 )
 shape = SubResource( 3 )
 
 [node name="Part2" type="Area2D" parent="Parts"]
@@ -142,10 +141,9 @@ position = Vector2( 65.4671, -16.0736 )
 shape = SubResource( 3 )
 
 [node name="Part4" type="Area2D" parent="Parts"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Part4"]
-position = Vector2( 65.4671, -16.0736 )
+position = Vector2( 78.4671, -16.0736 )
 shape = SubResource( 3 )
 
 [node name="Base" parent="." instance=ExtResource( 16 )]

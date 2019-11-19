@@ -1,114 +1,132 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://sprites/characters/peter/walking/peter0001.png" type="Texture" id=2]
-[ext_resource path="res://sprites/characters/peter/walking/peter0002.png" type="Texture" id=3]
-[ext_resource path="res://sprites/characters/peter/walking/peter0003.png" type="Texture" id=4]
-[ext_resource path="res://sprites/characters/peter/walking/peter0004.png" type="Texture" id=5]
-[ext_resource path="res://sprites/characters/peter/walking/peter0005.png" type="Texture" id=6]
-[ext_resource path="res://sprites/characters/peter/walking/peter0006.png" type="Texture" id=7]
-[ext_resource path="res://sprites/characters/peter/walking/peter0007.png" type="Texture" id=8]
-[ext_resource path="res://sprites/characters/peter/walking/peter0008.png" type="Texture" id=9]
-[ext_resource path="res://sprites/characters/peter/walking/peter0009.png" type="Texture" id=10]
-[ext_resource path="res://sprites/characters/peter/walking/peter0010.png" type="Texture" id=11]
-[ext_resource path="res://sprites/characters/peter/walking/peter0011.png" type="Texture" id=12]
-[ext_resource path="res://sprites/characters/peter/walking/peter0012.png" type="Texture" id=13]
-[ext_resource path="res://sprites/characters/peter/walking/peter0013.png" type="Texture" id=14]
-[ext_resource path="res://sprites/characters/peter/walking/peter0014.png" type="Texture" id=15]
-[ext_resource path="res://sprites/characters/peter/walking/peter0015.png" type="Texture" id=16]
-[ext_resource path="res://sprites/characters/peter/walking/peter0016.png" type="Texture" id=17]
-[ext_resource path="res://sprites/characters/peter/walking/peter0017.png" type="Texture" id=18]
-[ext_resource path="res://sprites/characters/peter/walking/peter0018.png" type="Texture" id=19]
-[ext_resource path="res://sprites/characters/peter/walking/peter0019.png" type="Texture" id=20]
-[ext_resource path="res://sprites/characters/peter/walking/peter0020.png" type="Texture" id=21]
-[ext_resource path="res://sprites/characters/peter/walking/peter0021.png" type="Texture" id=22]
-[ext_resource path="res://sprites/characters/peter/walking/peter0022.png" type="Texture" id=23]
-[ext_resource path="res://sprites/characters/peter/walking/peter0023.png" type="Texture" id=24]
-[ext_resource path="res://sprites/characters/peter/walking/peter0024.png" type="Texture" id=25]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0001.png" type="Texture" id=26]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0002.png" type="Texture" id=27]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0003.png" type="Texture" id=28]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0004.png" type="Texture" id=29]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0005.png" type="Texture" id=30]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0006.png" type="Texture" id=31]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0007.png" type="Texture" id=32]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0008.png" type="Texture" id=33]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0009.png" type="Texture" id=34]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0010.png" type="Texture" id=35]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0011.png" type="Texture" id=36]
-[ext_resource path="res://sprites/characters/peter/climbing/climbing0012.png" type="Texture" id=37]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0001.png" type="Texture" id=38]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0002.png" type="Texture" id=39]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0003.png" type="Texture" id=40]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0004.png" type="Texture" id=41]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0005.png" type="Texture" id=42]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0006.png" type="Texture" id=43]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0007.png" type="Texture" id=44]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0008.png" type="Texture" id=45]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0009.png" type="Texture" id=46]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0010.png" type="Texture" id=47]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0011.png" type="Texture" id=48]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0012.png" type="Texture" id=49]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0013.png" type="Texture" id=50]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0014.png" type="Texture" id=51]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0015.png" type="Texture" id=52]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0016.png" type="Texture" id=53]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0017.png" type="Texture" id=54]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0018.png" type="Texture" id=55]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0019.png" type="Texture" id=56]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0020.png" type="Texture" id=57]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0021.png" type="Texture" id=58]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0022.png" type="Texture" id=59]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0023.png" type="Texture" id=60]
-[ext_resource path="res://sprites/characters/peter/Idle1/idle0024.png" type="Texture" id=61]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0001.png" type="Texture" id=62]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0002.png" type="Texture" id=63]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0003.png" type="Texture" id=64]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0004.png" type="Texture" id=65]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0005.png" type="Texture" id=66]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0006.png" type="Texture" id=67]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0007.png" type="Texture" id=68]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0008.png" type="Texture" id=69]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0009.png" type="Texture" id=70]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0010.png" type="Texture" id=71]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0011.png" type="Texture" id=72]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0012.png" type="Texture" id=73]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0013.png" type="Texture" id=74]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0014.png" type="Texture" id=75]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0015.png" type="Texture" id=76]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0016.png" type="Texture" id=77]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0017.png" type="Texture" id=78]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0018.png" type="Texture" id=79]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0019.png" type="Texture" id=80]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0020.png" type="Texture" id=81]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0021.png" type="Texture" id=82]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0022.png" type="Texture" id=83]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0023.png" type="Texture" id=84]
-[ext_resource path="res://sprites/characters/peter/Idle2/idle0024.png" type="Texture" id=85]
-[ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=86]
-[ext_resource path="res://scripts/ai/p_states/Idle.gd" type="Script" id=87]
-[ext_resource path="res://scripts/ai/p_states/Walking.gd" type="Script" id=88]
-[ext_resource path="res://scripts/ai/p_states/Climbing.gd" type="Script" id=89]
-[ext_resource path="res://scripts/ai/p_states/Dead.gd" type="Script" id=90]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0001.png" type="Texture" id=2]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0002.png" type="Texture" id=3]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0003.png" type="Texture" id=4]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0004.png" type="Texture" id=5]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0005.png" type="Texture" id=6]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0006.png" type="Texture" id=7]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0007.png" type="Texture" id=8]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0008.png" type="Texture" id=9]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0009.png" type="Texture" id=10]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0010.png" type="Texture" id=11]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0011.png" type="Texture" id=12]
+[ext_resource path="res://sprites/characters/peter/climbing/climbing0012.png" type="Texture" id=13]
+[ext_resource path="res://sprites/characters/peter/walking/peter0001.png" type="Texture" id=14]
+[ext_resource path="res://sprites/characters/peter/walking/peter0002.png" type="Texture" id=15]
+[ext_resource path="res://sprites/characters/peter/walking/peter0003.png" type="Texture" id=16]
+[ext_resource path="res://sprites/characters/peter/walking/peter0004.png" type="Texture" id=17]
+[ext_resource path="res://sprites/characters/peter/walking/peter0005.png" type="Texture" id=18]
+[ext_resource path="res://sprites/characters/peter/walking/peter0006.png" type="Texture" id=19]
+[ext_resource path="res://sprites/characters/peter/walking/peter0007.png" type="Texture" id=20]
+[ext_resource path="res://sprites/characters/peter/walking/peter0008.png" type="Texture" id=21]
+[ext_resource path="res://sprites/characters/peter/walking/peter0009.png" type="Texture" id=22]
+[ext_resource path="res://sprites/characters/peter/walking/peter0010.png" type="Texture" id=23]
+[ext_resource path="res://sprites/characters/peter/walking/peter0011.png" type="Texture" id=24]
+[ext_resource path="res://sprites/characters/peter/walking/peter0012.png" type="Texture" id=25]
+[ext_resource path="res://sprites/characters/peter/walking/peter0013.png" type="Texture" id=26]
+[ext_resource path="res://sprites/characters/peter/walking/peter0014.png" type="Texture" id=27]
+[ext_resource path="res://sprites/characters/peter/walking/peter0015.png" type="Texture" id=28]
+[ext_resource path="res://sprites/characters/peter/walking/peter0016.png" type="Texture" id=29]
+[ext_resource path="res://sprites/characters/peter/walking/peter0017.png" type="Texture" id=30]
+[ext_resource path="res://sprites/characters/peter/walking/peter0018.png" type="Texture" id=31]
+[ext_resource path="res://sprites/characters/peter/walking/peter0019.png" type="Texture" id=32]
+[ext_resource path="res://sprites/characters/peter/walking/peter0020.png" type="Texture" id=33]
+[ext_resource path="res://sprites/characters/peter/walking/peter0021.png" type="Texture" id=34]
+[ext_resource path="res://sprites/characters/peter/walking/peter0022.png" type="Texture" id=35]
+[ext_resource path="res://sprites/characters/peter/walking/peter0023.png" type="Texture" id=36]
+[ext_resource path="res://sprites/characters/peter/walking/peter0024.png" type="Texture" id=37]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0005.png" type="Texture" id=38]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0006.png" type="Texture" id=39]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0007.png" type="Texture" id=40]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0008.png" type="Texture" id=41]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0009.png" type="Texture" id=42]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0010.png" type="Texture" id=43]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0011.png" type="Texture" id=44]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0012.png" type="Texture" id=45]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0004.png" type="Texture" id=46]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0003.png" type="Texture" id=47]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0002.png" type="Texture" id=48]
+[ext_resource path="res://sprites/characters/peter/spraying/spraying0001.png" type="Texture" id=49]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0001.png" type="Texture" id=50]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0002.png" type="Texture" id=51]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0003.png" type="Texture" id=52]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0004.png" type="Texture" id=53]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0005.png" type="Texture" id=54]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0006.png" type="Texture" id=55]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0007.png" type="Texture" id=56]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0008.png" type="Texture" id=57]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0009.png" type="Texture" id=58]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0010.png" type="Texture" id=59]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0011.png" type="Texture" id=60]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0012.png" type="Texture" id=61]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0013.png" type="Texture" id=62]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0014.png" type="Texture" id=63]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0015.png" type="Texture" id=64]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0016.png" type="Texture" id=65]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0017.png" type="Texture" id=66]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0018.png" type="Texture" id=67]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0019.png" type="Texture" id=68]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0020.png" type="Texture" id=69]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0021.png" type="Texture" id=70]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0022.png" type="Texture" id=71]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0023.png" type="Texture" id=72]
+[ext_resource path="res://sprites/characters/peter/Idle1/idle0024.png" type="Texture" id=73]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0001.png" type="Texture" id=74]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0002.png" type="Texture" id=75]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0003.png" type="Texture" id=76]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0004.png" type="Texture" id=77]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0005.png" type="Texture" id=78]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0006.png" type="Texture" id=79]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0007.png" type="Texture" id=80]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0008.png" type="Texture" id=81]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0009.png" type="Texture" id=82]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0010.png" type="Texture" id=83]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0011.png" type="Texture" id=84]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0012.png" type="Texture" id=85]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0013.png" type="Texture" id=86]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0014.png" type="Texture" id=87]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0015.png" type="Texture" id=88]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0016.png" type="Texture" id=89]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0017.png" type="Texture" id=90]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0018.png" type="Texture" id=91]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0019.png" type="Texture" id=92]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0020.png" type="Texture" id=93]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0021.png" type="Texture" id=94]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0022.png" type="Texture" id=95]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0023.png" type="Texture" id=96]
+[ext_resource path="res://sprites/characters/peter/Idle2/idle0024.png" type="Texture" id=97]
+[ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=98]
+[ext_resource path="res://scripts/ai/p_states/Idle.gd" type="Script" id=99]
+[ext_resource path="res://scripts/ai/p_states/Walking.gd" type="Script" id=100]
+[ext_resource path="res://scripts/ai/p_states/Climbing.gd" type="Script" id=101]
+[ext_resource path="res://scripts/ai/p_states/Spraying.gd" type="Script" id=102]
+[ext_resource path="res://scripts/ai/p_states/Dead.gd" type="Script" id=103]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "Walking",
-"speed": 24.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "Climbing",
 "speed": 14.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 45 ), ExtResource( 44 ), ExtResource( 43 ), ExtResource( 42 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 39 ), ExtResource( 38 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"loop": true,
+"name": "Spraying",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ) ],
 "loop": true,
 "name": "Idle-Sides",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ) ],
+"frames": [ ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ) ],
 "loop": true,
 "name": "Idle-Down",
 "speed": 24.0
@@ -129,7 +147,7 @@ script = ExtResource( 1 )
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle-Down"
-frame = 21
+frame = 15
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -146,23 +164,25 @@ align = 1
 valign = 1
 
 [node name="FSM" type="Node" parent="."]
-script = ExtResource( 86 )
+script = ExtResource( 98 )
 
 [node name="Idle" type="Node" parent="FSM"]
-script = ExtResource( 87 )
+script = ExtResource( 99 )
 
 [node name="Walking" type="Node" parent="FSM"]
-script = ExtResource( 88 )
+script = ExtResource( 100 )
 
 [node name="Climbing" type="Node" parent="FSM"]
-script = ExtResource( 89 )
+script = ExtResource( 101 )
 
 [node name="Spraying" type="Node" parent="FSM"]
+script = ExtResource( 102 )
 
 [node name="Dead" type="Node" parent="FSM"]
-script = ExtResource( 90 )
+script = ExtResource( 103 )
 
 [node name="PlayerHit" type="Area2D" parent="."]
+editor/display_folded = true
 collision_layer = 4
 collision_mask = 4
 

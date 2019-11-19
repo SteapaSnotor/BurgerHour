@@ -22,7 +22,12 @@ Vector2(0,-1):{'anim':'Climbing','flip':false,'stop':false}},
 Vector2(1,0):{'anim':'Idle-Sides','flip':true},
 Vector2(-1,0):{'anim':'Idle-Sides','flip':false},
 Vector2(0,1):{'anim':'Idle-Sides','flip':false},
-Vector2(0,-1):{'anim':'Idle-Sides','flip':false}}
+Vector2(0,-1):{'anim':'Idle-Sides','flip':false}},
+
+	'Spraying':{Vector2(0,0):{'anim':'Spraying','flip':false},
+Vector2(1,0):{'anim':'Spraying','flip':true},
+Vector2(-1,0):{'anim':'Spraying','flip':false}}
+
 }
 
 #stats
