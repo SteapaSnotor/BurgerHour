@@ -70,6 +70,11 @@ func get_climb_keys():
 	return [Input.is_action_pressed('ui_up'),
 Input.is_action_pressed('ui_down')]
 
+#return the state of keys used to spray
+func get_spray_keys():
+	return [Input.is_action_pressed("spray"),
+Input.is_action_pressed("ui_accept")]
+
 #when the player is hit
 func set_hit(value):
 	hit = value
@@ -93,5 +98,23 @@ func update_animations():
 func move(dir):
 	move_and_slide(dir*speed)
 	facing_dir = dir
+
+#spawn the player's pepper spray smoke
+func spawn_smoke(dir):
+	var smoke = preload('res://scenes/PepperSmoke.tscn').instance()
+	var smoke_speed = 700
+	get_parent().add_child(smoke)
+	smoke.global_position = Vector2(global_position.x+(dir.x*34),global_position.y)
+	smoke.init(dir,smoke_speed)
+
+
+
+
+
+
+
+
+
+
 
 

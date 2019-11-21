@@ -39,12 +39,18 @@ func physics_update(delta):
 func input_update(event):
 	walk_input = player.get_walk_keys().has(true)
 	climb_input = player.get_climb_keys().has(true)
+	spray_input = player.get_spray_keys().has(true)
 
 func transitions_update():
 	#IDLE TO WALKING#
 	if walk_input and not spray_input:
 		base.current_state = null
 		base.queue_state = base.get_state('Walking')
+		exit()
+	#IDLE TO SPRAYING#
+	elif spray_input:
+		base.current_state = null
+		base.queue_state = base.get_state('Spraying')
 		exit()
 	#IDLE TO CLIMBING#
 	elif climb_input and player.on_ladder:

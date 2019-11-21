@@ -7,6 +7,7 @@ extends KinematicBody2D
 signal wall_collision
 signal died
 signal fall
+signal sprayed
 
 onready var colliders = {$FSM/Spawning: [$HitDetection/BananaSearching],
 $FSM/Idle: [$HitDetection/BananaSearching],
@@ -68,6 +69,11 @@ func on_hit_detection(body):
 		if not body.get_parent().on_final_base:
 			emit_signal("died")
 			call_deferred('free')
+	elif body.name == 'SmokeDetection':
+		#TODO: delegate this to a new state
+		emit_signal("sprayed")
+		emit_signal("died")
+		call_deferred('free')
 	elif body.name == 'PlayerHit':
 		body.get_parent().hit = true
 	else: pass#print(body.name)

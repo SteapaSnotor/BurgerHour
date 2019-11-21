@@ -65,6 +65,7 @@ func hide_graphics(graphic,_signal = null):
 
 func show_screen(scr):
 	var screen = $Screens.get_node(scr)
+	if screen.is_visible():return
 	screen.show()
 	for element in screen.get_children():
 		if element is Button or element is TextureButton: #screen buttons

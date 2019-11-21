@@ -87,6 +87,7 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		enemy.connect('died',self,'spawn_enemies',[_spawn_dict,false])
 		enemy.connect('died',self,'add_points',[100,enemy])
 		enemy.connect('fall',self,'add_points',[500,enemy])
+		enemy.connect('sprayed',self,'add_points',[50,enemy])
 		connect('finished',enemy,'set_level_finished',[true])
 		
 		$LevelSignals.get_child(0).queue_free()
