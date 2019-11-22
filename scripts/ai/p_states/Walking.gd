@@ -29,7 +29,7 @@ func physics_update(delta):
 	player.move(Vector2(move_dir,0))
 	
 func input_update(event):
-	pass
+	spray_input = player.get_spray_keys().has(true)
 
 func transitions_update():
 	#WALKING TO IDLE#
@@ -42,6 +42,11 @@ func transitions_update():
 		base.current_state = null
 		player.facing_dir = Vector2(0,0)
 		base.queue_state = base.get_state('Climbing')
+		exit()
+	#WALKING TO SPRAYING#
+	elif spray_input and player.has_sprays:
+		base.current_state = null
+		base.queue_state = base.get_state('Spraying')
 		exit()
 	else: 
 		return

@@ -8,6 +8,7 @@ extends Node2D
 signal spawning
 signal finished
 signal player_died
+signal player_sprayed
 signal new_points
 
 var player
@@ -15,6 +16,7 @@ var spawning = {} #data of the last enemy to start to spawn on the level
 var food_count = 0
 var new_points = 0
 var new_points_position = Vector2(0,0)
+var sprays = 3 #decrease on check_player_state()
 
 #tiles
 onready var level_signals = $LevelSignals
@@ -88,6 +90,7 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		enemy.connect('died',self,'add_points',[100,enemy])
 		enemy.connect('fall',self,'add_points',[500,enemy])
 		enemy.connect('sprayed',self,'add_points',[50,enemy])
+		enemy.connect('sprayed',self,'spawn_enemies',[_spawn_dict,false])
 		connect('finished',enemy,'set_level_finished',[true])
 		
 		$LevelSignals.get_child(0).queue_free()
@@ -189,6 +192,10 @@ func check_player_state():
 	#check if the player died and the level is over
 	if player.FSM.get_current_state().name == 'Dead':
 		emit_signal("player_died")
+	elif player.FSM.get_current_state().name == 'Spraying':
+		sprays-= 1
+		if sprays == 0: player.has_sprays = false
+		emit_signal("player_sprayed")
 
 #add points to the level score
 func add_points(value,at=Vector2(0,0)):

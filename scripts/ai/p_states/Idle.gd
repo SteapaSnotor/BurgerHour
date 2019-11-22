@@ -48,7 +48,7 @@ func transitions_update():
 		base.queue_state = base.get_state('Walking')
 		exit()
 	#IDLE TO SPRAYING#
-	elif spray_input:
+	elif spray_input and player.has_sprays:
 		base.current_state = null
 		base.queue_state = base.get_state('Spraying')
 		exit()

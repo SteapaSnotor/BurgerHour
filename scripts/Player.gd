@@ -31,7 +31,6 @@ Vector2(-1,0):{'anim':'Spraying','flip':false}}
 }
 
 #stats
-var sprays = 3
 var speed = 100
 var hit = false setget set_hit
 
@@ -46,6 +45,7 @@ var on_ladder = false
 var on_edge = false
 var floor_tiles = []
 var ladder_tiles = []
+var has_sprays = true
 
 const base_z_index = 5
 

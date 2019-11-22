@@ -10,11 +10,15 @@ signal next_btn
 onready var timer = $GUITimer
 
 var level_score = 0 setget set_level_score
+var player_sprays = 3 setget set_player_sprays
+var player_lives = 0 setget set_player_lives
 var total_score = 0
 
 #constructor
-func init(score):
+func init(score,sprays,lives):
 	set_level_score(score)
+	set_player_sprays(sprays)
+	set_player_lives(lives)
 
 #show a spawning arrow mark
 func spawning_arrow(at,duration):
@@ -57,6 +61,14 @@ func show_graphics(texture,position,duration=-1,flip=false):
 func set_level_score(value):
 	level_score = value
 	$LevelInfo/SCORE.text = str(level_score)
+
+func set_player_sprays(value):
+	player_sprays = value
+	$LevelInfo/SPRAYS.text = 'SPRAYS: ' + str(player_sprays)
+
+func set_player_lives(value):
+	player_lives = value
+	$LevelInfo/LIVES.text = 'LIVES : ' + str(player_lives)
 
 func hide_graphics(graphic,_signal = null):
 	graphic.queue_free()

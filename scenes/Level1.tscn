@@ -155,7 +155,6 @@ __meta__ = {
 }
 
 [node name="LevelSignals" type="TileMap" parent="."]
-visible = false
 tile_set = SubResource( 5 )
 cell_size = Vector2( 59, 36 )
 format = 1

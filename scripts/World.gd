@@ -6,9 +6,12 @@ extends Node2D
 
 signal new_enemy
 signal level_finished
+signal level_reloaded
 signal new_score
+signal new_spray_count
 
 var current_level = null
+var current_level_id = -1
 var new_enemy_data = {}
 var lives = 3
 var level_new_score = 0
@@ -27,6 +30,7 @@ func load_level(id):
 		return false
 		
 	var _scene = load(levels[id]).instance()
+	current_level_id = id
 	current_level = _scene
 	level_new_score = 0
 	level_old_score = 0
@@ -35,12 +39,15 @@ func load_level(id):
 	#level signals
 	_scene.connect('spawning',self,'on_enemy_spawn')
 	_scene.connect('new_points',self,'on_new_score')
+	
 	return true
 
 #restart the current loaded level
 func restart_level():
-	get_tree().reload_current_scene()
-	pass
+	var _current_id = current_level_id
+	exit_level()
+	load_level(_current_id)
+	emit_signal("level_reloaded")
 
 #when a new enemy is being spawn on the level scene
 func on_enemy_spawn():
@@ -55,3 +62,4 @@ func on_new_score():
 func exit_level():
 	current_level.call_deferred('free')
 	current_level = null
+	current_level_id = -1

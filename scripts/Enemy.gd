@@ -72,7 +72,6 @@ func on_hit_detection(body):
 	elif body.name == 'SmokeDetection':
 		#TODO: delegate this to a new state
 		emit_signal("sprayed")
-		emit_signal("died")
 		call_deferred('free')
 	elif body.name == 'PlayerHit':
 		body.get_parent().hit = true
