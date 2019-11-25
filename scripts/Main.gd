@@ -42,6 +42,7 @@ func init_gui():
 	#gui signals
 	_gui.connect('restart_btn',_world,'restart_level')
 	_gui.connect('next_btn',self,'on_next_level')
+	_gui.connect('restart_over_btn',self,'on_restart_game')
 
 func update_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -71,8 +72,10 @@ func on_new_spray_count():
 
 func on_player_lose():
 	_world.lives -= 1
-	if _world.lives > 0:
+	if _world.lives >= 0:
 		_gui.show_screen('LostLevel')
+	else:
+		_gui.show_screen('GameOver')
 
 func on_next_level():
 	selected_level += 1
@@ -83,6 +86,19 @@ func on_next_level():
 		return
 	update_gui()
 	update_world()
+
+#restart all the level
+func on_restart_game():
+	selected_level = 0
+	_world.lives = 3
+	_world.exit_level()
+	if not _world.load_level(selected_level):
+		print('Couldnt restart the game')
+		return
+	update_gui()
+	update_world()
+	#TODO: clear score
+
 	
 
 

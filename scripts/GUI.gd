@@ -6,6 +6,7 @@ extends CanvasLayer
 
 signal restart_btn
 signal next_btn
+signal restart_over_btn
 
 onready var timer = $GUITimer
 
@@ -103,6 +104,9 @@ func on_btn_pressed(btn):
 		'Next':
 			emit_signal('next_btn')
 			hide_screen('WonLevel')
+		'GRestart':
+			emit_signal('restart_over_btn')
+			hide_screen('GameOver')
 
 func finished_label_animation(animation,label):
 	label.queue_free()

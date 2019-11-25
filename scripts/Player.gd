@@ -79,7 +79,7 @@ Input.is_action_pressed("ui_accept")]
 func set_hit(value):
 	hit = value
 	
-	if hit:
+	if hit and FSM.get_current_state().name != 'Dead':
 		FSM.force_state('Dead')
 
 func update_animations():
