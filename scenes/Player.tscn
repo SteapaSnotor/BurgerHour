@@ -160,7 +160,7 @@ valign = 1
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Idle-Down"
-frame = 9
+frame = 3
 playing = true
 
 [node name="FSM" type="Node" parent="."]

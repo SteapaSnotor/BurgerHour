@@ -14,6 +14,7 @@ var climb_input = false
 var walk_input = false
 var max_y = 0
 var min_y = 0
+var last_y_input = -1
 
 #constructor
 func initialize(base,player):
@@ -21,6 +22,8 @@ func initialize(base,player):
 	self.player = player
 	self.player.set_z_index(player.base_z_index+1)
 	self.player.global_position.x = self.player.ladder_pos.x
+	
+	last_y_input = -int(player.get_climb_keys()[0]) + int(player.get_climb_keys()[1])
 	
 	#sets the maximum/minimum height the player can climb on this ladder
 	var map_ladder = player.ladder_tiles.world_to_map(player.global_position)
@@ -44,14 +47,18 @@ func physics_update(delta):
 	
 	#apply constraints of the ladder
 	if climb_input and player.get_climb_keys()[0]:
+		last_y_input = -1
 		if player.global_position.y <= min_y: return
 	elif climb_input and player.get_climb_keys()[1]:
+		last_y_input = 1
 		if player.global_position.y >= max_y: return
 	
-	
 	var move_dir = -int(player.get_climb_keys()[0]) + int(player.get_climb_keys()[1])
+	if move_dir == 0 and walk_input:
+		#also climb if using the walk keys
+		move_dir = last_y_input
+		
 	player.move(Vector2(0,move_dir))
-	
 
 func input_update(event):
 	pass
@@ -59,6 +66,7 @@ func input_update(event):
 func transitions_update():
 	#CLIMBING TO WALKING#
 	if walk_input and not climb_input and player.on_edge:
+		player.facing_dir = Vector2(0,0)
 		base.current_state = null
 		base.queue_state = base.get_state('Walking')
 		#go to the closest tile
