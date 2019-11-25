@@ -54,7 +54,7 @@ func physics_update(delta):
 		if player.global_position.y >= max_y: return
 	
 	var move_dir = -int(player.get_climb_keys()[0]) + int(player.get_climb_keys()[1])
-	if move_dir == 0 and walk_input:
+	if move_dir == 0 and walk_input and not player.global_position.y <= min_y and not player.global_position.y >= max_y:
 		#also climb if using the walk keys
 		move_dir = last_y_input
 		
