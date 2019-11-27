@@ -141,6 +141,7 @@ radius = 12.9589
 height = 67.5707
 
 [node name="Player" type="KinematicBody2D"]
+pause_mode = 2
 z_index = 5
 script = ExtResource( 1 )
 
@@ -160,7 +161,7 @@ valign = 1
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Idle-Down"
-frame = 7
+frame = 9
 playing = true
 
 [node name="FSM" type="Node" parent="."]

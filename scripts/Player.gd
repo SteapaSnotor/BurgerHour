@@ -59,7 +59,10 @@ func _process(delta):
 	debug_label.text = FSM.get_current_state().name
 	#print($Animations.global_position.y)
 	update_animations()
-
+	
+	if Input.is_action_just_pressed("ui_end"):
+		get_tree().paused = !get_tree().is_paused()
+	
 #return the state of keys used to walk
 func get_walk_keys():
 	return [Input.is_action_pressed('ui_left'),

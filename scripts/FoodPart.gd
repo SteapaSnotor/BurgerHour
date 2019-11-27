@@ -7,6 +7,14 @@ extends RigidBody2D
 signal on_final_base
 signal broke_free
 
+#store all food part animations to each id
+var anims_data = {
+	0:preload("res://resources/animations/pads1.tres"),
+	1:preload("res://resources/animations/pads2.tres"),
+	2:preload("res://resources/animations/meat.tres"),
+	3:preload("res://resources/animations/salad.tres")
+}
+
 var id = 0
 var step_points = 0
 var last_base = null
@@ -18,14 +26,17 @@ var current_state = [0,0,0,0]
 const max_step_points = 100
 
 #initialize
-func init():
+func init(id):
+	self.id = id
+	#change the animations according to the part ID
+	$States.set_sprite_frames(anims_data[id])
+	
 	#add base to the main scene
 	var _base = $Base.duplicate()
 	get_parent().add_child(_base)
 	_base.global_position = global_position
 	last_base = _base
 	$Base.queue_free()
-	
 	#signals for the breakable parts
 	connect_parts()
 

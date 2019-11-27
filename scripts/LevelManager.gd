@@ -146,7 +146,7 @@ func spawn_food():
 		food.global_position = world_pos
 		food.global_position.x +=96+$Burger.global_position.x
 		food.global_position.y +=32+$Burger.global_position.y
-		food.init()
+		food.init($Burger.get_cell(part.x,part.y))
 		food.connect('on_final_base',self,'check_level_progress')
 		food.connect('broke_free',self,'add_points',[10,food])
 	
