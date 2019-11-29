@@ -88,5 +88,9 @@ visible = false
 position = Vector2( 0, 16 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BaseDetection"]
+position = Vector2( 0, 10 )
+shape = SubResource( 1 )
+
 [connection signal="body_entered" from="." to="." method="body_collision"]
 [connection signal="area_entered" from="BaseDetection" to="." method="area_collision"]

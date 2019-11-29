@@ -63,9 +63,19 @@ func set_level_score(value):
 	level_score = value
 	$LevelInfo/SCORE.text = str(level_score)
 
+#hide/show spray slots
 func set_player_sprays(value):
 	player_sprays = value
-	$LevelInfo/SPRAYS.text = 'SPRAYS: ' + str(player_sprays)
+	
+	var slots = [$LevelInfo/Sprays/Slot1,$LevelInfo/Sprays/Slot2,
+	$LevelInfo/Sprays/Slot3]
+	
+	for sprays in range(slots.size()):
+		slots[sprays].set_visible(sprays+1 <= player_sprays)
+		
+	
+	#old debug label
+	#$LevelInfo/SPRAYS.text = 'SPRAYS: ' + str(player_sprays)
 
 func set_player_lives(value):
 	player_lives = value

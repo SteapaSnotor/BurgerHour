@@ -1,9 +1,87 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/GUI.gd" type="Script" id=1]
-[ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=2]
+[ext_resource path="res://sprites/objects/spray.png" type="Texture" id=2]
+[ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=3]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
+resource_name = "SlotAnim"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Slot1:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0, 0.0, -5.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Slot1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 0.99, 0.99 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Slot2:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0, 0.0, -5.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Slot2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 0.99, 0.99 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Slot3:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0, 0.0, -5.0, 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Slot3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 0.99, 0.99 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
 resource_name = "LabelAnim"
 length = 0.2
 loop = true
@@ -56,12 +134,12 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.999, 1 ), Vector2( 0.998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "New Anim"
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "LabelAnim"
 length = 0.2
 loop = true
@@ -114,13 +192,12 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.999, 1 ), Vector2( 0.998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "New Anim"
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=4]
-resource_name = "LabelAnim"
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -148,12 +225,11 @@ tracks/1/keys = {
 "values": [ 0.5, 0.7, 0.1, -0.8, 0.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "New Anim"
+[sub_resource type="Animation" id=6]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_position")
 tracks/0/interp = 1
@@ -176,19 +252,19 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="LevelInfo" type="Control" parent="."]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="SCORE" type="Label" parent="LevelInfo"]
 margin_left = 930.0
-margin_top = 40.0
-margin_right = 971.0
-margin_bottom = 54.0
+margin_top = 100.0
+margin_right = 994.0
+margin_bottom = 114.0
 text = "00000000"
 align = 1
 
 [node name="SPRAYS" type="Label" parent="LevelInfo"]
+visible = false
 margin_left = 930.0
 margin_top = 58.0
 margin_right = 997.0
@@ -198,13 +274,41 @@ align = 1
 
 [node name="LIVES" type="Label" parent="LevelInfo"]
 margin_left = 930.0
-margin_top = 78.0
+margin_top = 128.0
 margin_right = 997.0
-margin_bottom = 92.0
+margin_bottom = 142.0
 text = "LIVES: 3"
 align = 1
 
+[node name="Sprays" type="Control" parent="LevelInfo"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="SlotsAnim" type="AnimationPlayer" parent="LevelInfo/Sprays"]
+autoplay = "SlotAnim"
+anims/SlotAnim = SubResource( 8 )
+
+[node name="Slot1" type="Sprite" parent="LevelInfo/Sprays"]
+position = Vector2( 991.085, 53.3202 )
+rotation = -0.0412809
+scale = Vector2( 0.99527, 0.99527 )
+texture = ExtResource( 2 )
+
+[node name="Slot2" type="Sprite" parent="LevelInfo/Sprays"]
+position = Vector2( 941.085, 53.3202 )
+rotation = -0.0412809
+scale = Vector2( 0.99527, 0.99527 )
+texture = ExtResource( 2 )
+
+[node name="Slot3" type="Sprite" parent="LevelInfo/Sprays"]
+position = Vector2( 891.085, 53.3202 )
+rotation = -0.0412809
+scale = Vector2( 0.99527, 0.99527 )
+texture = ExtResource( 2 )
+
 [node name="Screens" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -222,7 +326,7 @@ margin_bottom = 322.989
 rect_rotation = 0.523658
 rect_scale = Vector2( 1.00969, 1 )
 rect_pivot_offset = Vector2( 206.774, 64.0112 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "You win!"
 align = 1
 
@@ -234,7 +338,7 @@ margin_bottom = 322.047
 rect_rotation = -0.523658
 rect_scale = Vector2( 0.998691, 1 )
 rect_pivot_offset = Vector2( 210.764, 71.9532 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "You win!"
 align = 1
 
@@ -254,8 +358,8 @@ text = "NEXT LEVEL"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/WonLevel"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 7 )
-"anims/New Anim" = SubResource( 8 )
+anims/LabelAnim = SubResource( 1 )
+"anims/New Anim" = SubResource( 2 )
 
 [node name="LostLevel" type="Control" parent="Screens"]
 editor/display_folded = true
@@ -271,7 +375,7 @@ margin_bottom = 324.332
 rect_rotation = 0.642706
 rect_scale = Vector2( 1.00939, 1 )
 rect_pivot_offset = Vector2( 122, 73 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "You lose!"
 align = 1
 
@@ -283,7 +387,7 @@ margin_bottom = 323.877
 rect_rotation = -0.642706
 rect_scale = Vector2( 0.998393, 1 )
 rect_pivot_offset = Vector2( 122, 73 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "You lose!"
 align = 1
 
@@ -303,8 +407,8 @@ text = "QUIT"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/LostLevel"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 5 )
-"anims/New Anim" = SubResource( 6 )
+anims/LabelAnim = SubResource( 3 )
+"anims/New Anim" = SubResource( 4 )
 
 [node name="GameOver" type="Control" parent="Screens"]
 editor/display_folded = true
@@ -319,7 +423,7 @@ margin_right = 672.669
 margin_bottom = 310.086
 rect_rotation = 0.5
 rect_pivot_offset = Vector2( 166.965, 70.7118 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Game Over!"
 align = 1
 
@@ -330,7 +434,7 @@ margin_right = 673.013
 margin_bottom = 309.968
 rect_rotation = -0.5
 rect_pivot_offset = Vector2( 162.188, 67.5058 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Game Over!"
 align = 1
 
@@ -350,8 +454,8 @@ text = "QUIT"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/GameOver"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 4 )
-"anims/New Anim" = SubResource( 2 )
+anims/LabelAnim = SubResource( 5 )
+"anims/New Anim" = SubResource( 6 )
 
 [node name="FlyingLabel" type="Control" parent="."]
 editor/display_folded = true
@@ -360,7 +464,7 @@ margin_bottom = 40.0
 
 [node name="LabelAnims" type="AnimationPlayer" parent="FlyingLabel"]
 root_node = NodePath("")
-anims/Vertical = SubResource( 3 )
+anims/Vertical = SubResource( 7 )
 
 [node name="Control" type="Control" parent="FlyingLabel/LabelAnims"]
 visible = false
