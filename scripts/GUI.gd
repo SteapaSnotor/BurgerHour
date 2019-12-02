@@ -79,7 +79,15 @@ func set_player_sprays(value):
 
 func set_player_lives(value):
 	player_lives = value
-	$LevelInfo/LIVES.text = 'LIVES : ' + str(player_lives)
+	
+	var slots = [$LevelInfo/Lives/Slot1,$LevelInfo/Lives/Slot2,
+	$LevelInfo/Lives/Slot3]
+	
+	for lives in range(slots.size()):
+		slots[lives].set_visible(lives+1 <= player_lives)
+	
+	#old debug label
+	#$LevelInfo/LIVES.text = 'LIVES : ' + str(player_lives)
 
 func hide_graphics(graphic,_signal = null):
 	graphic.queue_free()
