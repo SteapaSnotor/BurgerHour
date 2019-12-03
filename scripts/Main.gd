@@ -37,7 +37,7 @@ func init_world():
 	
 func init_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
-	_world.lives)
+	_world.lives,get_total_score())
 	
 	#gui signals
 	_gui.connect('restart_btn',_world,'restart_level')
@@ -46,12 +46,19 @@ func init_gui():
 
 func update_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
-_world.lives)
+_world.lives,get_total_score())
 
 func update_world():
 	_world.current_level.connect('finished',self,'on_level_finished')
 	_world.current_level.connect('player_died',self,'on_player_lose')
 	_world.current_level.connect('player_sprayed',self,'on_new_spray_count')
+
+#returns the sum of all scores in all levels
+func get_total_score():
+	var final_score = 0
+	for points in score:
+		final_score += score[points]
+	return final_score
 
 #when there's a new enemy on the game
 func on_new_enemy():
@@ -65,8 +72,10 @@ func on_level_finished():
 
 func on_new_score():
 	_gui.set_level_score(_world.level_new_score)
+	_gui.set_total_score(get_total_score()+_world.level_new_score)
 	_gui.flying_label(_world.current_level.new_points_position,str(_world.level_new_score - _world.level_old_score))
-
+	
+	
 func on_new_spray_count():
 	_gui.set_player_sprays(_world.current_level.sprays)
 
@@ -99,7 +108,6 @@ func on_restart_game():
 	update_world()
 	#TODO: clear score
 
-	
 
 
 

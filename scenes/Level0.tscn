@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://scripts/LevelManager.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tiles/ladder.png" type="Texture" id=2]
@@ -58,6 +58,33 @@
 [ext_resource path="res://sprites/objects/spray/spray_animation0045.png" type="Texture" id=56]
 [ext_resource path="res://sprites/objects/spray/spray_animation0046.png" type="Texture" id=57]
 [ext_resource path="res://sprites/objects/spray/spray_animation0047.png" type="Texture" id=58]
+[ext_resource path="res://sprites/objects/lives/lives0001.png" type="Texture" id=59]
+[ext_resource path="res://sprites/objects/lives/lives0002.png" type="Texture" id=60]
+[ext_resource path="res://sprites/objects/lives/lives0003.png" type="Texture" id=61]
+[ext_resource path="res://sprites/objects/lives/lives0004.png" type="Texture" id=62]
+[ext_resource path="res://sprites/objects/lives/lives0005.png" type="Texture" id=63]
+[ext_resource path="res://sprites/objects/lives/lives0006.png" type="Texture" id=64]
+[ext_resource path="res://sprites/objects/lives/lives0007.png" type="Texture" id=65]
+[ext_resource path="res://sprites/objects/lives/lives0008.png" type="Texture" id=66]
+[ext_resource path="res://sprites/objects/lives/lives0009.png" type="Texture" id=67]
+[ext_resource path="res://sprites/objects/lives/lives0010.png" type="Texture" id=68]
+[ext_resource path="res://sprites/objects/lives/lives0011.png" type="Texture" id=69]
+[ext_resource path="res://sprites/objects/lives/lives0012.png" type="Texture" id=70]
+[ext_resource path="res://sprites/objects/lives/lives0013.png" type="Texture" id=71]
+[ext_resource path="res://sprites/objects/lives/lives0014.png" type="Texture" id=72]
+[ext_resource path="res://sprites/objects/lives/lives0015.png" type="Texture" id=73]
+[ext_resource path="res://sprites/objects/lives/lives0016.png" type="Texture" id=74]
+[ext_resource path="res://sprites/objects/lives/lives0017.png" type="Texture" id=75]
+[ext_resource path="res://sprites/objects/lives/lives0018.png" type="Texture" id=76]
+[ext_resource path="res://sprites/objects/lives/lives0019.png" type="Texture" id=77]
+[ext_resource path="res://sprites/objects/lives/lives0020.png" type="Texture" id=78]
+[ext_resource path="res://sprites/objects/lives/lives0021.png" type="Texture" id=79]
+[ext_resource path="res://sprites/objects/lives/lives0022.png" type="Texture" id=80]
+[ext_resource path="res://sprites/objects/lives/lives0023.png" type="Texture" id=81]
+[ext_resource path="res://sprites/objects/lives/lives0024.png" type="Texture" id=82]
+[ext_resource path="res://sprites/objects/lives/lives0025.png" type="Texture" id=83]
+[ext_resource path="res://sprites/objects/lives/lives0026.png" type="Texture" id=84]
+[ext_resource path="res://sprites/objects/lives/lives0027.png" type="Texture" id=85]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ladder.png 0"
@@ -159,7 +186,15 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
 "loop": true,
 "name": "default",
-"speed": 24.0
+"speed": 25.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
 } ]
 
 [node name="Level0" type="Node2D"]
@@ -218,6 +253,12 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 708.792, 236.881 )
 frames = SubResource( 5 )
-frame = 2
+frame = 29
+playing = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 897.337, 522.232 )
+scale = Vector2( 0.94657, 0.94657 )
+frames = SubResource( 6 )
 playing = true
 

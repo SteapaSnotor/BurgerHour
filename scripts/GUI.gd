@@ -11,15 +11,16 @@ signal restart_over_btn
 onready var timer = $GUITimer
 
 var level_score = 0 setget set_level_score
+var total_score = 0 setget set_total_score
 var player_sprays = 3 setget set_player_sprays
 var player_lives = 0 setget set_player_lives
-var total_score = 0
 
 #constructor
-func init(score,sprays,lives):
-	set_level_score(score)
+func init(score,sprays,lives,t_score):
+	set_level_score(score+t_score)
 	set_player_sprays(sprays)
 	set_player_lives(lives)
+	set_total_score(t_score)
 
 #show a spawning arrow mark
 func spawning_arrow(at,duration):
@@ -59,9 +60,23 @@ func show_graphics(texture,position,duration=-1,flip=false):
 	graphics_timer.connect('timeout',self,'hide_graphics',[spr,graphics_timer])
 	graphics_timer.start()
 
+#the score only on this level, is reseted by the world everytime the game
+#restarts
 func set_level_score(value):
 	level_score = value
-	$LevelInfo/SCORE.text = str(level_score)
+	
+#	$LevelInfo/SCORE.text = str(level_score)
+
+#this is the total score including all levels
+func set_total_score(value):
+	total_score = value
+	
+	var pads = ''
+	for ch in range(7 - len(str(total_score))):
+		pads = pads + '0'
+
+	$LevelInfo/SCORE.text = pads + str(total_score)
+	
 
 #hide/show spray slots
 func set_player_sprays(value):

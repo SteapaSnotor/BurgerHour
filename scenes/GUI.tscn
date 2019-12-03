@@ -1,11 +1,20 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/GUI.gd" type="Script" id=1]
-[ext_resource path="res://sprites/objects/spray.png" type="Texture" id=2]
-[ext_resource path="res://_blender/head.png" type="Texture" id=3]
-[ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=4]
+[ext_resource path="res://resources/fonts/AmaticSC-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://sprites/objects/spray.png" type="Texture" id=3]
+[ext_resource path="res://_blender/head.png" type="Texture" id=4]
+[ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=5]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="DynamicFont" id=10]
+size = 45
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=1]
 resource_name = "SlotAnim"
 length = 0.8
 loop = true
@@ -82,7 +91,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 0.99, 0.99 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=2]
 resource_name = "LivesSlots"
 length = 0.8
 loop = true
@@ -159,7 +168,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.678782, 0.678782 ), Vector2( 0.729, 0.729 ), Vector2( 0.679, 0.679 ), Vector2( 0.669, 0.669 ), Vector2( 0.678782, 0.678782 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -211,11 +220,11 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.999, 1 ), Vector2( 0.998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=5]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -267,11 +276,11 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.999, 1 ), Vector2( 0.998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=6]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -299,11 +308,11 @@ tracks/1/keys = {
 "values": [ 0.5, 0.7, 0.1, -0.8, 0.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=8]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_position")
 tracks/0/interp = 1
@@ -329,14 +338,6 @@ margin_bottom = 40.0
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="SCORE" type="Label" parent="LevelInfo"]
-margin_left = 930.0
-margin_top = 100.0
-margin_right = 994.0
-margin_bottom = 114.0
-text = "00000000"
-align = 1
-
 [node name="SPRAYS" type="Label" parent="LevelInfo"]
 visible = false
 margin_left = 930.0
@@ -345,6 +346,14 @@ margin_right = 997.0
 margin_bottom = 72.0
 text = "SPRAYS: 3"
 align = 1
+
+[node name="SCORE" type="Label" parent="LevelInfo"]
+margin_left = 5.22662
+margin_top = -7.52998
+margin_right = 117.227
+margin_bottom = 50.47
+custom_fonts/font = SubResource( 10 )
+text = "00000000"
 
 [node name="LIVES" type="Label" parent="LevelInfo"]
 visible = false
@@ -356,47 +365,49 @@ text = "LIVES: 3"
 align = 1
 
 [node name="Sprays" type="Control" parent="LevelInfo"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="SlotsAnim" type="AnimationPlayer" parent="LevelInfo/Sprays"]
 autoplay = "SlotAnim"
-anims/SlotAnim = SubResource( 9 )
+anims/SlotAnim = SubResource( 1 )
 
 [node name="Slot1" type="Sprite" parent="LevelInfo/Sprays"]
 position = Vector2( 991.085, 123.32 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Slot2" type="Sprite" parent="LevelInfo/Sprays"]
 position = Vector2( 941.085, 123.32 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Slot3" type="Sprite" parent="LevelInfo/Sprays"]
 position = Vector2( 891.085, 123.32 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Lives" type="Control" parent="LevelInfo"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="SlotsAnim" type="AnimationPlayer" parent="LevelInfo/Lives"]
 autoplay = "LivesSlots"
-anims/LivesSlots = SubResource( 17 )
+anims/LivesSlots = SubResource( 2 )
 
 [node name="Slot1" type="Sprite" parent="LevelInfo/Lives"]
 position = Vector2( 994.148, 54.536 )
 scale = Vector2( 0.679, 0.679 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Slot2" type="Sprite" parent="LevelInfo/Lives"]
 position = Vector2( 944.148, 54.536 )
 scale = Vector2( 0.679, 0.679 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Slot3" type="Sprite" parent="LevelInfo/Lives"]
 position = Vector2( 894.148, 54.536 )
 scale = Vector2( 0.678782, 0.678782 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Screens" type="Control" parent="."]
 editor/display_folded = true
@@ -418,7 +429,7 @@ margin_bottom = 322.989
 rect_rotation = 0.523658
 rect_scale = Vector2( 1.00969, 1 )
 rect_pivot_offset = Vector2( 206.774, 64.0112 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "You win!"
 align = 1
 
@@ -430,7 +441,7 @@ margin_bottom = 322.047
 rect_rotation = -0.523658
 rect_scale = Vector2( 0.998691, 1 )
 rect_pivot_offset = Vector2( 210.764, 71.9532 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "You win!"
 align = 1
 
@@ -450,8 +461,8 @@ text = "NEXT LEVEL"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/WonLevel"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 11 )
-"anims/New Anim" = SubResource( 12 )
+anims/LabelAnim = SubResource( 3 )
+"anims/New Anim" = SubResource( 4 )
 
 [node name="LostLevel" type="Control" parent="Screens"]
 editor/display_folded = true
@@ -467,7 +478,7 @@ margin_bottom = 324.332
 rect_rotation = 0.642706
 rect_scale = Vector2( 1.00939, 1 )
 rect_pivot_offset = Vector2( 122, 73 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "You lose!"
 align = 1
 
@@ -479,7 +490,7 @@ margin_bottom = 323.877
 rect_rotation = -0.642706
 rect_scale = Vector2( 0.998393, 1 )
 rect_pivot_offset = Vector2( 122, 73 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "You lose!"
 align = 1
 
@@ -499,8 +510,8 @@ text = "QUIT"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/LostLevel"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 13 )
-"anims/New Anim" = SubResource( 14 )
+anims/LabelAnim = SubResource( 5 )
+"anims/New Anim" = SubResource( 6 )
 
 [node name="GameOver" type="Control" parent="Screens"]
 editor/display_folded = true
@@ -515,7 +526,7 @@ margin_right = 672.669
 margin_bottom = 310.086
 rect_rotation = 0.5
 rect_pivot_offset = Vector2( 166.965, 70.7118 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Game Over!"
 align = 1
 
@@ -526,7 +537,7 @@ margin_right = 673.013
 margin_bottom = 309.968
 rect_rotation = -0.5
 rect_pivot_offset = Vector2( 162.188, 67.5058 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Game Over!"
 align = 1
 
@@ -546,8 +557,8 @@ text = "QUIT"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/GameOver"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 15 )
-"anims/New Anim" = SubResource( 16 )
+anims/LabelAnim = SubResource( 7 )
+"anims/New Anim" = SubResource( 8 )
 
 [node name="FlyingLabel" type="Control" parent="."]
 editor/display_folded = true
@@ -556,7 +567,7 @@ margin_bottom = 40.0
 
 [node name="LabelAnims" type="AnimationPlayer" parent="FlyingLabel"]
 root_node = NodePath("")
-anims/Vertical = SubResource( 8 )
+anims/Vertical = SubResource( 9 )
 
 [node name="Control" type="Control" parent="FlyingLabel/LabelAnims"]
 visible = false
