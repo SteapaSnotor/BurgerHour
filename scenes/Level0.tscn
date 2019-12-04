@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/LevelManager.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tiles/ladder.png" type="Texture" id=2]
@@ -11,80 +11,6 @@
 [ext_resource path="res://sprites/tiles/base.png" type="Texture" id=9]
 [ext_resource path="res://sprites/tiles/ball_tile.png" type="Texture" id=10]
 [ext_resource path="res://sprites/backgrounds/prototype.png" type="Texture" id=11]
-[ext_resource path="res://sprites/objects/spray/spray_animation0001.png" type="Texture" id=12]
-[ext_resource path="res://sprites/objects/spray/spray_animation0002.png" type="Texture" id=13]
-[ext_resource path="res://sprites/objects/spray/spray_animation0003.png" type="Texture" id=14]
-[ext_resource path="res://sprites/objects/spray/spray_animation0004.png" type="Texture" id=15]
-[ext_resource path="res://sprites/objects/spray/spray_animation0005.png" type="Texture" id=16]
-[ext_resource path="res://sprites/objects/spray/spray_animation0006.png" type="Texture" id=17]
-[ext_resource path="res://sprites/objects/spray/spray_animation0007.png" type="Texture" id=18]
-[ext_resource path="res://sprites/objects/spray/spray_animation0008.png" type="Texture" id=19]
-[ext_resource path="res://sprites/objects/spray/spray_animation0009.png" type="Texture" id=20]
-[ext_resource path="res://sprites/objects/spray/spray_animation0010.png" type="Texture" id=21]
-[ext_resource path="res://sprites/objects/spray/spray_animation0011.png" type="Texture" id=22]
-[ext_resource path="res://sprites/objects/spray/spray_animation0012.png" type="Texture" id=23]
-[ext_resource path="res://sprites/objects/spray/spray_animation0013.png" type="Texture" id=24]
-[ext_resource path="res://sprites/objects/spray/spray_animation0014.png" type="Texture" id=25]
-[ext_resource path="res://sprites/objects/spray/spray_animation0015.png" type="Texture" id=26]
-[ext_resource path="res://sprites/objects/spray/spray_animation0016.png" type="Texture" id=27]
-[ext_resource path="res://sprites/objects/spray/spray_animation0017.png" type="Texture" id=28]
-[ext_resource path="res://sprites/objects/spray/spray_animation0018.png" type="Texture" id=29]
-[ext_resource path="res://sprites/objects/spray/spray_animation0019.png" type="Texture" id=30]
-[ext_resource path="res://sprites/objects/spray/spray_animation0020.png" type="Texture" id=31]
-[ext_resource path="res://sprites/objects/spray/spray_animation0021.png" type="Texture" id=32]
-[ext_resource path="res://sprites/objects/spray/spray_animation0022.png" type="Texture" id=33]
-[ext_resource path="res://sprites/objects/spray/spray_animation0023.png" type="Texture" id=34]
-[ext_resource path="res://sprites/objects/spray/spray_animation0024.png" type="Texture" id=35]
-[ext_resource path="res://sprites/objects/spray/spray_animation0025.png" type="Texture" id=36]
-[ext_resource path="res://sprites/objects/spray/spray_animation0026.png" type="Texture" id=37]
-[ext_resource path="res://sprites/objects/spray/spray_animation0027.png" type="Texture" id=38]
-[ext_resource path="res://sprites/objects/spray/spray_animation0028.png" type="Texture" id=39]
-[ext_resource path="res://sprites/objects/spray/spray_animation0029.png" type="Texture" id=40]
-[ext_resource path="res://sprites/objects/spray/spray_animation0030.png" type="Texture" id=41]
-[ext_resource path="res://sprites/objects/spray/spray_animation0031.png" type="Texture" id=42]
-[ext_resource path="res://sprites/objects/spray/spray_animation0032.png" type="Texture" id=43]
-[ext_resource path="res://sprites/objects/spray/spray_animation0033.png" type="Texture" id=44]
-[ext_resource path="res://sprites/objects/spray/spray_animation0034.png" type="Texture" id=45]
-[ext_resource path="res://sprites/objects/spray/spray_animation0035.png" type="Texture" id=46]
-[ext_resource path="res://sprites/objects/spray/spray_animation0036.png" type="Texture" id=47]
-[ext_resource path="res://sprites/objects/spray/spray_animation0037.png" type="Texture" id=48]
-[ext_resource path="res://sprites/objects/spray/spray_animation0038.png" type="Texture" id=49]
-[ext_resource path="res://sprites/objects/spray/spray_animation0039.png" type="Texture" id=50]
-[ext_resource path="res://sprites/objects/spray/spray_animation0040.png" type="Texture" id=51]
-[ext_resource path="res://sprites/objects/spray/spray_animation0041.png" type="Texture" id=52]
-[ext_resource path="res://sprites/objects/spray/spray_animation0042.png" type="Texture" id=53]
-[ext_resource path="res://sprites/objects/spray/spray_animation0043.png" type="Texture" id=54]
-[ext_resource path="res://sprites/objects/spray/spray_animation0044.png" type="Texture" id=55]
-[ext_resource path="res://sprites/objects/spray/spray_animation0045.png" type="Texture" id=56]
-[ext_resource path="res://sprites/objects/spray/spray_animation0046.png" type="Texture" id=57]
-[ext_resource path="res://sprites/objects/spray/spray_animation0047.png" type="Texture" id=58]
-[ext_resource path="res://sprites/objects/lives/lives0001.png" type="Texture" id=59]
-[ext_resource path="res://sprites/objects/lives/lives0002.png" type="Texture" id=60]
-[ext_resource path="res://sprites/objects/lives/lives0003.png" type="Texture" id=61]
-[ext_resource path="res://sprites/objects/lives/lives0004.png" type="Texture" id=62]
-[ext_resource path="res://sprites/objects/lives/lives0005.png" type="Texture" id=63]
-[ext_resource path="res://sprites/objects/lives/lives0006.png" type="Texture" id=64]
-[ext_resource path="res://sprites/objects/lives/lives0007.png" type="Texture" id=65]
-[ext_resource path="res://sprites/objects/lives/lives0008.png" type="Texture" id=66]
-[ext_resource path="res://sprites/objects/lives/lives0009.png" type="Texture" id=67]
-[ext_resource path="res://sprites/objects/lives/lives0010.png" type="Texture" id=68]
-[ext_resource path="res://sprites/objects/lives/lives0011.png" type="Texture" id=69]
-[ext_resource path="res://sprites/objects/lives/lives0012.png" type="Texture" id=70]
-[ext_resource path="res://sprites/objects/lives/lives0013.png" type="Texture" id=71]
-[ext_resource path="res://sprites/objects/lives/lives0014.png" type="Texture" id=72]
-[ext_resource path="res://sprites/objects/lives/lives0015.png" type="Texture" id=73]
-[ext_resource path="res://sprites/objects/lives/lives0016.png" type="Texture" id=74]
-[ext_resource path="res://sprites/objects/lives/lives0017.png" type="Texture" id=75]
-[ext_resource path="res://sprites/objects/lives/lives0018.png" type="Texture" id=76]
-[ext_resource path="res://sprites/objects/lives/lives0019.png" type="Texture" id=77]
-[ext_resource path="res://sprites/objects/lives/lives0020.png" type="Texture" id=78]
-[ext_resource path="res://sprites/objects/lives/lives0021.png" type="Texture" id=79]
-[ext_resource path="res://sprites/objects/lives/lives0022.png" type="Texture" id=80]
-[ext_resource path="res://sprites/objects/lives/lives0023.png" type="Texture" id=81]
-[ext_resource path="res://sprites/objects/lives/lives0024.png" type="Texture" id=82]
-[ext_resource path="res://sprites/objects/lives/lives0025.png" type="Texture" id=83]
-[ext_resource path="res://sprites/objects/lives/lives0026.png" type="Texture" id=84]
-[ext_resource path="res://sprites/objects/lives/lives0027.png" type="Texture" id=85]
 
 [sub_resource type="TileSet" id=1]
 0/name = "ladder.png 0"
@@ -181,22 +107,6 @@ points = PoolVector2Array( 0, 0, 59, 0, 59, 36, 0, 36 )
 4/shapes = [  ]
 4/z_index = 0
 
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
-"loop": true,
-"name": "default",
-"speed": 25.0
-} ]
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ) ],
-"loop": true,
-"name": "default",
-"speed": 20.0
-} ]
-
 [node name="Level0" type="Node2D"]
 script = ExtResource( 1 )
 spawn_interval = 1.5
@@ -215,7 +125,7 @@ __meta__ = {
 tile_set = SubResource( 2 )
 cell_size = Vector2( 59, 36 )
 format = 1
-tile_data = PoolIntArray( 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 786428, 0, 0, 786429, 0, 0, 786430, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 1048572, 0, 0, 1048573, 0, 0, 1048574, 0, 0, 1048575, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 1310716, 0, 0, 1310717, 0, 0, 1310718, 0, 0, 1310719, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 1, 0, 1245188, 1, 0, 1245189, 1, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 1, 0, 1245193, 1, 0, 1245194, 1, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0 )
+tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 1, 0, 1245188, 1, 0, 1245189, 1, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 1, 0, 1245193, 1, 0, 1245194, 1, 0, 1245195, 0, 0, 1245196, 0, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0, 1245202, 0, 0, 1245203, 0, 0, 1245204, 0, 0, 1245205, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -249,16 +159,4 @@ offset = Vector2( 512, 300 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 708.792, 236.881 )
-frames = SubResource( 5 )
-frame = 29
-playing = true
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 897.337, 522.232 )
-scale = Vector2( 0.94657, 0.94657 )
-frames = SubResource( 6 )
-playing = true
 

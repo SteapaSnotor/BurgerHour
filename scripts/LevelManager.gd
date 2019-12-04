@@ -10,18 +10,26 @@ signal finished
 signal player_died
 signal player_sprayed
 signal new_points
+signal new_lives
+signal new_sprays
 
 var player
 var spawning = {} #data of the last enemy to start to spawn on the level
 var food_count = 0
 var new_points = 0
+var new_lives = 0
+var new_sprays=0
 var new_points_position = Vector2(0,0)
+var new_lives_position = Vector2(0,0)
+var new_sprays_position = Vector2(0,0)
 var sprays = 3 #decrease on check_player_state()
 
 #tiles
 onready var level_signals = $LevelSignals
+onready var tree = get_tree()
 
 export var spawn_interval = 2.0
+export var powerup_click_interval = 3.0
 
 #initialize the level
 func _ready():
@@ -32,6 +40,7 @@ func _ready():
 	spawn_base()
 	spawn_enemies()
 	spawn_final_bases()
+	spawn_powerups()
 	randomize()#THIS SHOULD BE CALLED ON THE MAIN NODE. REMOVE IT FROM HERE LATER.
 	
 #spawn the player on this level
@@ -171,6 +180,28 @@ func spawn_final_bases():
 		detection.global_position.x += 29
 		detection.global_position.y += 16
  
+#try to spawn a power-up on the level from time to time.
+func spawn_powerups(_timer = null):
+	if _timer == null:
+		#initialize the power-up timer
+		var timer = Timer.new()
+		timer.name = 'PowerUpTimer'
+		timer.connect("timeout",self,"spawn_powerups",[timer])
+		add_child(timer)
+		timer.wait_time = powerup_click_interval
+		timer.start()
+	else:
+		if get_powerup_count() >=2: return 
+		
+		var r = rand_range(0,100)
+		
+		if r > 65: #45%
+			var power_up = preload('res://scenes/PowerUps.tscn').instance()
+			var random_tile = get_floor_tiles()
+			random_tile.shuffle()
+			add_child(power_up)
+			power_up.init($LevelMap.map_to_world(random_tile[0]),self)
+		
 #return the place where the player must spawn on this level
 func get_spawn_position():
 	var pos = level_signals.map_to_world(level_signals.get_used_cells_by_id(1)[0])
@@ -181,6 +212,13 @@ func get_spawn_position():
 
 func get_ladder_tiles():
 	return $Ladders.get_used_cells()
+
+func get_floor_tiles():
+	return $LevelMap.get_used_cells()
+
+#returns the amount of powerups currently on the level
+func get_powerup_count():
+	return tree.get_nodes_in_group("PowerUp").size()
 
 #check if the level has been finished
 func check_level_progress():
@@ -205,9 +243,15 @@ func add_points(value,at=Vector2(0,0)):
 	else: new_points_position = at.global_position #position as object
 	emit_signal("new_points")
 
+func add_lives(value,at=Vector2(0,0)):
+	new_lives = value
+	new_lives_position = at
+	emit_signal("new_lives")
 
-
-
+func add_sprays(value,at=Vector2(0,0)):
+	new_sprays = value
+	new_sprays_position = at
+	emit_signal("new_sprays")
 
 
 

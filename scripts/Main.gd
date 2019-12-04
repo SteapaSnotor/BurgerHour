@@ -33,7 +33,9 @@ func init_world():
 	_world.load_level(selected_level)
 	_world.current_level.connect('finished',self,'on_level_finished')
 	_world.current_level.connect('player_died',self,'on_player_lose')
-	_world.current_level.connect('player_sprayed',self,'on_new_spray_count')
+	_world.current_level.connect('player_sprayed',self,'on_new_spray_count',[false])
+	_world.current_level.connect('new_sprays',self,'on_new_spray_count',[true])
+	_world.current_level.connect('new_lives',self,'on_lives_powerup')
 	
 func init_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -51,7 +53,13 @@ _world.lives,get_total_score())
 func update_world():
 	_world.current_level.connect('finished',self,'on_level_finished')
 	_world.current_level.connect('player_died',self,'on_player_lose')
-	_world.current_level.connect('player_sprayed',self,'on_new_spray_count')
+	_world.current_level.connect('player_sprayed',self,'on_new_spray_count',[false])
+	_world.current_level.connect('new_sprays',self,'on_new_spray_count',[true])
+	_world.current_level.connect('new_lives',self,'on_lives_powerup')
+
+func clear_score():
+	for id in score:
+		score[id] = 0
 
 #returns the sum of all scores in all levels
 func get_total_score():
@@ -75,16 +83,42 @@ func on_new_score():
 	_gui.set_total_score(get_total_score()+_world.level_new_score)
 	_gui.flying_label(_world.current_level.new_points_position,str(_world.level_new_score - _world.level_old_score))
 	
-	
-func on_new_spray_count():
+func on_new_spray_count(powerup=false):
+	if not powerup: _world.sprays -= 1
+	else:
+		if _world.sprays >= _world.max_sprays:
+			_world.current_level.add_points(100,_world.current_level.new_sprays_position)
+			return
+		elif (_world.sprays + _world.current_level.new_sprays) > _world.max_sprays:
+			_world.sprays = _world.max_sprays
+		else:
+			_world.sprays+= _world.current_level.new_sprays
+		
+	_world.current_level.sprays = _world.sprays
 	_gui.set_player_sprays(_world.current_level.sprays)
 
+#when the player got a live powerup
+func on_lives_powerup():
+	if _world.lives >= _world.max_lives:
+		#can't add new lives, try to add new score points instead
+		_world.current_level.add_points(100,_world.current_level.new_lives_position)
+		return
+	elif (_world.lives + _world.current_level.new_lives) > _world.max_lives:
+		#got more than he can chew, fill the maximum amount of lives and add points
+		_world.lives = _world.max_lives
+		_world.current_level.add_points(50,_world.current_level.new_lives_position)
+	else:
+		_world.lives += _world.current_level.new_lives
+		
+	update_gui()
+	
 func on_player_lose():
 	_world.lives -= 1
 	if _world.lives >= 0:
 		_gui.show_screen('LostLevel')
 	else:
 		_gui.show_screen('GameOver')
+		clear_score()
 
 func on_next_level():
 	selected_level += 1
@@ -100,6 +134,7 @@ func on_next_level():
 func on_restart_game():
 	selected_level = 0
 	_world.lives = 3
+	_world.sprays = 3
 	_world.exit_level()
 	if not _world.load_level(selected_level):
 		print('Couldnt restart the game')

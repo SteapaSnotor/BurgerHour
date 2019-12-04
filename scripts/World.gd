@@ -14,8 +14,13 @@ var current_level = null
 var current_level_id = -1
 var new_enemy_data = {}
 var lives = 3
+var sprays = 3
 var level_new_score = 0
 var level_old_score = 0
+
+#world rules
+const max_lives = 3
+const max_sprays = 3
 
 #path for each level scene
 var levels = {
@@ -39,6 +44,10 @@ func load_level(id):
 	#level signals
 	_scene.connect('spawning',self,'on_enemy_spawn')
 	_scene.connect('new_points',self,'on_new_score')
+	
+	#scene properties
+	_scene.sprays = sprays
+	if sprays == 0: _scene.player.has_sprays = false
 	
 	return true
 
