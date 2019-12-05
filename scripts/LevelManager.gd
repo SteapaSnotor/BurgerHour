@@ -24,6 +24,9 @@ var new_lives_position = Vector2(0,0)
 var new_sprays_position = Vector2(0,0)
 var sprays = 3 #decrease on check_player_state()
 
+#enemies ID's according to each tile
+var enemies_data = {4:0,5:1}
+
 #tiles
 onready var level_signals = $LevelSignals
 onready var tree = get_tree()
@@ -59,7 +62,8 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		var spawns = 0
 		var spawn_time = spawn_interval
 		var signal_dict  = {'spawns':[],'time':[],'tile':[]}
-		for tile in $LevelSignals.get_used_cells_by_id(4):
+		var tiles = $LevelSignals.get_used_cells_by_id(4) + $LevelSignals.get_used_cells_by_id(5)
+		for tile in tiles:
 			#TODO: id
 			signal_dict['spawns'] = spawns
 			signal_dict['time'].append(spawn_time)
@@ -85,6 +89,7 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		enemy.ladder_tiles = $Ladders
 		enemy.floor_tiles = $LevelMap
 		enemy.global_position = $LevelSignals.map_to_world(_signal['tile'][_signal['spawns']])
+		enemy.id = enemies_data[$LevelSignals.get_cellv(_signal['tile'][_signal['spawns']])]
 		add_child(enemy)
 		#apply custom offset for enemies
 		enemy.global_position.x+= 28
@@ -251,6 +256,7 @@ func add_lives(value,at=Vector2(0,0)):
 func add_sprays(value,at=Vector2(0,0)):
 	new_sprays = value
 	new_sprays_position = at
+	player.has_sprays = true
 	emit_signal("new_sprays")
 
 
