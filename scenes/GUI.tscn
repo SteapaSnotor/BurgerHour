@@ -6,7 +6,7 @@
 [ext_resource path="res://_blender/head.png" type="Texture" id=4]
 [ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=5]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=1]
 size = 45
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -14,8 +14,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "SlotAnim"
+[sub_resource type="Animation" id=2]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -91,8 +90,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 0.99, 0.99 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "LivesSlots"
+[sub_resource type="Animation" id=3]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -168,7 +166,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.678782, 0.678782 ), Vector2( 0.729, 0.729 ), Vector2( 0.679, 0.679 ), Vector2( 0.669, 0.669 ), Vector2( 0.678782, 0.678782 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -220,11 +218,11 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.999, 1 ), Vector2( 0.998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -276,11 +274,11 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.999, 1 ), Vector2( 0.998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -308,11 +306,11 @@ tracks/1/keys = {
 "values": [ 0.5, 0.7, 0.1, -0.8, 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_position")
 tracks/0/interp = 1
@@ -352,7 +350,7 @@ margin_left = 5.22662
 margin_top = -7.52998
 margin_right = 117.227
 margin_bottom = 50.47
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 1 )
 text = "00000000"
 
 [node name="LIVES" type="Label" parent="LevelInfo"]
@@ -371,7 +369,7 @@ margin_bottom = 40.0
 
 [node name="SlotsAnim" type="AnimationPlayer" parent="LevelInfo/Sprays"]
 autoplay = "SlotAnim"
-anims/SlotAnim = SubResource( 1 )
+anims/SlotAnim = SubResource( 2 )
 
 [node name="Slot1" type="Sprite" parent="LevelInfo/Sprays"]
 position = Vector2( 991.085, 123.32 )
@@ -392,7 +390,7 @@ margin_bottom = 40.0
 
 [node name="SlotsAnim" type="AnimationPlayer" parent="LevelInfo/Lives"]
 autoplay = "LivesSlots"
-anims/LivesSlots = SubResource( 2 )
+anims/LivesSlots = SubResource( 3 )
 
 [node name="Slot1" type="Sprite" parent="LevelInfo/Lives"]
 position = Vector2( 994.148, 54.536 )
@@ -410,7 +408,6 @@ scale = Vector2( 0.678782, 0.678782 )
 texture = ExtResource( 4 )
 
 [node name="Screens" type="Control" parent="."]
-editor/display_folded = true
 margin_top = -80.0
 margin_right = 40.0
 margin_bottom = -40.0
@@ -461,8 +458,8 @@ text = "NEXT LEVEL"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/WonLevel"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 3 )
-"anims/New Anim" = SubResource( 4 )
+anims/LabelAnim = SubResource( 4 )
+"anims/New Anim" = SubResource( 5 )
 
 [node name="LostLevel" type="Control" parent="Screens"]
 editor/display_folded = true
@@ -510,8 +507,8 @@ text = "QUIT"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/LostLevel"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 5 )
-"anims/New Anim" = SubResource( 6 )
+anims/LabelAnim = SubResource( 6 )
+"anims/New Anim" = SubResource( 7 )
 
 [node name="GameOver" type="Control" parent="Screens"]
 editor/display_folded = true
@@ -557,8 +554,8 @@ text = "QUIT"
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/GameOver"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 7 )
-"anims/New Anim" = SubResource( 8 )
+anims/LabelAnim = SubResource( 8 )
+"anims/New Anim" = SubResource( 9 )
 
 [node name="FlyingLabel" type="Control" parent="."]
 editor/display_folded = true
@@ -567,7 +564,7 @@ margin_bottom = 40.0
 
 [node name="LabelAnims" type="AnimationPlayer" parent="FlyingLabel"]
 root_node = NodePath("")
-anims/Vertical = SubResource( 9 )
+anims/Vertical = SubResource( 10 )
 
 [node name="Control" type="Control" parent="FlyingLabel/LabelAnims"]
 visible = false

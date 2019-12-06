@@ -11,6 +11,7 @@ var base = null
 var enemy = null
 var dir = Vector2(0,0)
 var idle = false
+var wall_buffer = false
 
 #constructor
 func initialize(base,enemy):
@@ -38,7 +39,7 @@ func physics_update(delta):
 func new_direction():
 	dir.x*= -1
 	if not base.last_state.name == 'idle': idle = true
-	
+
 func input_update(event):
 	pass
 
