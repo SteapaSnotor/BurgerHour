@@ -172,10 +172,9 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "0:Searching"
-frame = 6
+animation = "1:Searching"
+frame = 16
 playing = true
-flip_h = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -215,6 +214,12 @@ one_way_collision_margin = 0.0
 [node name="BrocSearching" type="CollisionPolygon2D" parent="HitDetection"]
 visible = false
 polygon = PoolVector2Array( -10.8741, 21.3527, -14.3789, 2.82713, -12.8769, -14.1964, -15.6307, -27.9654, -7.61961, -40.9834, 6.65011, -45.74, 9.9046, -24.4606, 11.6787, 13.6014, 12.4081, 21.8534, 4.89768, 22.3541 )
+disabled = true
+one_way_collision_margin = 0.0
+
+[node name="BrocClimbing" type="CollisionPolygon2D" parent="HitDetection"]
+visible = false
+polygon = PoolVector2Array( -10.1691, 28.8106, -0.00193787, 35.1368, 16.4915, 32.8775, 15.1359, 16.384, 16.2655, 1.6981, 18.7509, -15.925, 19.6546, -37.8409, -3.16507, -43.0375, -20.5622, -27.2219, -25.081, -17.7325, -21.0141, -10.2766, -12.4285, -3.95031, -9.94319, 8.02437 )
 disabled = true
 one_way_collision_margin = 0.0
 
@@ -261,7 +266,6 @@ __meta__ = {
 }
 
 [node name="FSM" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 74 )
 
 [node name="Spawning" type="Node" parent="FSM"]

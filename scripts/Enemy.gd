@@ -12,7 +12,7 @@ signal sprayed
 onready var colliders = {$FSM/Spawning: [$HitDetection/BananaSearching,$HitDetection/BrocSearching],
 $FSM/Idle: [$HitDetection/BananaSearching,$HitDetection/BrocSearching],
 $FSM/Searching: [$HitDetection/BananaSearching,$HitDetection/BrocSearching],
-$FSM/Climbing: [$HitDetection/BananaClimbing,$HitDetection/BrocSearching],
+$FSM/Climbing: [$HitDetection/BananaClimbing,$HitDetection/BrocClimbing],
 $FSM/Falling: [$HitDetection/BananaSearching,$HitDetection/BrocSearching],
 $FSM/Attacking: [$HitDetection/BananaSearching,$HitDetection/BrocSearching]}
 
@@ -22,10 +22,11 @@ onready var FSM = $FSM
 onready var anim_node = $AnimatedSprite
 
 #stats
-var speed = 70 #70
+var speed = [70,120] #70
 var facing_dir = Vector2(0,0)
 
-var id = 1 #will define things like animations and stats
+var id = 1 #will define things like animations and stats etc
+var locomotion = ["WALK","JUMP"]
 var on_ladder = false
 var on_edge = false
 var on_food = false
@@ -39,6 +40,7 @@ var finished = false setget set_level_finished #when the player wins
 #var initial_spawn = Vector2(0,0)
 
 const base_z_index = 5
+const climbing_speed = 70
 
 #initialize
 func _ready():
@@ -55,7 +57,30 @@ func _process(delta):
 	#debug only
 	$_CurrentState.text = FSM.get_current_state().name
 
-func move(dir,spd = speed):
+func move(dir,spd = speed[id]):
+	var _spd = spd
+	if FSM.get_current_state().name == 'Climbing': _spd = climbing_speed
+	match locomotion[id]:
+		"WALK":
+			walk(dir,_spd)
+		"JUMP":
+			jump(dir,_spd)
+		
+func jump(dir,spd = speed[id]):
+	#the frames between there will be movement
+	var interval_anim = {1:[8,16]}
+	var frame = anim_node.get_frame()
+	
+	if FSM.get_current_state().name == 'Climbing': 
+		walk(dir,spd)
+		return
+	
+	if frame >= interval_anim[id][0] and frame < interval_anim[id].back():
+		move_and_slide(dir*spd)
+		facing_dir = dir
+	
+
+func walk(dir,spd = speed[id]):
 	move_and_slide(dir*spd)
 	facing_dir = dir
 
