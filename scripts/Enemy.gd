@@ -20,6 +20,7 @@ var current_collider = null
 
 onready var FSM = $FSM
 onready var anim_node = $AnimatedSprite
+onready var shadows = $AnimatedSprite/Shadows
 
 #stats
 var speed = [70,120] #70
@@ -50,13 +51,13 @@ func _ready():
 	update_colliders()
 	FSM.connect('changed_state',self,'update_colliders')
 	
-	#initial_spawn = global_position
 
 func _process(delta):
 	update_animations()
+	update_shadows()
 	#debug only
 	$_CurrentState.text = FSM.get_current_state().name
-
+	
 func move(dir,spd = speed[id]):
 	var _spd = spd
 	if FSM.get_current_state().name == 'Climbing': _spd = climbing_speed
@@ -142,7 +143,22 @@ func update_animations():
 	$AnimatedSprite.set_flip_h(facing_dir.x == 1)
 	#$HitDetection.set_scale(Vector2(1 - (int(facing_dir.x == 1)+ int(facing_dir.x == 1)),1))
 	$AnimatedSprite.play(str(id)+':'+FSM.get_current_state().name)
+
+#casting shadow
+func update_shadows():
+	if FSM.get_current_state().name == 'Climbing':
+		shadows.hide()
+		return
 	
+	shadows.show()
+	shadows.set_flip_h(facing_dir.x == 1)
+	if shadows.get_sprite_frames().get_frame_count(str(id)) > 1:
+		shadows.set_frame(anim_node.get_frame())
+		shadows.play(str(id))
+	else:
+		shadows.play(str(id))
+	
+
 func update_colliders():
 	current_collider.call_deferred('set_disabled',true)
 	current_collider = colliders[FSM.get_current_state()][id]

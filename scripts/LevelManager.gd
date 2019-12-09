@@ -44,6 +44,7 @@ func _ready():
 	spawn_enemies()
 	spawn_final_bases()
 	spawn_powerups()
+	spawn_clouds()
 	randomize()#THIS SHOULD BE CALLED ON THE MAIN NODE. REMOVE IT FROM HERE LATER.
 	
 #spawn the player on this level
@@ -200,13 +201,24 @@ func spawn_powerups(_timer = null):
 		
 		var r = rand_range(0,100)
 		
-		if r > 65: #45%
+		if r > 75: #35%
 			var power_up = preload('res://scenes/PowerUps.tscn').instance()
 			var random_tile = get_floor_tiles()
 			random_tile.shuffle()
 			add_child(power_up)
 			power_up.init($LevelMap.map_to_world(random_tile[0]),self)
+
+func spawn_clouds():
+	$LevelMap.hide() 
+	var tiles = $LevelMap.get_used_cells_by_id(0) + $LevelMap.get_used_cells_by_id(1)
+	for tile in tiles:
+		#TODO: spawn final base tiles texture
+		var _c_text = preload('res://scenes/CloudTexture.tscn').instance()
+		add_child(_c_text)
+		_c_text.global_position = Vector2($LevelMap.map_to_world(tile).x+30,$LevelMap.map_to_world(tile).y+15)
+		_c_text.set_z_index(-1)
 		
+
 #return the place where the player must spawn on this level
 func get_spawn_position():
 	var pos = level_signals.map_to_world(level_signals.get_used_cells_by_id(1)[0])
