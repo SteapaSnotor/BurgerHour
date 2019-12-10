@@ -333,6 +333,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="LevelInfo" type="Control" parent="."]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -511,7 +512,6 @@ anims/LabelAnim = SubResource( 6 )
 "anims/New Anim" = SubResource( 7 )
 
 [node name="GameOver" type="Control" parent="Screens"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
