@@ -23,6 +23,7 @@ var new_points_position = Vector2(0,0)
 var new_lives_position = Vector2(0,0)
 var new_sprays_position = Vector2(0,0)
 var sprays = 3 #decrease on check_player_state()
+var finished = false
 
 #enemies ID's according to each tile
 var enemies_data = {4:0,5:1}
@@ -92,6 +93,7 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		enemy.global_position = $LevelSignals.map_to_world(_signal['tile'][_signal['spawns']])
 		enemy.id = enemies_data[$LevelSignals.get_cellv(_signal['tile'][_signal['spawns']])]
 		add_child(enemy)
+		enemy.finished = finished
 		#apply custom offset for enemies
 		enemy.global_position.x+= 28
 		enemy.global_position.y+= 8
@@ -240,7 +242,9 @@ func get_powerup_count():
 #check if the level has been finished
 func check_level_progress():
 	food_count -= 1
-	if food_count == 0: emit_signal("finished")
+	if food_count == 0: 
+		emit_signal("finished")
+		finished = true
 
 #detect some events through the player's states.
 func check_player_state():

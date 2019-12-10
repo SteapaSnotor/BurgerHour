@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/backgrounds/score_background.png" type="Texture" id=1]
+[ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=2]
+[ext_resource path="res://resources/fonts/AmaticSC-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 3 )
+
+[node name="Score" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -748 )
+scale = Vector2( 1.247, 1.247 )
+texture = ExtResource( 1 )
+offset = Vector2( 512, 300 )
+
+[node name="Total" type="Label" parent="."]
+margin_left = 14.3538
+margin_top = -233.549
+margin_right = 830.354
+margin_bottom = -106.549
+custom_fonts/font = ExtResource( 2 )
+text = "TOTAL.............................1550005"
+
+[node name="Total2" type="Label" parent="."]
+margin_left = 14.3538
+margin_top = -713.549
+margin_right = 1066.35
+margin_bottom = -586.549
+custom_fonts/font = ExtResource( 2 )
+text = "LIVES.......................................15505"
+
+[node name="Total3" type="Label" parent="."]
+margin_left = 14.3538
+margin_top = -583.549
+margin_right = 1066.35
+margin_bottom = -456.549
+custom_fonts/font = ExtResource( 2 )
+text = "SPRAYS.....................................15505"
+
+[node name="Total4" type="Label" parent="."]
+margin_left = 14.3538
+margin_top = -443.549
+margin_right = 1081.35
+margin_bottom = -316.549
+custom_fonts/font = ExtResource( 2 )
+text = "BONUS......................................15505"
+
+[node name="Total5" type="Label" parent="."]
+margin_left = -2.0
+margin_top = -83.0
+margin_right = 1027.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 1 )
+text = "PRESS ENTER TO CONTINUE"
+align = 1
+

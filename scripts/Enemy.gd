@@ -37,7 +37,7 @@ var floor_tiles = null
 var _current_collisions = []
 var is_seeing_player = false
 var player = null
-var finished = false setget set_level_finished #when the player wins 
+var finished = false setget set_level_finished #when the player wins/loses
 #var initial_spawn = Vector2(0,0)
 
 const base_z_index = 5
@@ -101,6 +101,7 @@ func on_hit_detection(body):
 		call_deferred('free')
 	elif body.name == 'PlayerHit':
 		body.get_parent().hit = true
+		set_level_finished(true)
 	else: pass#print(body.name)
 
 func on_food_detection(area):

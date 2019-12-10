@@ -42,6 +42,8 @@ func input_update(event):
 	spray_input = player.get_spray_keys().has(true)
 
 func transitions_update():
+	if player.level_finished: return
+	
 	#IDLE TO WALKING#
 	if walk_input and not spray_input:
 		base.current_state = null

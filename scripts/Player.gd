@@ -46,6 +46,7 @@ var on_edge = false
 var floor_tiles = []
 var ladder_tiles = []
 var has_sprays = true
+var level_finished = false setget set_level_finished
 
 const base_z_index = 5
 
@@ -84,6 +85,12 @@ func set_hit(value):
 	
 	if hit and FSM.get_current_state().name != 'Dead':
 		FSM.force_state('Dead')
+
+#when the player wins the level
+func set_level_finished(value):
+	level_finished = value
+	
+	if level_finished: FSM.force_state('Idle')
 
 func update_animations():
 	var state = FSM.get_current_state().name

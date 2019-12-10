@@ -60,6 +60,14 @@ func show_graphics(texture,position,duration=-1,flip=false):
 	graphics_timer.connect('timeout',self,'hide_graphics',[spr,graphics_timer])
 	graphics_timer.start()
 
+#deactivate ALL gui/ui elements
+func hide_ui(exception=null):
+	for element in get_children():
+		if exception == element.name:continue
+		if not element.has_method('hide'): continue
+		element.hide()
+		
+
 #the score only on this level, is reseted by the world everytime the game
 #restarts
 func set_level_score(value):
@@ -116,7 +124,9 @@ func show_screen(scr):
 	for element in screen.get_children():
 		if element is Button or element is TextureButton: #screen buttons
 			element.connect('pressed',self,'on_btn_pressed',[element])
-		#TODO: screen animations
+		#screen animations
+		if element is AnimationPlayer:
+			if not element.is_playing(): element.play(scr)
 	
 func hide_screen(scr):
 	var screen = $Screens.get_node(scr)

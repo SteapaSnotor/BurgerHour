@@ -73,9 +73,12 @@ func on_new_enemy():
 	_gui.spawning_arrow(_world.new_enemy_data['at'],_world.new_enemy_data['time'])
 
 func on_level_finished():
-	#TODO: player animation
-	#TODO: scene showing the player score for this level and his total score
+	_world.current_level.player.level_finished = true
+	#init score screen
+	var screen = preload('res://scenes/ScoreScreen.tscn').instance()
+	_world.add_child(screen)
 	_gui.show_screen('WonLevel')
+	_gui.hide_ui('Screens')
 	score[selected_level] = _world.level_new_score
 
 func on_new_score():
