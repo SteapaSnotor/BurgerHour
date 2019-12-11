@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/play_btn_test.png" type="Texture" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://sprites/ui/button_selection/selection.png0023.png" type="Texture" id=33]
 [ext_resource path="res://sprites/ui/button_selection/selection.png0024.png" type="Texture" id=34]
 [ext_resource path="res://sprites/backgrounds/score_background.png" type="Texture" id=35]
+[ext_resource path="res://sprites/backgrounds/peter_running.png" type="Texture" id=36]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -104,12 +105,13 @@ text = "VERSION X.X.X"
 [node name="BurgerSelection" type="AnimatedSprite" parent="."]
 position = Vector2( 320.411, 205.692 )
 frames = SubResource( 1 )
+frame = 9
 playing = true
 
 [node name="BurgerSelection2" type="AnimatedSprite" parent="."]
 position = Vector2( 712.411, 205.692 )
 frames = SubResource( 1 )
-frame = 23
+frame = 8
 playing = true
 flip_h = true
 
@@ -118,4 +120,9 @@ scale = Vector2( 1.247, 1.247 )
 z_index = -1
 texture = ExtResource( 35 )
 offset = Vector2( 512, 300 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 114.887, 478.462 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 36 )
 

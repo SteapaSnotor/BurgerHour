@@ -33,7 +33,7 @@ onready var level_signals = $LevelSignals
 onready var tree = get_tree()
 
 export var spawn_interval = 2.0
-export var powerup_click_interval = 3.0
+export var powerup_click_interval = 4.0
 
 #initialize the level
 func _ready():
@@ -200,10 +200,11 @@ func spawn_powerups(_timer = null):
 		timer.start()
 	else:
 		if get_powerup_count() >=2: return 
+		if finished: return
 		
 		var r = rand_range(0,100)
 		
-		if r > 75: #35%
+		if r > 80: #20%
 			var power_up = preload('res://scenes/PowerUps.tscn').instance()
 			var random_tile = get_floor_tiles()
 			random_tile.shuffle()

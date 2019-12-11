@@ -17,6 +17,10 @@ var lives = 3
 var sprays = 3
 var level_new_score = 0
 var level_old_score = 0
+var bonus_points = 0
+var spray_points = 0
+var live_points = 0
+
 
 #world rules
 const max_lives = 3
@@ -39,6 +43,9 @@ func load_level(id):
 	current_level = _scene
 	level_new_score = 0
 	level_old_score = 0
+	bonus_points = 0
+	spray_points = 0
+	live_points = 0
 	add_child(_scene,true)
 	
 	#level signals

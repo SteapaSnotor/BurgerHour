@@ -77,20 +77,44 @@ func on_level_finished():
 	#init score screen
 	var screen = preload('res://scenes/ScoreScreen.tscn').instance()
 	_world.add_child(screen)
+	screen.init(_world.level_new_score, get_total_score(),
+	_world.live_points, _world.bonus_points- (_world.live_points+_world.spray_points),
+	_world.spray_points)
+	screen.connect('player_continue',self,'on_score_screen_animation')
+	
 	_gui.show_screen('WonLevel')
 	_gui.hide_ui('Screens')
 	score[selected_level] = _world.level_new_score
+	
+	"""
+	print('bonus ' + str(_world.bonus_points- (_world.live_points+_world.spray_points)))
+	print('lives ' + str(_world.live_points))
+	print('sprays ' + str(_world.spray_points))
+	print('total: ' + str(_world.level_new_score))
+	"""
+
+#when the player pressed enter on the score animation and is ready to 
+#to continue.
+func on_score_screen_animation():
+	_gui.show_ui()
+	var anim = _gui.get_node('Screens/WonLevel/ScreenAnim')
+	var camera = _gui.get_node('Screens/WonLevel/CamEffect')
+	camera.global_position.y = 434
+	anim.stop(true)
+	on_next_level()
 
 func on_new_score():
 	_gui.set_level_score(_world.level_new_score)
 	_gui.set_total_score(get_total_score()+_world.level_new_score)
 	_gui.flying_label(_world.current_level.new_points_position,str(_world.level_new_score - _world.level_old_score))
+	_world.bonus_points += _world.level_new_score - _world.level_old_score 
 	
 func on_new_spray_count(powerup=false):
 	if not powerup: _world.sprays -= 1
 	else:
 		if _world.sprays >= _world.max_sprays:
 			_world.current_level.add_points(100,_world.current_level.new_sprays_position)
+			_world.spray_points += 100
 			return
 		elif (_world.sprays + _world.current_level.new_sprays) > _world.max_sprays:
 			_world.sprays = _world.max_sprays
@@ -105,11 +129,13 @@ func on_lives_powerup():
 	if _world.lives >= _world.max_lives:
 		#can't add new lives, try to add new score points instead
 		_world.current_level.add_points(100,_world.current_level.new_lives_position)
+		_world.live_points += 100
 		return
 	elif (_world.lives + _world.current_level.new_lives) > _world.max_lives:
 		#got more than he can chew, fill the maximum amount of lives and add points
 		_world.lives = _world.max_lives
 		_world.current_level.add_points(50,_world.current_level.new_lives_position)
+		_world.live_points += 50
 	else:
 		_world.lives += _world.current_level.new_lives
 		

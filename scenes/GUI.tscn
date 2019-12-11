@@ -301,6 +301,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 0.2
@@ -529,22 +541,6 @@ custom_fonts/font = ExtResource( 5 )
 text = "You win!"
 align = 1
 
-[node name="Restart" type="Button" parent="Screens/WonLevel"]
-visible = false
-margin_left = 350.0
-margin_top = 310.0
-margin_right = 502.0
-margin_bottom = 373.0
-text = "PLAY AGAIN!"
-
-[node name="Next" type="Button" parent="Screens/WonLevel"]
-visible = false
-margin_left = 520.0
-margin_top = 310.0
-margin_right = 672.0
-margin_bottom = 373.0
-text = "NEXT LEVEL"
-
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/WonLevel"]
 autoplay = "LabelAnim"
 anims/LabelAnim = SubResource( 4 )
@@ -613,13 +609,13 @@ texture_hover = ExtResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Screens/LostLevel"]
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 9 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/LostLevel"]
 position = Vector2( 646.898, 360.417 )
 frames = SubResource( 9 )
-frame = 4
+frame = 5
 playing = true
 flip_h = true
 

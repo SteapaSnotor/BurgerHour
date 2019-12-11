@@ -66,7 +66,13 @@ func hide_ui(exception=null):
 		if exception == element.name:continue
 		if not element.has_method('hide'): continue
 		element.hide()
-		
+
+#reactivate ALL deactivated gui/ui elements
+func show_ui(exception=null):
+	for element in get_children():
+		if exception == element.name:continue
+		if not element.has_method('hide'): continue
+		element.show()
 
 #the score only on this level, is reseted by the world everytime the game
 #restarts
