@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/play_btn_test.png" type="Texture" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://sprites/ui/button_selection/selection.png0024.png" type="Texture" id=34]
 [ext_resource path="res://sprites/backgrounds/score_background.png" type="Texture" id=35]
 [ext_resource path="res://sprites/backgrounds/peter_running.png" type="Texture" id=36]
+[ext_resource path="res://sprites/backgrounds/bananaman.png" type="Texture" id=37]
+[ext_resource path="res://sprites/backgrounds/brocc.png" type="Texture" id=38]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -46,6 +48,7 @@ animations = [ {
 } ]
 
 [node name="Menu" type="Node2D"]
+z_index = 1
 script = ExtResource( 1 )
 
 [node name="PlayBtn" type="TextureButton" parent="."]
@@ -55,36 +58,44 @@ margin_right = 690.015
 margin_bottom = 283.584
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 188.083, 86.0622 )
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 3 )
 
 [node name="OptionsBtn" type="TextureButton" parent="."]
 margin_left = 340.015
-margin_top = 254.584
+margin_top = 257.584
 margin_right = 690.015
-margin_bottom = 423.584
+margin_bottom = 426.584
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 188.083, 86.0622 )
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
 
 [node name="HOFBtn" type="TextureButton" parent="."]
 margin_left = 340.015
-margin_top = 395.584
+margin_top = 401.584
 margin_right = 690.015
-margin_bottom = 564.584
+margin_bottom = 570.584
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 188.083, 86.0622 )
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
 
 [node name="AboutBtn" type="TextureButton" parent="."]
 margin_left = 340.015
-margin_top = 544.584
+margin_top = 545.584
 margin_right = 690.015
-margin_bottom = 713.584
+margin_bottom = 714.584
 rect_scale = Vector2( 0.8, 0.8 )
 rect_pivot_offset = Vector2( 188.083, 86.0622 )
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 8 )
 texture_hover = ExtResource( 9 )
 
@@ -103,15 +114,16 @@ margin_bottom = 717.236
 text = "VERSION X.X.X"
 
 [node name="BurgerSelection" type="AnimatedSprite" parent="."]
+editor/display_folded = true
 position = Vector2( 320.411, 205.692 )
 frames = SubResource( 1 )
-frame = 9
+frame = 12
 playing = true
 
-[node name="BurgerSelection2" type="AnimatedSprite" parent="."]
-position = Vector2( 712.411, 205.692 )
+[node name="BurgerSelection2" type="AnimatedSprite" parent="BurgerSelection"]
+position = Vector2( 392, 0 )
 frames = SubResource( 1 )
-frame = 8
+frame = 11
 playing = true
 flip_h = true
 
@@ -125,4 +137,16 @@ offset = Vector2( 512, 300 )
 position = Vector2( 114.887, 478.462 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 36 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 234.067, 474.761 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+texture = ExtResource( 37 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 178.557, 443.338 )
+scale = Vector2( 0.4, 0.4 )
+z_index = -1
+texture = ExtResource( 38 )
 

@@ -21,6 +21,7 @@ func init(score,sprays,lives,t_score):
 	set_player_sprays(sprays)
 	set_player_lives(lives)
 	set_total_score(t_score)
+	show_ui()
 
 #show a spawning arrow mark
 func spawning_arrow(at,duration):

@@ -17,10 +17,10 @@ var selected_level = 0
 func _ready():
 	_world = $World
 	_gui = $GUI
+	init_menu()
 	
-	#TODO: don't init the world at the start of the game
-	init_world()
-	init_gui()
+	#init_world()
+	#init_gui()
 	
 	#TODO: loads the main menu instead
 	randomize()
@@ -45,6 +45,11 @@ func init_gui():
 	_gui.connect('restart_btn',_world,'restart_level')
 	_gui.connect('next_btn',self,'on_next_level')
 	_gui.connect('restart_over_btn',self,'on_restart_game')
+
+func init_menu():
+	var _menu = preload('res://scenes/Menu.tscn').instance()
+	_menu.connect('play',self,'on_start_game')
+	add_child(_menu)
 
 func update_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -172,6 +177,11 @@ func on_restart_game():
 	update_world()
 	#TODO: clear score
 
+#when the player starts choice to start the game
+func on_start_game():
+	init_world()
+	init_gui()
+	get_node("Menu").queue_free()
 
 
 
