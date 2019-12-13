@@ -45,6 +45,7 @@ func init_gui():
 	_gui.connect('restart_btn',_world,'restart_level')
 	_gui.connect('next_btn',self,'on_next_level')
 	_gui.connect('restart_over_btn',self,'on_restart_game')
+	_gui.connect('pause_btn',self,'on_pause_game')
 
 func init_menu():
 	var _menu = preload('res://scenes/Menu.tscn').instance()
@@ -183,7 +184,16 @@ func on_start_game():
 	init_gui()
 	get_node("Menu").queue_free()
 
-
+#when the player hits the pause key/button
+func on_pause_game():
+	if _world.current_level.finished: return
+	
+	var options_scr = preload('res://scenes/OptionsMenu.tscn').instance()
+	_gui.hide_ui()
+	options_scr.connect("exited",_world,'resume_game')
+	options_scr.connect("exited",_gui,'show_ui')
+	add_child(options_scr)
+	_world.pause_game()
 
 
 

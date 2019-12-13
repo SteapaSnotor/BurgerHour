@@ -7,6 +7,7 @@ extends CanvasLayer
 signal restart_btn
 signal next_btn
 signal restart_over_btn
+signal pause_btn
 
 onready var timer = $GUITimer
 
@@ -32,6 +33,9 @@ func _input(event):
 	var down = int(Input.is_action_just_pressed("ui_down"))
 	var up = int(Input.is_action_just_pressed("ui_up"))
 	var ok = int(Input.is_action_just_pressed("spray"))
+	var cancel = int(Input.is_action_just_pressed("ui_cancel"))
+	
+	if cancel: emit_signal("pause_btn")
 	
 	if current_btns_list == []: return
 	

@@ -65,6 +65,12 @@ func restart_level():
 	load_level(_current_id)
 	emit_signal("level_reloaded")
 
+func pause_game():
+	get_tree().paused = true
+
+func resume_game():
+	get_tree().paused = false
+
 #when a new enemy is being spawn on the level scene
 func on_enemy_spawn():
 	new_enemy_data = current_level.spawning
