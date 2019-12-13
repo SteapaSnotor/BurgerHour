@@ -14,6 +14,10 @@ var level_score = 0 setget set_level_score
 var total_score = 0 setget set_total_score
 var player_sprays = 3 setget set_player_sprays
 var player_lives = 0 setget set_player_lives
+var current_btns_list = []
+var current_screen = null
+var selected_btn = 0
+var selected_btn_normal = null
 
 #constructor
 func init(score,sprays,lives,t_score):
@@ -22,6 +26,32 @@ func init(score,sprays,lives,t_score):
 	set_player_lives(lives)
 	set_total_score(t_score)
 	show_ui()
+
+#toggle between buttons on screens
+func _input(event):
+	var down = int(Input.is_action_just_pressed("ui_down"))
+	var up = int(Input.is_action_just_pressed("ui_up"))
+	var ok = int(Input.is_action_just_pressed("spray"))
+	
+	if current_btns_list == []: return
+	
+	var new_btn = selected_btn
+	
+	if down-up != 0:#button selection
+		new_btn += (down-up)
+		
+		if new_btn == current_btns_list.size():
+			new_btn = 0
+		elif new_btn < 0:
+			new_btn = current_btns_list.size()-1
+		
+		current_btns_list[selected_btn].texture_normal = selected_btn_normal
+		selected_btn = new_btn
+		selected_btn_normal = current_btns_list[selected_btn].texture_normal
+		current_btns_list[selected_btn].texture_normal = current_btns_list[selected_btn].texture_hover
+		current_screen.get_node("Selection").global_position.y = current_btns_list[selected_btn].rect_global_position.y+44
+	elif ok: #button pressed
+		current_btns_list[selected_btn].emit_signal('pressed')
 
 #show a spawning arrow mark
 func spawning_arrow(at,duration):
@@ -128,19 +158,39 @@ func show_screen(scr):
 	var screen = $Screens.get_node(scr)
 	if screen.is_visible():return
 	screen.show()
+	current_btns_list = []
+	current_screen = screen
+	
 	for element in screen.get_children():
 		if element is Button or element is TextureButton: #screen buttons
 			element.connect('pressed',self,'on_btn_pressed',[element])
+			current_btns_list.append(element)
+			
 		#screen animations
 		if element is AnimationPlayer:
 			if not element.is_playing(): element.play(scr)
 	
+	if current_btns_list != []: 
+		#make buttons selectable with the keyboard
+		selected_btn = 0
+		var _first_btn = current_btns_list[selected_btn]
+		selected_btn_normal = _first_btn.texture_normal
+		_first_btn.texture_normal = _first_btn.texture_hover
+		screen.get_node("Selection").global_position.y = _first_btn.rect_global_position.y+44
+	
 func hide_screen(scr):
 	var screen = $Screens.get_node(scr)
 	screen.hide()
+	current_screen = null
 	for element in screen.get_children():
 		if element is Button or element is TextureButton: #screen buttons
 			element.disconnect('pressed',self,'on_btn_pressed')
+	
+	if current_btns_list != []:
+		var _selected_btn = current_btns_list[selected_btn]
+		_selected_btn.texture_normal = selected_btn_normal
+		current_btns_list = []
+		selected_btn_normal = null
 	
 
 func on_btn_pressed(btn):

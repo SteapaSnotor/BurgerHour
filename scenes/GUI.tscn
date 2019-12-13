@@ -34,7 +34,7 @@
 [ext_resource path="res://sprites/ui/button_selection/selection.png0023.png" type="Texture" id=32]
 [ext_resource path="res://sprites/ui/button_selection/selection.png0024.png" type="Texture" id=33]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -110,7 +110,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ), Vector2( 0.99, 0.99 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -186,7 +186,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.678782, 0.678782 ), Vector2( 0.729, 0.729 ), Vector2( 0.679, 0.679 ), Vector2( 0.669, 0.669 ), Vector2( 0.678782, 0.678782 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -238,11 +238,11 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.999, 1 ), Vector2( 0.998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "WonLevel"
 length = 4.0
 tracks/0/type = "value"
@@ -306,7 +306,7 @@ tracks/4/keys = {
 "values": [ false, false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -358,11 +358,11 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.999, 1 ), Vector2( 0.998, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
 "loop": true,
@@ -370,7 +370,7 @@ animations = [ {
 "speed": 24.0
 } ]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -398,11 +398,11 @@ tracks/1/keys = {
 "values": [ 0.5, 0.7, 0.1, -0.8, 0.0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 0.4
 loop = true
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:rect_position")
 tracks/0/interp = 1
@@ -425,6 +425,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="LevelInfo" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -462,7 +463,7 @@ margin_bottom = 40.0
 
 [node name="SlotsAnim" type="AnimationPlayer" parent="LevelInfo/Sprays"]
 autoplay = "SlotAnim"
-anims/SlotAnim = SubResource( 2 )
+anims/SlotAnim = SubResource( 1 )
 
 [node name="Slot1" type="Sprite" parent="LevelInfo/Sprays"]
 position = Vector2( 991.085, 123.32 )
@@ -483,7 +484,7 @@ margin_bottom = 40.0
 
 [node name="SlotsAnim" type="AnimationPlayer" parent="LevelInfo/Lives"]
 autoplay = "LivesSlots"
-anims/LivesSlots = SubResource( 3 )
+anims/LivesSlots = SubResource( 2 )
 
 [node name="Slot1" type="Sprite" parent="LevelInfo/Lives"]
 position = Vector2( 994.148, 54.536 )
@@ -501,13 +502,13 @@ scale = Vector2( 0.678782, 0.678782 )
 texture = ExtResource( 4 )
 
 [node name="Screens" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_top = -80.0
 margin_right = 40.0
 margin_bottom = -40.0
 
 [node name="WonLevel" type="Control" parent="Screens"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -538,15 +539,15 @@ align = 1
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/WonLevel"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 4 )
-"anims/New Anim" = SubResource( 5 )
+anims/LabelAnim = SubResource( 3 )
+"anims/New Anim" = SubResource( 4 )
 
 [node name="CamEffect" type="Camera2D" parent="Screens/WonLevel"]
 position = Vector2( 512, 440 )
 scale = Vector2( 1e-005, 1e-005 )
 
 [node name="ScreenAnim" type="AnimationPlayer" parent="Screens/WonLevel"]
-anims/WonLevel = SubResource( 6 )
+anims/WonLevel = SubResource( 5 )
 
 [node name="LostLevel" type="Control" parent="Screens"]
 editor/display_folded = true
@@ -580,8 +581,8 @@ align = 1
 
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/LostLevel"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 7 )
-"anims/New Anim" = SubResource( 8 )
+anims/LabelAnim = SubResource( 6 )
+"anims/New Anim" = SubResource( 7 )
 
 [node name="LRestart" type="TextureButton" parent="Screens/LostLevel"]
 margin_left = 413.02
@@ -601,21 +602,21 @@ rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 8 )
 texture_hover = ExtResource( 9 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Screens/LostLevel"]
+[node name="Selection" type="AnimatedSprite" parent="Screens/LostLevel"]
+editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
-frames = SubResource( 9 )
-frame = 16
+frames = SubResource( 8 )
+frame = 13
 playing = true
 
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/LostLevel"]
-position = Vector2( 646.898, 360.417 )
-frames = SubResource( 9 )
-frame = 16
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/LostLevel/Selection"]
+position = Vector2( 295, 0 )
+frames = SubResource( 8 )
+frame = 13
 playing = true
 flip_h = true
 
 [node name="GameOver" type="Control" parent="Screens"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -642,24 +643,42 @@ custom_fonts/font = ExtResource( 5 )
 text = "Game Over!"
 align = 1
 
-[node name="GRestart" type="Button" parent="Screens/GameOver"]
-margin_left = 350.0
-margin_top = 310.0
-margin_right = 502.0
-margin_bottom = 373.0
-text = "RESTART"
-
-[node name="Quit" type="Button" parent="Screens/GameOver"]
-margin_left = 520.0
-margin_top = 310.0
-margin_right = 672.0
-margin_bottom = 373.0
-text = "QUIT"
-
 [node name="Labelanim" type="AnimationPlayer" parent="Screens/GameOver"]
 autoplay = "LabelAnim"
-anims/LabelAnim = SubResource( 10 )
-"anims/New Anim" = SubResource( 11 )
+anims/LabelAnim = SubResource( 9 )
+"anims/New Anim" = SubResource( 10 )
+
+[node name="GRestart" type="TextureButton" parent="Screens/GameOver"]
+margin_left = 413.02
+margin_top = 316.533
+margin_right = 763.02
+margin_bottom = 485.533
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+
+[node name="Quit" type="TextureButton" parent="Screens/GameOver"]
+margin_left = 413.02
+margin_top = 406.533
+margin_right = 763.02
+margin_bottom = 575.533
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+
+[node name="Selection" type="AnimatedSprite" parent="Screens/GameOver"]
+editor/display_folded = true
+position = Vector2( 351.898, 360.417 )
+frames = SubResource( 8 )
+frame = 12
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/GameOver/Selection"]
+position = Vector2( 295, 0 )
+frames = SubResource( 8 )
+frame = 12
+playing = true
+flip_h = true
 
 [node name="FlyingLabel" type="Control" parent="."]
 editor/display_folded = true
@@ -669,7 +688,7 @@ margin_bottom = 40.0
 
 [node name="LabelAnims" type="AnimationPlayer" parent="FlyingLabel"]
 root_node = NodePath("")
-anims/Vertical = SubResource( 12 )
+anims/Vertical = SubResource( 11 )
 
 [node name="Control" type="Control" parent="FlyingLabel/LabelAnims"]
 visible = false

@@ -62,18 +62,22 @@ margin_left = 43.0
 margin_top = 474.0
 margin_right = 983.0
 margin_bottom = 703.0
+focus_mode = 2
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "SHOOT - SPACE, CTRL, SHIFT, F
 RIGHT - D, RKEY, 6
 LEFT - A, LKEY, 4
 CLIMB UP - W, UKEY, 8
-CLIMB DOWN - S, DKEY, 2 "
+CLIMB DOWN - S, DKEY, 2 
+FULLSCREEN - F"
 text = "SHOOT - SPACE, CTRL, SHIFT, F
 RIGHT - D, RKEY, 6
 LEFT - A, LKEY, 4
 CLIMB UP - W, UKEY, 8
-CLIMB DOWN - S, DKEY, 2 "
+CLIMB DOWN - S, DKEY, 2 
+FULLSCREEN - F"
+selection_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
