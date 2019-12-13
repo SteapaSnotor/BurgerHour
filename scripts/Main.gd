@@ -18,7 +18,6 @@ func _ready():
 	_world = $World
 	_gui = $GUI
 	init_menu()
-	
 	#init_world()
 	#init_gui()
 	

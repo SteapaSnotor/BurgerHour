@@ -607,13 +607,13 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 20
+frame = 22
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/LostLevel/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 20
+frame = 22
 playing = true
 flip_h = true
 
@@ -672,13 +672,13 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 20
+frame = 21
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/GameOver/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 20
+frame = 21
 playing = true
 flip_h = true
 

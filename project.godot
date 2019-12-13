@@ -19,6 +19,10 @@ config/name="BurgerHour"
 run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Settings="*res://scripts/Settings.gd"
+
 [debug]
 
 gdscript/completion/autocomplete_setters_and_getters=true

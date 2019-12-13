@@ -33,13 +33,13 @@ custom_fonts/font = ExtResource( 4 )
 text = "OPTIONS"
 align = 1
 
-[node name="Audio" type="Label" parent="."]
+[node name="Sound" type="Label" parent="."]
 margin_left = 11.0
 margin_top = 196.0
 margin_right = 1011.0
 margin_bottom = 323.0
 custom_fonts/font = ExtResource( 5 )
-text = "AUDIO"
+text = "SOUND"
 
 [node name="Music" type="Label" parent="."]
 margin_left = 11.0
@@ -116,6 +116,7 @@ rect_scale = Vector2( -1, 1 )
 texture_normal = ExtResource( 8 )
 
 [node name="MusicBar" type="TextureProgress" parent="."]
+editor/display_folded = true
 margin_left = 169.632
 margin_top = 288.092
 margin_right = 932.632
