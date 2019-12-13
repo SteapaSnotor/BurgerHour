@@ -9,12 +9,12 @@ signal died
 signal fall
 signal sprayed
 
-onready var colliders = {$FSM/Spawning: [$HitDetection/BananaSearching,$HitDetection/BrocSearching],
-$FSM/Idle: [$HitDetection/BananaSearching,$HitDetection/BrocSearching],
-$FSM/Searching: [$HitDetection/BananaSearching,$HitDetection/BrocSearching],
-$FSM/Climbing: [$HitDetection/BananaClimbing,$HitDetection/BrocClimbing],
-$FSM/Falling: [$HitDetection/BananaSearching,$HitDetection/BrocSearching],
-$FSM/Attacking: [$HitDetection/BananaSearching,$HitDetection/BrocSearching]}
+onready var colliders = {$FSM/Spawning: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching],
+$FSM/Idle: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching],
+$FSM/Searching: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching],
+$FSM/Climbing: [$HitDetection/BananaClimbing,$HitDetection/BrocClimbing,$HitDetection/TomatoSearching],
+$FSM/Falling: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching],
+$FSM/Attacking: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching]}
 
 var current_collider = null
 
@@ -23,11 +23,11 @@ onready var anim_node = $AnimatedSprite
 onready var shadows = $AnimatedSprite/Shadows
 
 #stats
-var speed = [70,120] #70
+var speed = [70,120,70] #70
 var facing_dir = Vector2(0,0)
 
 var id = 1 #will define things like animations and stats etc
-var locomotion = ["WALK","JUMP"]
+var locomotion = ["WALK","JUMP","WALK"]
 var on_ladder = false
 var on_edge = false
 var on_food = false

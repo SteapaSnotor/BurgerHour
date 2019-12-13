@@ -26,7 +26,7 @@ var sprays = 3 #decrease on check_player_state()
 var finished = false
 
 #enemies ID's according to each tile
-var enemies_data = {4:0,5:1}
+var enemies_data = {4:0,5:1,6:2}
 
 #tiles
 onready var level_signals = $LevelSignals
@@ -65,6 +65,7 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		var spawn_time = spawn_interval
 		var signal_dict  = {'spawns':[],'time':[],'tile':[]}
 		var tiles = $LevelSignals.get_used_cells_by_id(4) + $LevelSignals.get_used_cells_by_id(5)
+		tiles = tiles + $LevelSignals.get_used_cells_by_id(6)
 		for tile in tiles:
 			#TODO: id
 			signal_dict['spawns'] = spawns
