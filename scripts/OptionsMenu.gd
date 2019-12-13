@@ -11,6 +11,10 @@ signal exited
 func _ready():
 	pass
 
+func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		self.exit()
+
 func exit():
 	emit_signal("exited")
 	queue_free()

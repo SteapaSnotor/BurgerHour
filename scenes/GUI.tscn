@@ -303,7 +303,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -502,6 +502,7 @@ scale = Vector2( 0.678782, 0.678782 )
 texture = ExtResource( 4 )
 
 [node name="Screens" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 margin_top = -80.0
 margin_right = 40.0
@@ -606,17 +607,18 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 2
+frame = 14
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/LostLevel/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 2
+frame = 14
 playing = true
 flip_h = true
 
 [node name="GameOver" type="Control" parent="Screens"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -670,13 +672,13 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 2
+frame = 14
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/GameOver/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 2
+frame = 14
 playing = true
 flip_h = true
 

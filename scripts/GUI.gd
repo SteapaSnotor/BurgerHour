@@ -19,6 +19,7 @@ var current_btns_list = []
 var current_screen = null
 var selected_btn = 0
 var selected_btn_normal = null
+var pause_buffer = false
 
 #constructor
 func init(score,sprays,lives,t_score):
@@ -35,7 +36,11 @@ func _input(event):
 	var ok = int(Input.is_action_just_pressed("spray"))
 	var cancel = int(Input.is_action_just_pressed("ui_cancel"))
 	
-	if cancel: emit_signal("pause_btn")
+	if cancel and not pause_buffer: 
+		pause_buffer = true
+		emit_signal("pause_btn")
+	elif cancel and pause_buffer:
+		pause_buffer = false
 	
 	if current_btns_list == []: return
 	
