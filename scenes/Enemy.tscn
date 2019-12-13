@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=2]
+[gd_scene load_steps=145 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/tomato/walking/walking.png0001.png" type="Texture" id=2]
@@ -97,34 +97,46 @@
 [ext_resource path="res://sprites/enemies/broccoli/climbing/climbing.png0014.png" type="Texture" id=95]
 [ext_resource path="res://sprites/enemies/broccoli/climbing/climbing.png0015.png" type="Texture" id=96]
 [ext_resource path="res://sprites/enemies/broccoli/climbing/climbing.png0016.png" type="Texture" id=97]
-[ext_resource path="res://sprites/enemies/badbanana/shadow_walking.png" type="Texture" id=98]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching1.png" type="Texture" id=99]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching2.png" type="Texture" id=100]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching3.png" type="Texture" id=101]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching4.png" type="Texture" id=102]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching5.png" type="Texture" id=103]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching6.png" type="Texture" id=104]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching7.png" type="Texture" id=105]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching8.png" type="Texture" id=106]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching9.png" type="Texture" id=107]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching10.png" type="Texture" id=108]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching11.png" type="Texture" id=109]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching12.png" type="Texture" id=110]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching13.png" type="Texture" id=111]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching14.png" type="Texture" id=112]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching15.png" type="Texture" id=113]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching16.png" type="Texture" id=114]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching17.png" type="Texture" id=115]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching18.png" type="Texture" id=116]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching19.png" type="Texture" id=117]
-[ext_resource path="res://sprites/enemies/tomato/tomato_shadow.png" type="Texture" id=118]
-[ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=119]
-[ext_resource path="res://scripts/ai/ai_states/Spawning.gd" type="Script" id=120]
-[ext_resource path="res://scripts/ai/ai_states/Idle.gd" type="Script" id=121]
-[ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=122]
-[ext_resource path="res://scripts/ai/ai_states/Climbing.gd" type="Script" id=123]
-[ext_resource path="res://scripts/ai/ai_states/Falling.gd" type="Script" id=124]
-[ext_resource path="res://scripts/ai/ai_states/Attacking.gd" type="Script" id=125]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0001.png" type="Texture" id=98]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0002.png" type="Texture" id=99]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0003.png" type="Texture" id=100]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0004.png" type="Texture" id=101]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0005.png" type="Texture" id=102]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0006.png" type="Texture" id=103]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0007.png" type="Texture" id=104]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0008.png" type="Texture" id=105]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0009.png" type="Texture" id=106]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0010.png" type="Texture" id=107]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0011.png" type="Texture" id=108]
+[ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0012.png" type="Texture" id=109]
+[ext_resource path="res://sprites/enemies/badbanana/shadow_walking.png" type="Texture" id=110]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching1.png" type="Texture" id=111]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching2.png" type="Texture" id=112]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching3.png" type="Texture" id=113]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching4.png" type="Texture" id=114]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching5.png" type="Texture" id=115]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching6.png" type="Texture" id=116]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching7.png" type="Texture" id=117]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching8.png" type="Texture" id=118]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching9.png" type="Texture" id=119]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching10.png" type="Texture" id=120]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching11.png" type="Texture" id=121]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching12.png" type="Texture" id=122]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching13.png" type="Texture" id=123]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching14.png" type="Texture" id=124]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching15.png" type="Texture" id=125]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching16.png" type="Texture" id=126]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching17.png" type="Texture" id=127]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching18.png" type="Texture" id=128]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching19.png" type="Texture" id=129]
+[ext_resource path="res://sprites/enemies/tomato/tomato_shadow.png" type="Texture" id=130]
+[ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=131]
+[ext_resource path="res://scripts/ai/ai_states/Spawning.gd" type="Script" id=132]
+[ext_resource path="res://scripts/ai/ai_states/Idle.gd" type="Script" id=133]
+[ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=134]
+[ext_resource path="res://scripts/ai/ai_states/Climbing.gd" type="Script" id=135]
+[ext_resource path="res://scripts/ai/ai_states/Falling.gd" type="Script" id=136]
+[ext_resource path="res://scripts/ai/ai_states/Attacking.gd" type="Script" id=137]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -203,10 +215,10 @@ animations = [ {
 "name": "2:Attacking",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ) ],
 "loop": true,
 "name": "2:Climbing",
-"speed": 24.0
+"speed": 14.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
 "loop": true,
@@ -226,17 +238,17 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 98 ) ],
+"frames": [ ExtResource( 110 ) ],
 "loop": true,
 "name": "0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ) ],
+"frames": [ ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 128 ), ExtResource( 129 ) ],
 "loop": true,
 "name": "1",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 118 ) ],
+"frames": [ ExtResource( 130 ) ],
 "loop": true,
 "name": "2",
 "speed": 5.0
@@ -265,8 +277,8 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "2:Searching"
-frame = 3
+animation = "0:Searching"
+frame = 7
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -375,25 +387,25 @@ __meta__ = {
 
 [node name="FSM" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 119 )
+script = ExtResource( 131 )
 
 [node name="Spawning" type="Node" parent="FSM"]
-script = ExtResource( 120 )
+script = ExtResource( 132 )
 
 [node name="Idle" type="Node" parent="FSM"]
-script = ExtResource( 121 )
+script = ExtResource( 133 )
 
 [node name="Searching" type="Node" parent="FSM"]
-script = ExtResource( 122 )
+script = ExtResource( 134 )
 
 [node name="Climbing" type="Node" parent="FSM"]
-script = ExtResource( 123 )
+script = ExtResource( 135 )
 
 [node name="Falling" type="Node" parent="FSM"]
-script = ExtResource( 124 )
+script = ExtResource( 136 )
 
 [node name="Attacking" type="Node" parent="FSM"]
-script = ExtResource( 125 )
+script = ExtResource( 137 )
 
 [connection signal="area_entered" from="HitDetection" to="." method="on_hit_detection"]
 [connection signal="body_entered" from="HitDetection" to="." method="on_hit_detection"]
