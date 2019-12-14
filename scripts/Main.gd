@@ -34,6 +34,7 @@ func init_world():
 	_world.connect('level_reloaded',self,'update_gui')
 	_world.connect('level_reloaded',self,'update_world')
 	_world.load_level(selected_level)
+	yield(_world,'level_loaded')
 	_world.current_level.connect('finished',self,'on_level_finished')
 	_world.current_level.connect('player_died',self,'on_player_lose')
 	_world.current_level.connect('player_sprayed',self,'on_new_spray_count',[false])
@@ -56,6 +57,8 @@ func init_menu():
 	add_child(_menu)
 	
 	_audio.play_music('Menu')
+	_world.connect('loading_level',_menu,'hide_elements',[['PlayBtn',
+	'OptionsBtn','HOFBtn','AboutBtn','Title','Version','BurgerSelection']])
 
 func init_audio():
 	_audio.init()
@@ -171,8 +174,9 @@ func on_next_level():
 	if not _world.load_level(selected_level):
 		print('No more levels! The game has been beaten!')
 		return
-	update_gui()
+	yield(_world,'level_loaded')
 	update_world()
+	update_gui()
 
 #restart all the level
 func on_restart_game():
@@ -183,13 +187,15 @@ func on_restart_game():
 	if not _world.load_level(selected_level):
 		print('Couldnt restart the game')
 		return
-	update_gui()
 	update_world()
+	yield(_world,'level_loaded')
+	update_gui()
 	#TODO: clear score
 
 #when the player starts choice to start the game
 func on_start_game():
 	init_world()
+	yield(_world,'level_loaded')
 	init_gui()
 	get_node("Menu").queue_free()
 	

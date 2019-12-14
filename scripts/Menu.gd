@@ -77,7 +77,9 @@ func unlock_btns():
 		btn.disabled = false
 	
 
-
+func hide_elements(elements=[]):
+	for element in elements:
+		get_node(element).hide()
 
 
 

@@ -9,6 +9,8 @@ signal level_finished
 signal level_reloaded
 signal new_score
 signal new_spray_count
+signal loading_level
+signal level_loaded
 
 var current_level = null
 var current_level_id = -1
@@ -37,8 +39,16 @@ func load_level(id):
 	if levels.keys().find(id) == -1:
 		print('Level not found.')
 		return false
-		
-	var _scene = load(levels[id]).instance()
+	emit_signal("loading_level")
+	#var _scene = load(levels[id]).instance()
+	var _scene = null
+	var loader = load('res://scenes/LoadingScreen.tscn').instance()
+	add_child(loader)
+	loader.init(levels[id])
+	yield(loader,'loaded')
+	_scene = loader.get_level()
+	loader.queue_free()
+	
 	current_level_id = id
 	current_level = _scene
 	level_new_score = 0
@@ -56,6 +66,8 @@ func load_level(id):
 	_scene.sprays = sprays
 	if sprays == 0: _scene.player.has_sprays = false
 	
+	emit_signal('level_loaded')
+	
 	return true
 
 #restart the current loaded level
@@ -63,6 +75,7 @@ func restart_level():
 	var _current_id = current_level_id
 	exit_level()
 	load_level(_current_id)
+	yield(self,'level_loaded')
 	emit_signal("level_reloaded")
 
 func pause_game():
