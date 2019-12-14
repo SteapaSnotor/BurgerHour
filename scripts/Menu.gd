@@ -52,6 +52,7 @@ func _input(event):
 func btn_pressed(btn):
 	match btn.name:
 		'PlayBtn':
+			set_process_input(false)
 			emit_signal("play")
 		'OptionsBtn':
 			var _options = preload('res://scenes/OptionsMenu.tscn').instance()
