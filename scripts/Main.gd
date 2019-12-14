@@ -11,13 +11,17 @@ var score = {
 
 var _world = null
 var _gui = null
+var _audio = null
 var selected_level = 0
 
 #initialize all the game here
 func _ready():
 	_world = $World
 	_gui = $GUI
+	_audio = $Audio
+	init_audio()
 	init_menu()
+
 	#init_world()
 	#init_gui()
 	
@@ -50,6 +54,11 @@ func init_menu():
 	var _menu = preload('res://scenes/Menu.tscn').instance()
 	_menu.connect('play',self,'on_start_game')
 	add_child(_menu)
+	
+	_audio.play_music('Menu')
+
+func init_audio():
+	_audio.init()
 
 func update_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -90,6 +99,7 @@ func on_level_finished():
 	_gui.show_screen('WonLevel')
 	_gui.hide_ui('Screens')
 	score[selected_level] = _world.level_new_score
+	_audio.stop_music('Jazz1',true)
 	
 	"""
 	print('bonus ' + str(_world.bonus_points- (_world.live_points+_world.spray_points)))
@@ -182,6 +192,10 @@ func on_start_game():
 	init_world()
 	init_gui()
 	get_node("Menu").queue_free()
+	
+	#TODO: get the music name from the level instead
+	#TODO: start the music only when the level is loaded
+	_audio.play_music('Jazz1',true)
 
 #when the player hits the pause key/button
 func on_pause_game():
