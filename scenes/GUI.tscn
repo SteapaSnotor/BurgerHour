@@ -607,13 +607,13 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 22
+frame = 23
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/LostLevel/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 22
+frame = 23
 playing = true
 flip_h = true
 
@@ -672,18 +672,17 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 21
+frame = 22
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/GameOver/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 21
+frame = 22
 playing = true
 flip_h = true
 
 [node name="FlyingLabel" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -701,6 +700,7 @@ margin_bottom = -10.0
 [node name="Label" type="Label" parent="FlyingLabel/LabelAnims/Control"]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 2 )
 text = "text"
 
 [node name="GUITimer" type="Timer" parent="."]
