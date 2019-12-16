@@ -17,7 +17,8 @@ func init():
 	update_music_volume()
 	
 func play_sound(sound,solo=false):
-	pass
+	if solo:stop_sound()
+	$Sound.get_node(sound).play()
 	
 func play_music(music,solo=true):
 	if solo: stop_music()
@@ -59,14 +60,20 @@ func stop_music(_music=null,fade=false):
 			music.stop()
 
 #stop one or all sounds in the game
-func stop_sound(sound=null):
-	pass
+func stop_sound(_sound=null):
+	if _sound != null:
+		$Sound.get_node(_sound).stop()
+		return
+	
+	for sound in $Sound.get_children():
+		sound.stop()
 	
 func fade_click():
 	if current_fading != null:
 		current_fading.set_volume_db(current_fading.get_volume_db()-1)
 		if current_fading.get_volume_db() < fade_min_threshold:
 			current_fading.stop()
+			update_music_volume()
 			current_fading = null
 
 

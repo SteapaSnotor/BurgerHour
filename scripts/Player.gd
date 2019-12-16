@@ -26,7 +26,13 @@ Vector2(0,-1):{'anim':'Idle-Sides','flip':false}},
 
 	'Spraying':{Vector2(0,0):{'anim':'Spraying','flip':false},
 Vector2(1,0):{'anim':'Spraying','flip':true},
-Vector2(-1,0):{'anim':'Spraying','flip':false}}
+Vector2(-1,0):{'anim':'Spraying','flip':false}},
+
+	'TotallyDead':{Vector2(0,0):{'anim':'Idle-Down','flip':false},
+Vector2(1,0):{'anim':'Idle-Sides','flip':true},
+Vector2(-1,0):{'anim':'Idle-Sides','flip':false},
+Vector2(0,1):{'anim':'Idle-Sides','flip':false},
+Vector2(0,-1):{'anim':'Idle-Sides','flip':false}}
 
 }
 
@@ -83,7 +89,7 @@ Input.is_action_pressed("ui_accept")]
 func set_hit(value):
 	hit = value
 	
-	if hit and FSM.get_current_state().name != 'Dead':
+	if hit and FSM.get_current_state().name != 'Dead' and FSM.get_current_state().name != 'TotallyDead':
 		FSM.force_state('Dead')
 
 #when the player wins the level

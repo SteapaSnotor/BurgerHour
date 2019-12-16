@@ -11,6 +11,7 @@ signal finished
 
 var new_score = 0
 var old_score = 0
+var old_temp = 0
 var lives_points = 0
 var bonus_points = 0
 var spray_points = 0
@@ -20,6 +21,7 @@ var started_animation = false
 func init(new_score,old_score,lives_points,bonus_points,spray_points):
 	self.new_score = new_score
 	self.old_score = old_score
+	self.old_temp = old_score
 	self.lives_points = lives_points
 	self.bonus_points = bonus_points
 	self.spray_points = spray_points
@@ -31,7 +33,7 @@ func _input(event):
 			lives_points = 0
 			spray_points = 0
 			bonus_points = 0
-			old_score = new_score
+			old_score = new_score + old_temp
 		else:
 			if not $FadingAnim.is_playing():
 				$FadingAnim.connect("animation_finished",self,"exit")

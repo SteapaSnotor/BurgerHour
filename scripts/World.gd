@@ -10,6 +10,7 @@ signal level_reloaded
 signal new_score
 signal new_spray_count
 signal loading_level
+signal reloading_level
 signal level_loaded
 
 var current_level = null
@@ -72,6 +73,7 @@ func load_level(id):
 
 #restart the current loaded level
 func restart_level():
+	emit_signal("reloading_level")
 	var _current_id = current_level_id
 	exit_level()
 	load_level(_current_id)

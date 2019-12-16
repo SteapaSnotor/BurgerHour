@@ -33,6 +33,8 @@ func init_world():
 	_world.connect('new_score',self,'on_new_score')
 	_world.connect('level_reloaded',self,'update_gui')
 	_world.connect('level_reloaded',self,'update_world')
+	_world.connect('level_loaded',self,'on_level_loaded')
+	_world.connect('reloading_level',self,'on_reloading_level')
 	_world.load_level(selected_level)
 	yield(_world,'level_loaded')
 	_world.current_level.connect('finished',self,'on_level_finished')
@@ -40,6 +42,7 @@ func init_world():
 	_world.current_level.connect('player_sprayed',self,'on_new_spray_count',[false])
 	_world.current_level.connect('new_sprays',self,'on_new_spray_count',[true])
 	_world.current_level.connect('new_lives',self,'on_lives_powerup')
+	_world.current_level.connect('player_hit',self,'on_player_hit')
 	
 func init_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -73,6 +76,7 @@ func update_world():
 	_world.current_level.connect('player_sprayed',self,'on_new_spray_count',[false])
 	_world.current_level.connect('new_sprays',self,'on_new_spray_count',[true])
 	_world.current_level.connect('new_lives',self,'on_lives_powerup')
+	_world.current_level.connect('player_hit',self,'on_player_hit')
 
 func clear_score():
 	for id in score:
@@ -102,7 +106,7 @@ func on_level_finished():
 	_gui.show_screen('WonLevel')
 	_gui.hide_ui('Screens')
 	score[selected_level] = _world.level_new_score
-	_audio.stop_music('Jazz1',true)
+	_audio.stop_music(_world.current_level.music,true)
 	
 	"""
 	print('bonus ' + str(_world.bonus_points- (_world.live_points+_world.spray_points)))
@@ -110,6 +114,10 @@ func on_level_finished():
 	print('sprays ' + str(_world.spray_points))
 	print('total: ' + str(_world.level_new_score))
 	"""
+
+
+func on_level_loaded():
+	_audio.play_music(_world.current_level.music,true)
 
 #when the player pressed enter on the score animation and is ready to 
 #to continue.
@@ -163,9 +171,14 @@ func on_player_lose():
 	_world.lives -= 1
 	if _world.lives >= 0:
 		_gui.show_screen('LostLevel')
+		_audio.play_music('YouLose',true)
 	else:
 		_gui.show_screen('GameOver')
 		clear_score()
+
+func on_player_hit():
+	_audio.play_sound('Hit',true)
+	_audio.stop_music()
 
 func on_next_level():
 	selected_level += 1
@@ -178,7 +191,7 @@ func on_next_level():
 	update_world()
 	update_gui()
 
-#restart all the level
+#restart all the levels
 func on_restart_game():
 	selected_level = 0
 	_world.lives = 3
@@ -187,8 +200,8 @@ func on_restart_game():
 	if not _world.load_level(selected_level):
 		print('Couldnt restart the game')
 		return
-	update_world()
 	yield(_world,'level_loaded')
+	update_world()
 	update_gui()
 	#TODO: clear score
 
@@ -199,9 +212,7 @@ func on_start_game():
 	init_gui()
 	get_node("Menu").queue_free()
 	
-	#TODO: get the music name from the level instead
-	#TODO: start the music only when the level is loaded
-	_audio.play_music('Jazz1',true)
+	#_audio.play_music('Jazz1',true)
 
 #when the player hits the pause key/button
 func on_pause_game():
@@ -214,15 +225,8 @@ func on_pause_game():
 	add_child(options_scr)
 	_world.pause_game()
 
-
-
-
-
-
-
-
-
-
-
+#when the level is being reloaded
+func on_reloading_level():
+	_audio.stop_music()
 
 

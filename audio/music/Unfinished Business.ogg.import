@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Unfinished Business.ogg-1a4943d191407e1d416ad80f6e130d78.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Unfinished Business.ogg"
+dest_files=[ "res://.import/Unfinished Business.ogg-1a4943d191407e1d416ad80f6e130d78.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

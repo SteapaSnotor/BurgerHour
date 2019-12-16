@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lose_effect2.ogg-d07e7537a1ffea6a5437daf74288b7ae.oggstr"
+
+[deps]
+
+source_file="res://audio/music/lose_effect2.ogg"
+dest_files=[ "res://.import/lose_effect2.ogg-d07e7537a1ffea6a5437daf74288b7ae.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

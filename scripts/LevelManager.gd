@@ -7,6 +7,7 @@ extends Node2D
 
 signal spawning
 signal finished
+signal player_hit
 signal player_died
 signal player_sprayed
 signal new_points
@@ -34,6 +35,7 @@ onready var tree = get_tree()
 
 export var spawn_interval = 2.0
 export var powerup_click_interval = 4.0
+export var music = 'Jazz1'
 
 #initialize the level
 func _ready():
@@ -205,7 +207,7 @@ func spawn_powerups(_timer = null):
 		
 		var r = rand_range(0,100)
 		
-		if r > 80: #20%
+		if r > 90: #10%
 			var power_up = preload('res://scenes/PowerUps.tscn').instance()
 			var random_tile = get_floor_tiles()
 			random_tile.shuffle()
@@ -251,8 +253,10 @@ func check_level_progress():
 #detect some events through the player's states.
 func check_player_state():
 	#check if the player died and the level is over
-	if player.FSM.get_current_state().name == 'Dead':
+	if player.FSM.get_current_state().name == 'TotallyDead':
 		emit_signal("player_died")
+	elif player.FSM.get_current_state().name == 'Dead':
+		emit_signal("player_hit")
 	elif player.FSM.get_current_state().name == 'Spraying':
 		sprays-= 1
 		if sprays == 0: player.has_sprays = false

@@ -13,6 +13,7 @@ var climb_input = false
 var spray_input = false
 var base = null
 var y_offset = false
+var finished_anim = false
 
 #constructor
 func initialize(base,player):
@@ -27,6 +28,8 @@ func initialize(base,player):
 	else:
 		player.anim_node.global_position.y+=2
 	
+	player.anim_node.connect('animation_finished',self,'animation_finished')
+	
 	emit_signal('entered')
 
 func physics_update(delta):
@@ -40,9 +43,16 @@ func input_update(event):
 	walk_input = player.get_walk_keys().has(true)
 	climb_input = player.get_climb_keys().has(true)
 
+func animation_finished():
+	player.anim_node.disconnect('animation_finished',self,'animation_finished')
+	finished_anim = true
+
 func transitions_update():
 	#DEAD-END#
-	pass
+	if finished_anim:
+		base.current_state = null
+		base.queue_state = base.get_state('TotallyDead')
+		exit()
 
 #destructor
 func exit():
