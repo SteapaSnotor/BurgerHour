@@ -29,7 +29,7 @@ func init(new_score,old_score,lives_points,bonus_points,spray_points):
 #skip animation
 func _input(event):
 	if Input.is_action_just_pressed("spray"):
-		if old_score != new_score:
+		if old_score != new_score + old_temp:
 			lives_points = 0
 			spray_points = 0
 			bonus_points = 0

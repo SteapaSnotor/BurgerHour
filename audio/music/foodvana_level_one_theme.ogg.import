@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/foodvana_level_one_theme.ogg-8746e191995b01855cda6c93073499a1.oggstr"
+
+[deps]
+
+source_file="res://audio/music/foodvana_level_one_theme.ogg"
+dest_files=[ "res://.import/foodvana_level_one_theme.ogg-8746e191995b01855cda6c93073499a1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

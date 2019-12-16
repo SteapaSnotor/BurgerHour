@@ -7,13 +7,14 @@ extends Node
 var score = {
 	0:0,
 	1:0,
-	2:0
+	2:0,
+	3:0
 }
 
 var _world = null
 var _gui = null
 var _audio = null
-var selected_level = 2
+var selected_level = 0
 
 #initialize all the game here
 func _ready():
