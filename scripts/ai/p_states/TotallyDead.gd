@@ -8,11 +8,14 @@ signal entered
 signal exited
 
 var base
+var player
 
 #constructor
 func initialize(base,player):
 	self.base = base
+	self.player = player
 	
+	player.anim_node.global_position.y+=15
 	emit_signal('entered')
 
 func physics_update(delta):

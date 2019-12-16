@@ -18,21 +18,21 @@ Vector2(-1,0):{'anim':'Walking','flip':false}},
 Vector2(0,1):{'anim':'Climbing','flip':false,'stop':false},
 Vector2(0,-1):{'anim':'Climbing','flip':false,'stop':false}},
 
-	'Dead':{Vector2(0,0):{'anim':'Idle-Down','flip':false},
-Vector2(1,0):{'anim':'Idle-Sides','flip':true},
-Vector2(-1,0):{'anim':'Idle-Sides','flip':false},
-Vector2(0,1):{'anim':'Idle-Sides','flip':false},
-Vector2(0,-1):{'anim':'Idle-Sides','flip':false}},
+	'Dead':{Vector2(0,0):{'anim':'Dying','flip':false},
+Vector2(1,0):{'anim':'Dying','flip':false},
+Vector2(-1,0):{'anim':'Dying','flip':true},
+Vector2(0,1):{'anim':'Dying','flip':false},
+Vector2(0,-1):{'anim':'Dying','flip':false}},
 
 	'Spraying':{Vector2(0,0):{'anim':'Spraying','flip':false},
 Vector2(1,0):{'anim':'Spraying','flip':true},
 Vector2(-1,0):{'anim':'Spraying','flip':false}},
 
-	'TotallyDead':{Vector2(0,0):{'anim':'Idle-Down','flip':false},
-Vector2(1,0):{'anim':'Idle-Sides','flip':true},
-Vector2(-1,0):{'anim':'Idle-Sides','flip':false},
-Vector2(0,1):{'anim':'Idle-Sides','flip':false},
-Vector2(0,-1):{'anim':'Idle-Sides','flip':false}}
+	'TotallyDead':{Vector2(0,0):{'anim':'TotallyDead','flip':false},
+Vector2(1,0):{'anim':'TotallyDead','flip':false},
+Vector2(-1,0):{'anim':'TotallyDead','flip':true},
+Vector2(0,1):{'anim':'TotallyDead','flip':false},
+Vector2(0,-1):{'anim':'TotallyDead','flip':false}}
 
 }
 
