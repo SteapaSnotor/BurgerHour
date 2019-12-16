@@ -1,7 +1,7 @@
 CREDITS
 
 
-ART, PROGRAMMING, DESIGN AND SOUND DESIGN BY STEAPA FROM BASEMENT TOYS
+ART, PROGRAMMING, GAME DESIGN AND SOUND DESIGN BY STEAPA FROM BASEMENT TOYS
 
 
 Unfinished Business by MegaPixel Music. - CC BY-SA
@@ -19,10 +19,19 @@ Countdown to Myocardial Infarction by  Peter Gresser  - CC0
 Additional Music By Will Leamon - CC BY-SA
 
 
-Deuces Kevin MacLeod (incompetech.com). 
-Licensed under Creative Commons: By Attribution 3.0 License
+Swagger by syncopika on OpenGameArt - Licensed under Creative Commons: By Attribution 3.0 License
 http://creativecommons.org/licenses/by/3.0/
+
+
+Flakey B# by Dan Knoflicek on OpenGameArt - Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
+
 
 Rollin at 5 - electronic Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 3.0 License
 http://creativecommons.org/licenses/by/3.0/
+
+
+Music from https://filmmusic.io
+"Faster Does It" by Kevin MacLeod (https://incompetech.com)
+License: CC BY (http://creativecommons.org/licenses/by/4.0/)
