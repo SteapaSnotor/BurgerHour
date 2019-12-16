@@ -13,6 +13,7 @@ onready var buttons = [$PlayBtn,$OptionsBtn,$HOFBtn,$AboutBtn]
 
 var selelected_btn = 0
 var normal_selected = null
+var is_locked = false
 
 #debug
 func _ready():
@@ -29,12 +30,16 @@ func init():
 		button.connect('mouse_entered',self,'btn_hovered',[button])
 	
 	btn_hovered(buttons[selelected_btn])
-
+	
+	$Version.text = 'VERSION ' + str(Settings.version) 
+	
 func _input(event):
 	var down = int(Input.is_action_just_pressed("ui_down"))
 	var up = int(Input.is_action_just_pressed("ui_up"))
 	var ok = int(Input.is_action_just_pressed("spray"))
 	var new_btn = selelected_btn
+	
+	if is_locked: return
 	
 	if down-up != 0:#button selection
 		new_btn += (down-up)
@@ -60,6 +65,12 @@ func btn_pressed(btn):
 			_options.connect('exited',self,'unlock_btns')
 			lock_btns()
 			emit_signal("options")
+		'AboutBtn':
+			var _credits = preload('res://scenes/AboutMenu.tscn').instance()
+			_credits.connect('exited',self,'unlock_btns')
+			add_child(_credits)
+			lock_btns()
+			emit_signal("about")
 
 func btn_hovered(btn):
 	buttons[selelected_btn].texture_normal = normal_selected
@@ -70,10 +81,12 @@ func btn_hovered(btn):
 	$BurgerSelection.global_position.y = btn.rect_global_position.y+75
 	
 func lock_btns():
+	is_locked = true
 	for btn in buttons:
 		btn.disabled = true
 	
 func unlock_btns():
+	is_locked = false
 	for btn in buttons:
 		btn.disabled = false
 	

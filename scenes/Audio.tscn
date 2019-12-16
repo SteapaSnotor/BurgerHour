@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Sound.gd" type="Script" id=1]
 [ext_resource path="res://audio/music/Countdown to Myocardial Infarction.ogg" type="AudioStream" id=2]
 [ext_resource path="res://audio/music/jazznbrass loop.ogg" type="AudioStream" id=3]
 [ext_resource path="res://audio/music/Unfinished Business.ogg" type="AudioStream" id=4]
 [ext_resource path="res://audio/music/lose_effect2.ogg" type="AudioStream" id=5]
-[ext_resource path="res://audio/sound/hit.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/music/Jazz Chromatic.ogg" type="AudioStream" id=6]
+[ext_resource path="res://audio/music/Rollin at 5 - electronic.ogg" type="AudioStream" id=7]
+[ext_resource path="res://audio/sound/hit.wav" type="AudioStream" id=8]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
@@ -24,10 +26,16 @@ stream = ExtResource( 4 )
 [node name="YouLose" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 5 )
 
+[node name="GameOverScr" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 6 )
+
+[node name="Rollin" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 7 )
+
 [node name="Sound" type="Node" parent="."]
 
 [node name="Hit" type="AudioStreamPlayer" parent="Sound"]
-stream = ExtResource( 6 )
+stream = ExtResource( 8 )
 
 [node name="FadingTimer" type="Timer" parent="."]
 wait_time = 0.2

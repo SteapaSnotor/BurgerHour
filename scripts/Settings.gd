@@ -14,6 +14,8 @@ var music_volume = 50 setget set_music_volume, get_music_volume
 var no_music = false
 var no_sound = false
 
+var version = "1.0.0"
+
 func set_sound_volume(value):
 	sound_volume = value
 	no_sound = sound_volume == 0

@@ -6,13 +6,14 @@ extends Node
 
 var score = {
 	0:0,
-	1:0
+	1:0,
+	2:0
 }
 
 var _world = null
 var _gui = null
 var _audio = null
-var selected_level = 0
+var selected_level = 2
 
 #initialize all the game here
 func _ready():
@@ -171,7 +172,7 @@ func on_player_lose():
 	_world.lives -= 1
 	if _world.lives >= 0:
 		_gui.show_screen('LostLevel')
-		_audio.play_music('YouLose',true)
+		#_audio.play_music('YouLose',true)
 	else:
 		_gui.show_screen('GameOver')
 		clear_score()

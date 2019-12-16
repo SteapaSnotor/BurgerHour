@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Rollin at 5 - electronic.ogg-4d11609d41be07a194c2455b27b9aec6.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Rollin at 5 - electronic.ogg"
+dest_files=[ "res://.import/Rollin at 5 - electronic.ogg-4d11609d41be07a194c2455b27b9aec6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

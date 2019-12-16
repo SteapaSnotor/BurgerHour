@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Jazz Chromatic.ogg-07079fa2e5a96fe0bbcc7c4db1ef767a.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Jazz Chromatic.ogg"
+dest_files=[ "res://.import/Jazz Chromatic.ogg-07079fa2e5a96fe0bbcc7c4db1ef767a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
