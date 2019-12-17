@@ -6,6 +6,8 @@ extends RigidBody2D
 
 signal on_final_base
 signal broke_free
+signal player_broke
+signal hit
 
 #store all food part animations to each id
 var anims_data = {
@@ -79,6 +81,7 @@ func break_part(body,part):
 		current_state[$Parts.get_children().find(part)] = 1
 	
 	if step_points >= max_step_points:
+		emit_signal("player_broke")
 		break_free()
 
 #the food will start to fall
@@ -111,11 +114,13 @@ func area_collision(area):
 		falling_base = area
 		last_base = area
 		connect_parts()
+		emit_signal("hit")
 	elif area.is_in_group('FinalBase'):
 		set_on_final_base(true)
 		set_gravity_scale(0)
 		set_linear_velocity(Vector2(0,0))
 		is_falling = false
+		emit_signal("hit")
 
 func set_on_final_base(value):
 	if not on_final_base: emit_signal("on_final_base")

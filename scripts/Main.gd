@@ -16,7 +16,7 @@ var score = {
 var _world = null
 var _gui = null
 var _audio = null
-var selected_level = 5
+var selected_level = 0
 
 #initialize all the game here
 func _ready():
@@ -47,6 +47,8 @@ func init_world():
 	_world.current_level.connect('new_sprays',self,'on_new_spray_count',[true])
 	_world.current_level.connect('new_lives',self,'on_lives_powerup')
 	_world.current_level.connect('player_hit',self,'on_player_hit')
+	_world.current_level.connect('food_hit',self,'on_food_hit')
+	_world.current_level.connect('player_broke_food',self,'on_player_broke_food')
 	
 func init_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -82,6 +84,8 @@ func update_world():
 	_world.current_level.connect('new_sprays',self,'on_new_spray_count',[true])
 	_world.current_level.connect('new_lives',self,'on_lives_powerup')
 	_world.current_level.connect('player_hit',self,'on_player_hit')
+	_world.current_level.connect('food_hit',self,'on_food_hit')
+	_world.current_level.connect('player_broke_food',self,'on_player_broke_food')
 
 func clear_score():
 	for id in score:
@@ -234,9 +238,18 @@ func on_pause_game():
 func on_reloading_level():
 	_audio.stop_music()
 
+#when a food part hits other food part
+func on_food_hit():
+	_audio.play_sound('Bounce',true)
+
+func on_player_broke_food():
+	_audio.play_sound('Fall')
+
 #when the player hits the quit button
 func on_quit():
 	_world.exit_level()
+	_world.lives = 3
+	_world.sprays = 3
 	_gui.hide_ui()
 	_world.disconnect('new_enemy',self,'on_new_enemy')
 	_world.disconnect('new_score',self,'on_new_score')
@@ -252,7 +265,6 @@ func on_quit():
 	_gui.disconnect('quit_btn',self,'on_quit')
 	
 	init_menu()
-
 
 
 

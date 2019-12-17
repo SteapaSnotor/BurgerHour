@@ -9,7 +9,7 @@ signal sound_changed
 signal music_changed
 
 var sound_volume = 50 setget set_sound_volume, get_sound_volume
-var music_volume = 50 setget set_music_volume, get_music_volume
+var music_volume = 40 setget set_music_volume, get_music_volume
 
 var no_music = false
 var no_sound = false

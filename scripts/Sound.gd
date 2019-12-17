@@ -29,6 +29,9 @@ func play_music(music,solo=true):
 func update_sound_volume():
 	if Settings.no_sound: return mute_sound()
 	
+	for sound in $Sound.get_children():
+		sound.set_volume_db(lerp(-15,15,float(Settings.get_sound_volume())/100.0))
+	
 func update_music_volume():
 	if Settings.no_music: return mute_music()
 	

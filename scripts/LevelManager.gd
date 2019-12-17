@@ -13,6 +13,8 @@ signal player_sprayed
 signal new_points
 signal new_lives
 signal new_sprays
+signal food_hit
+signal player_broke_food
 
 var player
 var spawning = {} #data of the last enemy to start to spawn on the level
@@ -168,6 +170,8 @@ func spawn_food():
 		food.global_position.y +=32+$Burger.global_position.y
 		food.init($Burger.get_cell(part.x,part.y))
 		food.connect('on_final_base',self,'check_level_progress')
+		food.connect('hit',self,'check_food_state',['hit'])
+		food.connect('player_broke',self,'check_food_state',['player_broke'])
 		food.connect('broke_free',self,'add_points',[10,food])
 	
 #spawn all solid bases the food will fall
@@ -262,6 +266,14 @@ func check_player_state():
 		if sprays == 0: player.has_sprays = false
 		emit_signal("player_sprayed")
 
+#detect some events that happen to the food parts
+func check_food_state(event):
+	match event:
+		'hit':
+			emit_signal("food_hit")
+		'player_broke':
+			emit_signal("player_broke_food")
+
 #add points to the level score
 func add_points(value,at=Vector2(0,0)):
 	new_points = value
@@ -280,8 +292,6 @@ func add_sprays(value,at=Vector2(0,0)):
 	new_sprays_position = at
 	player.has_sprays = true
 	emit_signal("new_sprays")
-
-
 
 
 
