@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/LevelManager.gd" type="Script" id=1]
+[ext_resource path="res://sprites/tiles/ladder.png" type="Texture" id=2]
+[ext_resource path="res://sprites/tiles/prototype1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/tiles/prototype2.png" type="Texture" id=4]
+[ext_resource path="res://resources/tiles/burger.tres" type="TileSet" id=5]
+[ext_resource path="res://resources/tiles/level_signals.tres" type="TileSet" id=6]
+[ext_resource path="res://sprites/backgrounds/prototype.png" type="Texture" id=7]
+
+[sub_resource type="TileSet" id=1]
+0/name = "ladder.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 47, 62 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=2]
+0/name = "prototype1.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 59, 36 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+1/name = "prototype2.png 1"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 59, 36 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="Level4" type="Node2D"]
+script = ExtResource( 1 )
+music = "Fast"
+
+[node name="Ladders" type="TileMap" parent="."]
+z_index = 6
+tile_set = SubResource( 1 )
+cell_size = Vector2( 47, 62 )
+format = 1
+tile_data = PoolIntArray( 65536, 0, 0, 65552, 0, 0, 65556, 0, 0, 131072, 0, 0, 131088, 0, 0, 131092, 0, 0, 196608, 0, 0, 196622, 0, 0, 196624, 0, 0, 196628, 0, 0, 262144, 0, 0, 262158, 0, 0, 262160, 0, 0, 262164, 0, 0, 327680, 0, 0, 327694, 0, 0, 327696, 0, 0, 327700, 0, 0, 393216, 0, 0, 393228, 0, 0, 393230, 0, 0, 393232, 0, 0, 393236, 0, 0, 458752, 0, 0, 458764, 0, 0, 458766, 0, 0, 458768, 0, 0, 458772, 0, 0, 524288, 0, 0, 524293, 0, 0, 524300, 0, 0, 524308, 0, 0, 589824, 0, 0, 589829, 0, 0, 589836, 0, 0, 589844, 0, 0, 655360, 0, 0, 655365, 0, 0, 655380, 0, 0, 720896, 0, 0, 720901, 0, 0, 720916, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LevelMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 59, 36 )
+format = 1
+tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245190, 1, 0, 1245191, 1, 0, 1245192, 1, 0, 1245197, 0, 0, 1245198, 0, 0, 1245199, 0, 0, 1245200, 0, 0, 1245201, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Burger" type="TileMap" parent="."]
+visible = false
+position = Vector2( -12.69, -18.62 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 59, 36 )
+format = 1
+tile_data = PoolIntArray( 196614, 0, 0, 458758, 3, 0, 720902, 2, 0, 983046, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LevelSignals" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 59, 36 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 0, 17, 0, 0, 131071, 0, 0, 65553, 0, 0, 196606, 4, 0, 196607, 0, 0, 131089, 0, 0, 131090, 5, 0, 262143, 0, 0, 196608, 2, 0, 196621, 2, 0, 196624, 2, 0, 196625, 0, 0, 327679, 0, 0, 262161, 0, 0, 393215, 0, 0, 327684, 0, 0, 327694, 0, 0, 327697, 0, 0, 458751, 0, 0, 393220, 0, 0, 393230, 0, 0, 393233, 0, 0, 524287, 0, 0, 458756, 0, 0, 458763, 2, 0, 458765, 2, 0, 458766, 0, 0, 458769, 0, 0, 589823, 0, 0, 524292, 0, 0, 524302, 0, 0, 524305, 0, 0, 655359, 0, 0, 589828, 0, 0, 589841, 0, 0, 720895, 0, 0, 655364, 0, 0, 655372, 0, 0, 655377, 0, 0, 786431, 0, 0, 720900, 0, 0, 720905, 2, 0, 720907, 2, 0, 720908, 0, 0, 720913, 0, 0, 851967, 0, 0, 786435, 0, 0, 786449, 0, 0, 917503, 0, 0, 851971, 0, 0, 851985, 0, 0, 983039, 0, 0, 917507, 0, 0, 917515, 0, 0, 917521, 0, 0, 1048575, 0, 0, 983043, 0, 0, 983044, 2, 0, 983049, 2, 0, 983051, 0, 0, 983057, 0, 0, 1114111, 0, 0, 1048581, 0, 0, 1048593, 0, 0, 1179647, 0, 0, 1114117, 0, 0, 1114129, 0, 0, 1245182, 4, 0, 1245183, 0, 0, 1179650, 1, 0, 1179653, 0, 0, 1179657, 0, 0, 1179660, 0, 0, 1179665, 0, 0, 1179666, 5, 0, 1310719, 0, 0, 1245184, 2, 0, 1245188, 2, 0, 1245189, 0, 0, 1245193, 0, 0, 1245196, 0, 0, 1245200, 2, 0, 1245201, 0, 0, 1376255, 0, 0, 1310737, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 1.24734, 1.24734 )
+z_index = -1
+texture = ExtResource( 7 )
+offset = Vector2( 512, 300 )
+__meta__ = {
+"_edit_group_": true
+}
+

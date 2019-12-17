@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Sound.gd" type="Script" id=1]
 [ext_resource path="res://audio/music/Countdown to Myocardial Infarction.ogg" type="AudioStream" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://audio/music/Jazz Chromatic.ogg" type="AudioStream" id=6]
 [ext_resource path="res://audio/music/Rollin at 5 - electronic.ogg" type="AudioStream" id=7]
 [ext_resource path="res://audio/music/foodvana_level_one_theme.ogg" type="AudioStream" id=8]
-[ext_resource path="res://audio/sound/hit.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/music/3741-faster-does-it-by-kevin-macleod.ogg" type="AudioStream" id=9]
+[ext_resource path="res://audio/sound/hit.wav" type="AudioStream" id=10]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
@@ -36,10 +37,13 @@ stream = ExtResource( 7 )
 [node name="Havana" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 8 )
 
+[node name="Fast" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 9 )
+
 [node name="Sound" type="Node" parent="."]
 
 [node name="Hit" type="AudioStreamPlayer" parent="Sound"]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 
 [node name="FadingTimer" type="Timer" parent="."]
 wait_time = 0.2
