@@ -16,7 +16,7 @@ var score = {
 var _world = null
 var _gui = null
 var _audio = null
-var selected_level = 0
+var selected_level = 5
 
 #initialize all the game here
 func _ready():
