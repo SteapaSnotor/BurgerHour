@@ -122,11 +122,24 @@ func exit_hit_detection(body):
 func get_collision_count():
 	return _current_collisions.size()
 
+#returns true if the enemy can reach the player
+func is_player_reachable(_player):
+	if _player == null: return false
+	
+	$AttackingRay.set_cast_to(_player.global_position - $AttackingRay.global_position)
+	$AttackingRay.force_raycast_update()
+	
+	if $AttackingRay.get_collider() == null: return false
+	
+	return $AttackingRay.get_collider().name == 'Player'
+	
+
 func on_player_sight(area):
 	if area.name == 'PlayerHit':
 		if area.get_parent().FSM.get_current_state().name != 'Climbing':
-			is_seeing_player = true
-			player = area.get_parent()
+			if is_player_reachable(area.get_parent()):
+				is_seeing_player = true
+				player = area.get_parent()
 		
 
 func out_player_sight(area):
