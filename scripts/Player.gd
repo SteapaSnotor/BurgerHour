@@ -85,6 +85,9 @@ func get_spray_keys():
 	return [Input.is_action_pressed("spray"),
 Input.is_action_pressed("ui_accept")]
 
+func is_player_alive():
+	return FSM.get_current_state().name != 'Dead' and FSM.get_current_state().name != 'TotallyDead'
+
 #when the player is hit
 func set_hit(value):
 	hit = value

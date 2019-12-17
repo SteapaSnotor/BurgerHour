@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/HOFMenu.gd" type="Script" id=1]
+[ext_resource path="res://sprites/backgrounds/score_background.png" type="Texture" id=2]
+[ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=3]
+[ext_resource path="res://resources/fonts/GUfontScoreI.tres" type="DynamicFont" id=4]
+[ext_resource path="res://resources/fonts/AmaticSC-Bold.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+font_data = ExtResource( 5 )
+
+[node name="HOFMenu" type="Node2D"]
+z_index = 10
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 1.247, 1.247 )
+texture = ExtResource( 2 )
+offset = Vector2( 512, 300 )
+
+[node name="Hall Of Fame" type="Label" parent="."]
+margin_right = 1026.0
+margin_bottom = 176.0
+custom_fonts/font = ExtResource( 3 )
+text = "HALL OF FAME"
+align = 1
+valign = 1
+
+[node name="Score1" type="Label" parent="."]
+margin_left = 13.0
+margin_top = 210.0
+margin_right = 1026.0
+margin_bottom = 268.0
+custom_fonts/font = ExtResource( 4 )
+text = "1 - STEAPA...................................................0000000"
+valign = 1
+
+[node name="Score2" type="Label" parent="."]
+margin_left = 13.0
+margin_top = 290.0
+margin_right = 1026.0
+margin_bottom = 348.0
+custom_fonts/font = ExtResource( 4 )
+text = "2 - MY MOM...................................................0000000"
+valign = 1
+
+[node name="Score3" type="Label" parent="."]
+margin_left = 13.0
+margin_top = 370.0
+margin_right = 1026.0
+margin_bottom = 428.0
+custom_fonts/font = ExtResource( 4 )
+text = "3 - BEAR.....................................................0000000"
+valign = 1
+
+[node name="Score4" type="Label" parent="."]
+margin_left = 13.0
+margin_top = 450.0
+margin_right = 1026.0
+margin_bottom = 508.0
+custom_fonts/font = ExtResource( 4 )
+text = "4 - SEX SLAVES...............................................0000000"
+valign = 1
+
+[node name="Score5" type="Label" parent="."]
+margin_left = 13.0
+margin_top = 530.0
+margin_right = 1026.0
+margin_bottom = 588.0
+custom_fonts/font = ExtResource( 4 )
+text = "5 - LARRY....................................................0000000"
+valign = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 646.0
+margin_right = 1019.0
+margin_bottom = 723.0
+custom_fonts/font = SubResource( 1 )
+text = "PRESS ESC TO EXIT"
+align = 1
+valign = 1
+

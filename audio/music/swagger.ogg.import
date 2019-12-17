@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/swagger.ogg-247e4ee41be2e7692ce24dc363c27223.oggstr"
+
+[deps]
+
+source_file="res://audio/music/swagger.ogg"
+dest_files=[ "res://.import/swagger.ogg-247e4ee41be2e7692ce24dc363c27223.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

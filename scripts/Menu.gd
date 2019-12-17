@@ -71,6 +71,12 @@ func btn_pressed(btn):
 			add_child(_credits)
 			lock_btns()
 			emit_signal("about")
+		'HOFBtn':
+			var _hall = preload('res://scenes/HOFMenu.tscn').instance()
+			_hall.connect('exited',self,'unlock_btns')
+			add_child(_hall)
+			lock_btns()
+			emit_signal("hof")
 
 func btn_hovered(btn):
 	buttons[selelected_btn].texture_normal = normal_selected

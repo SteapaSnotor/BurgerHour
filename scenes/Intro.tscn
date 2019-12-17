@@ -1,0 +1,232 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
+[ext_resource path="res://resources/fonts/Press_Start_2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://audio/sound/type.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/sound/door.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/sound/hahahahh2.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "typing"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Console:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2.1, 2.2, 2.3, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5, 5.2, 5.4, 5.5, 5.6, 5.7, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "C:\\Basement>_", "C:\\Basement>", "C:\\Basement>_", "C:\\Basement>", "C:\\Basement>_", "C:\\Basement>", "C:\\Basement>_", "C:\\Basement>", "C:\\Basement>_", "C:\\Basement>", "C:\\Basement>T", "C:\\Basement>To_", "C:\\Basement>Toy", "C:\\Basement>Toys_", "C:\\Basement>Toys", "C:\\Basement>Toys_", "C:\\Basement>Toys", "C:\\Basement>Toys_", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>_", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>_", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>_", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>_", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>S_", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>St", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>Sta_", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>Star", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>Start_", "C:\\Basement>Toys
+
+
+C:\\Basement\\Toys>Start" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Basement:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6.1, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -736, 363 ), Vector2( -706, 363 ), Vector2( -206, 363 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Toys:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6.1, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1045, 363 ), Vector2( 1055, 363 ), Vector2( 475, 363 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Info:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TypeSound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.9, 2.01, 2.2, 2.38, 3.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, true, true, true, true, true, true, true, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Door:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 6.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("haha:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 7.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CanvasModulate:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 8.2, 8.4, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.776471, 0.776471, 0.776471, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_size = 4
+outline_color = Color( 0.0588235, 0.266667, 0.670588, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
+
+[node name="Intro" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+autoplay = "typing"
+anims/typing = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -86.0
+margin_top = -77.0
+margin_right = 1221.0
+margin_bottom = 891.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Console" type="Label" parent="."]
+margin_left = 15.0
+margin_top = 23.0
+margin_right = 1024.0
+margin_bottom = 195.0
+rect_pivot_offset = Vector2( 535, 547 )
+custom_fonts/font = SubResource( 2 )
+text = "C:\\Basement>_"
+
+[node name="Basement" type="Label" parent="."]
+margin_left = -736.0
+margin_top = 363.0
+margin_right = 280.0
+margin_bottom = 532.0
+custom_fonts/font = SubResource( 3 )
+text = "BASEMENT
+"
+align = 1
+
+[node name="Toys" type="Label" parent="."]
+margin_left = 1045.0
+margin_top = 363.0
+margin_right = 1350.0
+margin_bottom = 532.0
+custom_fonts/font = SubResource( 3 )
+text = "TOYS
+"
+align = 1
+
+[node name="Info" type="Label" parent="."]
+visible = false
+margin_left = 110.082
+margin_top = 436.01
+margin_right = 430.082
+margin_bottom = 452.01
+custom_fonts/font = SubResource( 4 )
+text = "Last iteration: 2019"
+
+[node name="TypeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Door" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="haha" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+

@@ -35,7 +35,8 @@ var levels = {
 	1:'res://scenes/Level1.tscn',
 	2:'res://scenes/Level2.tscn',
 	3:'res://scenes/Level3.tscn',
-	4:'res://scenes/Level4.tscn'
+	4:'res://scenes/Level4.tscn',
+	5:'res://scenes/Level5.tscn'
 	
 }
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/play_btn_test.png" type="Texture" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://sprites/backgrounds/peter_running.png" type="Texture" id=36]
 [ext_resource path="res://sprites/backgrounds/bananaman.png" type="Texture" id=37]
 [ext_resource path="res://sprites/backgrounds/brocc.png" type="Texture" id=38]
+[ext_resource path="res://sprites/backgrounds/tomato.png" type="Texture" id=39]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -48,7 +49,6 @@ animations = [ {
 } ]
 
 [node name="Menu" type="Node2D"]
-z_index = 1
 script = ExtResource( 1 )
 
 [node name="PlayBtn" type="TextureButton" parent="."]
@@ -117,13 +117,13 @@ text = "VERSION X.X.X"
 editor/display_folded = true
 position = Vector2( 320.411, 205.692 )
 frames = SubResource( 1 )
-frame = 14
+frame = 8
 playing = true
 
 [node name="BurgerSelection2" type="AnimatedSprite" parent="BurgerSelection"]
 position = Vector2( 392, 0 )
 frames = SubResource( 1 )
-frame = 13
+frame = 7
 playing = true
 flip_h = true
 
@@ -149,4 +149,10 @@ position = Vector2( 178.557, 443.338 )
 scale = Vector2( 0.4, 0.4 )
 z_index = -1
 texture = ExtResource( 38 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 913.677, 436.161 )
+scale = Vector2( 0.523409, 0.523409 )
+z_index = -1
+texture = ExtResource( 39 )
 

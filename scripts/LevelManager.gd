@@ -246,7 +246,7 @@ func get_powerup_count():
 #check if the level has been finished
 func check_level_progress():
 	food_count -= 1
-	if food_count == 0: 
+	if food_count == 0 and player.is_player_alive(): 
 		emit_signal("finished")
 		finished = true
 
