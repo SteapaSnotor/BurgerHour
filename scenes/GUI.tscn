@@ -502,7 +502,6 @@ scale = Vector2( 0.678782, 0.678782 )
 texture = ExtResource( 4 )
 
 [node name="Screens" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_top = -80.0
 margin_right = 40.0
@@ -551,7 +550,6 @@ scale = Vector2( 1e-005, 1e-005 )
 anims/WonLevel = SubResource( 5 )
 
 [node name="LostLevel" type="Control" parent="Screens"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -594,7 +592,7 @@ rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
 
-[node name="Quit" type="TextureButton" parent="Screens/LostLevel"]
+[node name="LQuit" type="TextureButton" parent="Screens/LostLevel"]
 margin_left = 413.02
 margin_top = 406.533
 margin_right = 763.02
@@ -607,18 +605,17 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 23
+frame = 20
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/LostLevel/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 23
+frame = 20
 playing = true
 flip_h = true
 
 [node name="GameOver" type="Control" parent="Screens"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -659,7 +656,7 @@ rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
 
-[node name="Quit" type="TextureButton" parent="Screens/GameOver"]
+[node name="GQuit" type="TextureButton" parent="Screens/GameOver"]
 margin_left = 413.02
 margin_top = 406.533
 margin_right = 763.02
@@ -672,17 +669,18 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 22
+frame = 19
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/GameOver/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 22
+frame = 19
 playing = true
 flip_h = true
 
 [node name="FlyingLabel" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0

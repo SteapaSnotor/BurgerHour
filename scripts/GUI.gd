@@ -8,6 +8,7 @@ signal restart_btn
 signal next_btn
 signal restart_over_btn
 signal pause_btn
+signal quit_btn
 
 onready var timer = $GUITimer
 
@@ -216,6 +217,12 @@ func on_btn_pressed(btn):
 		'GRestart':
 			emit_signal('restart_over_btn')
 			hide_screen('GameOver')
+		'LQuit':
+			hide_screen('LostLevel')
+			emit_signal('quit_btn')
+		'GQuit':
+			hide_screen('GameOver')
+			emit_signal('quit_btn')
 
 func finished_label_animation(animation,label):
 	label.queue_free()

@@ -28,6 +28,7 @@ var facing_dir = Vector2(0,0)
 
 var id = 1 #will define things like animations and stats etc
 var locomotion = ["WALK","JUMP","WALK"]
+var spray_immune = [false,true,false] 
 var on_ladder = false
 var on_edge = false
 var on_food = false
@@ -95,7 +96,7 @@ func on_hit_detection(body):
 		if not body.get_parent().on_final_base:
 			emit_signal("died")
 			call_deferred('free')
-	elif body.name == 'SmokeDetection':
+	elif body.name == 'SmokeDetection' and not spray_immune[id]:
 		#TODO: delegate this to a new state
 		emit_signal("sprayed")
 		call_deferred('free')

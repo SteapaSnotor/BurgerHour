@@ -14,7 +14,7 @@ var score = {
 var _world = null
 var _gui = null
 var _audio = null
-var selected_level = 3
+var selected_level = 0
 
 #initialize all the game here
 func _ready():
@@ -55,6 +55,7 @@ func init_gui():
 	_gui.connect('next_btn',self,'on_next_level')
 	_gui.connect('restart_over_btn',self,'on_restart_game')
 	_gui.connect('pause_btn',self,'on_pause_game')
+	_gui.connect('quit_btn',self,'on_quit')
 
 func init_menu():
 	var _menu = preload('res://scenes/Menu.tscn').instance()
@@ -230,5 +231,28 @@ func on_pause_game():
 #when the level is being reloaded
 func on_reloading_level():
 	_audio.stop_music()
+
+#when the player hits the quit button
+func on_quit():
+	_world.exit_level()
+	_gui.hide_ui()
+	_world.disconnect('new_enemy',self,'on_new_enemy')
+	_world.disconnect('new_score',self,'on_new_score')
+	_world.disconnect('level_reloaded',self,'update_gui')
+	_world.disconnect('level_reloaded',self,'update_world')
+	_world.disconnect('level_loaded',self,'on_level_loaded')
+	_world.disconnect('reloading_level',self,'on_reloading_level')
+	
+	_gui.disconnect('restart_btn',_world,'restart_level')
+	_gui.disconnect('next_btn',self,'on_next_level')
+	_gui.disconnect('restart_over_btn',self,'on_restart_game')
+	_gui.disconnect('pause_btn',self,'on_pause_game')
+	_gui.disconnect('quit_btn',self,'on_quit')
+	
+	init_menu()
+
+
+
+
 
 
