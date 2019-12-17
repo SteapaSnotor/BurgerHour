@@ -112,8 +112,8 @@ func spawn_enemies(_signal={},spawn=false,_timer=null):
 		enemy.connect('sprayed',self,'add_points',[50,enemy])
 		enemy.connect('sprayed',self,'spawn_enemies',[_spawn_dict,false])
 		connect('finished',enemy,'set_level_finished',[true])
-		
-		$LevelSignals.get_child(0).queue_free()
+		_timer.queue_free()
+		#$LevelSignals.get_child(0).queue_free() -< BAD BUG
 		
 		var new_dict = _signal
 		new_dict['spawns']-= 1
@@ -207,7 +207,7 @@ func spawn_powerups(_timer = null):
 		
 		var r = rand_range(0,100)
 		
-		if r > 90: #10%
+		if r > 82: #18%
 			var power_up = preload('res://scenes/PowerUps.tscn').instance()
 			var random_tile = get_floor_tiles()
 			random_tile.shuffle()

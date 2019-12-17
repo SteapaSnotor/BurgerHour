@@ -279,7 +279,7 @@ script = ExtResource( 1 )
 editor/display_folded = true
 frames = SubResource( 1 )
 animation = "0:Searching"
-frame = 14
+frame = 17
 playing = true
 __meta__ = {
 "_edit_lock_": true
