@@ -20,7 +20,7 @@ var _world = null
 var _gui = null
 var _audio = null
 var _newgrounds = null
-var selected_level = 8
+var selected_level = 4
 
 #initialize all the game here
 func _ready():
@@ -51,6 +51,7 @@ func init_world():
 	_world.current_level.connect('player_hit',self,'on_player_hit')
 	_world.current_level.connect('food_hit',self,'on_food_hit')
 	_world.current_level.connect('player_broke_food',self,'on_player_broke_food')
+	_world.current_level.connect('enemy_killed',self,'on_enemy_killed')
 	
 func init_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -93,6 +94,7 @@ func update_world():
 	_world.current_level.connect('player_hit',self,'on_player_hit')
 	_world.current_level.connect('food_hit',self,'on_food_hit')
 	_world.current_level.connect('player_broke_food',self,'on_player_broke_food')
+	_world.current_level.connect('enemy_killed',self,'on_enemy_killed')
 
 func clear_score():
 	for id in score:
@@ -255,6 +257,18 @@ func on_player_broke_food():
 
 func on_load_score():
 	_newgrounds.get_score(get_node('Menu/HOFMenu'))
+
+#check for some medals
+func on_enemy_killed():
+	if _world.current_level.last_enemy_killed == 0:
+		if not _newgrounds.medals_data[58580]:
+			_newgrounds.unlock_medal(58580)
+	elif _world.current_level.last_enemy_killed == 1:
+		if not _newgrounds.medals_data[58581]:
+			_newgrounds.unlock_medal(58581)
+	elif _world.current_level.last_enemy_killed == 2:
+		if not _newgrounds.medals_data[58582]:
+			_newgrounds.unlock_medal(58582)
 
 #when the player hits the quit button
 func on_quit():

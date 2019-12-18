@@ -8,7 +8,13 @@ var is_connected = false
 var ping_interval = 0
 var _result = null
 
-signal action_finished
+var medals_data = {
+	58580:false, #killed a banana
+	58581:false, #killed a brocc
+	58582:false, #killed a tomato
+	58579:false, #beat the game
+	58583:false  #debug medal
+}
 
 func init(ping_interval):
 	self.ping_interval = ping_interval
@@ -53,9 +59,9 @@ func add_score(score):
 
 func get_score(target):
 	var final_list = {'names':[],'points':[]}
-	if not is_connected: 
-		target.table = final_list
-		return
+	#if not is_connected: 
+	#	target.table = final_list
+	#	return
 	
 	$NewGroundsAPI.ScoreBoard.getScores(8813,$NewGroundsAPI.session_id,5)
 	_result = yield($NewGroundsAPI, 'ng_request_complete')
@@ -70,8 +76,18 @@ func get_score(target):
 		return 
 	else:
 		is_connected = false
+		return final_list
 
-
+func unlock_medal(id):
+	if not is_connected: return
+	$NewGroundsAPI.Medal.unlock(id)
+	_result = yield($NewGroundsAPI, 'ng_request_complete')
+	if $NewGroundsAPI.is_ok(_result):
+		print(str(_result.response))
+		is_connected = true
+	else:
+		print(_result.error)
+		is_connected = false
 
 
 

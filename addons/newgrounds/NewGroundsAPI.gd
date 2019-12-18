@@ -14,7 +14,7 @@ var Loader
 var Medal
 var ScoreBoard
 
-var session_id = 'f0999fb07afd51f210080fcd7b570e24b05222e0438cad'
+var session_id = 'd98acc4caafd516c12f4e5447d813c5320bb9fcdad68b1'
 
 func is_ok(ngResult):
 	return ngResult != null and ngResult.error == null

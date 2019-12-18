@@ -15,6 +15,7 @@ signal new_lives
 signal new_sprays
 signal food_hit
 signal player_broke_food
+signal enemy_killed
 
 var player
 var spawning = {} #data of the last enemy to start to spawn on the level
@@ -27,6 +28,7 @@ var new_lives_position = Vector2(0,0)
 var new_sprays_position = Vector2(0,0)
 var sprays = 3 #decrease on check_player_state()
 var finished = false
+var last_enemy_killed = null
 
 #enemies ID's according to each tile
 var enemies_data = {4:0,5:1,6:2}
@@ -247,6 +249,9 @@ func get_floor_tiles():
 func get_powerup_count():
 	return tree.get_nodes_in_group("PowerUp").size()
 
+func get_last_enemy_killed():
+	return last_enemy_killed
+
 #check if the level has been finished
 func check_level_progress():
 	food_count -= 1
@@ -279,7 +284,11 @@ func add_points(value,at=Vector2(0,0)):
 	new_points = value
 	if at is Vector2:
 		new_points_position = at
-	else: new_points_position = at.global_position #position as object
+	else: 
+		new_points_position = at.global_position #position as object
+		if at.name == 'Enemy':
+			last_enemy_killed = at.id #id of the last enemy killed
+			emit_signal("enemy_killed")
 	emit_signal("new_points")
 
 func add_lives(value,at=Vector2(0,0)):
