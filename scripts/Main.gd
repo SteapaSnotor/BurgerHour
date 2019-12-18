@@ -10,12 +10,14 @@ var score = {
 	2:0,
 	3:0,
 	4:0,
-	5:0
+	5:0,
+	6:0
 }
 
 var _world = null
 var _gui = null
 var _audio = null
+var _newgrounds = null
 var selected_level = 0
 
 #initialize all the game here
@@ -23,13 +25,11 @@ func _ready():
 	_world = $World
 	_gui = $GUI
 	_audio = $Audio
+	_newgrounds = $Newgrounds
 	init_audio()
 	init_menu()
-
-	#init_world()
-	#init_gui()
+	init_newgrounds()
 	
-	#TODO: loads the main menu instead
 	randomize()
 	
 func init_world():
@@ -64,14 +64,19 @@ func init_gui():
 func init_menu():
 	var _menu = preload('res://scenes/Menu.tscn').instance()
 	_menu.connect('play',self,'on_start_game')
+	_menu.connect('hof',self,'on_load_score')
 	add_child(_menu)
 	
 	_audio.play_music('Menu')
 	_world.connect('loading_level',_menu,'hide_elements',[['PlayBtn',
 	'OptionsBtn','HOFBtn','AboutBtn','Title','Version','BurgerSelection']])
 
+
 func init_audio():
 	_audio.init()
+
+func init_newgrounds():
+	_newgrounds.init(30)
 
 func update_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -115,6 +120,7 @@ func on_level_finished():
 	_gui.show_screen('WonLevel')
 	_gui.hide_ui('Screens')
 	score[selected_level] = _world.level_new_score
+	_newgrounds.add_score(get_total_score())
 	_audio.stop_music(_world.current_level.music,true)
 	
 	"""
@@ -245,11 +251,16 @@ func on_food_hit():
 func on_player_broke_food():
 	_audio.play_sound('Fall')
 
+func on_load_score():
+	_newgrounds.get_score(get_node('Menu/HOFMenu'))
+
 #when the player hits the quit button
 func on_quit():
 	_world.exit_level()
 	_world.lives = 3
 	_world.sprays = 3
+	selected_level = 0
+	clear_score()
 	_gui.hide_ui()
 	_world.disconnect('new_enemy',self,'on_new_enemy')
 	_world.disconnect('new_score',self,'on_new_score')

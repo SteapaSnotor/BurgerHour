@@ -27,7 +27,11 @@ text = "HALL OF FAME"
 align = 1
 valign = 1
 
-[node name="Score1" type="Label" parent="."]
+[node name="Values" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Score1" type="Label" parent="Values"]
 margin_left = 13.0
 margin_top = 210.0
 margin_right = 1026.0
@@ -36,7 +40,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "1 - STEAPA...................................................0000000"
 valign = 1
 
-[node name="Score2" type="Label" parent="."]
+[node name="Score2" type="Label" parent="Values"]
 margin_left = 13.0
 margin_top = 290.0
 margin_right = 1026.0
@@ -45,7 +49,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "2 - MY MOM...................................................0000000"
 valign = 1
 
-[node name="Score3" type="Label" parent="."]
+[node name="Score3" type="Label" parent="Values"]
 margin_left = 13.0
 margin_top = 370.0
 margin_right = 1026.0
@@ -54,7 +58,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "3 - BEAR.....................................................0000000"
 valign = 1
 
-[node name="Score4" type="Label" parent="."]
+[node name="Score4" type="Label" parent="Values"]
 margin_left = 13.0
 margin_top = 450.0
 margin_right = 1026.0
@@ -63,7 +67,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "4 - SEX SLAVES...............................................0000000"
 valign = 1
 
-[node name="Score5" type="Label" parent="."]
+[node name="Score5" type="Label" parent="Values"]
 margin_left = 13.0
 margin_top = 530.0
 margin_right = 1026.0
@@ -72,7 +76,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "5 - LARRY....................................................0000000"
 valign = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="Exit" type="Label" parent="."]
 margin_left = 3.0
 margin_top = 646.0
 margin_right = 1019.0

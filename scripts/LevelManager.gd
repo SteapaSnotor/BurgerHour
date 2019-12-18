@@ -50,7 +50,7 @@ func _ready():
 	spawn_final_bases()
 	spawn_powerups()
 	spawn_clouds()
-	randomize()#THIS SHOULD BE CALLED ON THE MAIN NODE. REMOVE IT FROM HERE LATER.
+	#randomize()#THIS SHOULD BE CALLED ON THE MAIN NODE. REMOVE IT FROM HERE LATER.
 	
 #spawn the player on this level
 func spawn_player():
