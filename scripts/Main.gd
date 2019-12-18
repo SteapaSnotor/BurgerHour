@@ -11,14 +11,16 @@ var score = {
 	3:0,
 	4:0,
 	5:0,
-	6:0
+	6:0,
+	7:0,
+	8:0
 }
 
 var _world = null
 var _gui = null
 var _audio = null
 var _newgrounds = null
-var selected_level = 0
+var selected_level = 8
 
 #initialize all the game here
 func _ready():
