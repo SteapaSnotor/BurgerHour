@@ -67,8 +67,8 @@ func _process(delta):
 	#print($Animations.global_position.y)
 	update_animations()
 	
-	if Input.is_action_just_pressed("ui_end"):
-		get_tree().paused = !get_tree().is_paused()
+	#if Input.is_action_just_pressed("ui_end"):
+	#	get_tree().paused = !get_tree().is_paused()
 	
 #return the state of keys used to walk
 func get_walk_keys():

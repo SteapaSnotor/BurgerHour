@@ -16,6 +16,9 @@ var no_sound = false
 
 var version = "1.0.0"
 
+func _ready():
+	set_pause_mode(Node.PAUSE_MODE_PROCESS)
+
 func set_sound_volume(value):
 	sound_volume = value
 	no_sound = sound_volume == 0

@@ -70,7 +70,6 @@ custom_fonts/font = ExtResource( 3 )
 text = "TOTAL.............................1550005"
 
 [node name="ContinueMessage" type="Label" parent="."]
-visible = false
 margin_left = -2.0
 margin_top = -83.0
 margin_right = 1027.0

@@ -35,7 +35,7 @@ func _input(event):
 	var down = int(Input.is_action_just_pressed("ui_down"))
 	var up = int(Input.is_action_just_pressed("ui_up"))
 	var ok = int(Input.is_action_just_pressed("spray"))
-	var cancel = int(Input.is_action_just_pressed("ui_cancel"))
+	var cancel = int(event.is_action_pressed("ui_cancel"))
 	
 	if cancel and not pause_buffer: 
 		pause_buffer = true
