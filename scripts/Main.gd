@@ -278,8 +278,7 @@ func on_enemy_killed():
 #when the player beats the game
 func on_beat_game():
 	if not _newgrounds.medals_data[58579]:
-		print('unlock this!')
-		#_newgrounds.unlock_medal(58579)
+		_newgrounds.unlock_medal(58579)
 	selected_level = 0
 	_gui.hide_ui()
 	_world.disconnect('new_enemy',self,'on_new_enemy')

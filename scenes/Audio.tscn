@@ -48,6 +48,7 @@ stream = ExtResource( 9 )
 stream = ExtResource( 10 )
 
 [node name="Sound" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Hit" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource( 11 )
