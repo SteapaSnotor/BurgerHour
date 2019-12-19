@@ -8,6 +8,7 @@ signal play
 signal options
 signal hof
 signal about
+signal entered
 
 onready var buttons = [$PlayBtn,$OptionsBtn,$HOFBtn,$AboutBtn]
 
@@ -15,7 +16,7 @@ var selelected_btn = 0
 var normal_selected = null
 var is_locked = false
 
-#debug
+#TODO: maybe the main node shoud call this instead
 func _ready():
 	init()
 
@@ -32,6 +33,8 @@ func init():
 	btn_hovered(buttons[selelected_btn])
 	
 	$Version.text = 'VERSION ' + str(Settings.version) 
+	
+	emit_signal("entered")
 	
 func _input(event):
 	var down = int(Input.is_action_just_pressed("ui_down"))
@@ -71,6 +74,7 @@ func btn_pressed(btn):
 			add_child(_credits)
 			lock_btns()
 			emit_signal("about")
+			print('hahahah')
 		'HOFBtn':
 			var _hall = preload('res://scenes/HOFMenu.tscn').instance()
 			_hall.connect('exited',self,'unlock_btns')

@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 40 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 691 ), Vector2( 0, -2769.02 ) ]
+"values": [ Vector2( 0, 611 ), Vector2( 0, -3639.02 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Continue:visible")
@@ -46,11 +46,21 @@ __meta__ = {
 }
 
 [node name="Credits" type="Label" parent="."]
-margin_top = 691.0
+margin_top = 611.0
 margin_right = 1023.0
-margin_bottom = 3372.0
+margin_bottom = 4207.0
 custom_fonts/font = ExtResource( 3 )
-text = "CREDITS
+text = "THANKS FOR PLAYING, YOU'RE AWESOME :D
+
+
+
+
+
+
+
+
+
+CREDITS
 
 
 ART, PROGRAMMING, GAME DESIGN AND SOUND DESIGN BY STEAPA FROM BASEMENT 

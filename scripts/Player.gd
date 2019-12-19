@@ -99,6 +99,7 @@ func set_hit(value):
 func set_level_finished(value):
 	level_finished = value
 	
+	facing_dir = Vector2(0,0)
 	if level_finished: FSM.force_state('Idle')
 
 func update_animations():

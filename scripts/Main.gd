@@ -20,7 +20,8 @@ var _world = null
 var _gui = null
 var _audio = null
 var _newgrounds = null
-var selected_level = 4
+var _tree = null
+var selected_level = 0
 
 #initialize all the game here
 func _ready():
@@ -28,6 +29,7 @@ func _ready():
 	_gui = $GUI
 	_audio = $Audio
 	_newgrounds = $Newgrounds
+	_tree = get_tree()
 	init_audio()
 	init_menu()
 	init_newgrounds()
@@ -73,6 +75,8 @@ func init_menu():
 	_audio.play_music('Menu')
 	_world.connect('loading_level',_menu,'hide_elements',[['PlayBtn',
 	'OptionsBtn','HOFBtn','AboutBtn','Title','Version','BurgerSelection']])
+	
+	return _menu
 
 
 func init_audio():
@@ -205,6 +209,7 @@ func on_next_level():
 	_world.exit_level()
 	if not _world.load_level(selected_level):
 		print('No more levels! The game has been beaten!')
+		on_beat_game()
 		return
 	yield(_world,'level_loaded')
 	update_world()
@@ -269,6 +274,31 @@ func on_enemy_killed():
 	elif _world.current_level.last_enemy_killed == 2:
 		if not _newgrounds.medals_data[58582]:
 			_newgrounds.unlock_medal(58582)
+
+#when the player beats the game
+func on_beat_game():
+	if not _newgrounds.medals_data[58579]:
+		print('unlock this!')
+		#_newgrounds.unlock_medal(58579)
+	selected_level = 0
+	_gui.hide_ui()
+	_world.disconnect('new_enemy',self,'on_new_enemy')
+	_world.disconnect('new_score',self,'on_new_score')
+	_world.disconnect('level_reloaded',self,'update_gui')
+	_world.disconnect('level_reloaded',self,'update_world')
+	_world.disconnect('level_loaded',self,'on_level_loaded')
+	_world.disconnect('reloading_level',self,'on_reloading_level')
+	
+	_gui.disconnect('restart_btn',_world,'restart_level')
+	_gui.disconnect('next_btn',self,'on_next_level')
+	_gui.disconnect('restart_over_btn',self,'on_restart_game')
+	_gui.disconnect('pause_btn',self,'on_pause_game')
+	_gui.disconnect('quit_btn',self,'on_quit')
+	
+	var menu = init_menu()
+
+	menu.btn_pressed(menu.get_node('AboutBtn'))
+	
 
 #when the player hits the quit button
 func on_quit():
