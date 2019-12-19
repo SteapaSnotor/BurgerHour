@@ -125,13 +125,13 @@ enabled_focus_mode = 0
 editor/display_folded = true
 position = Vector2( 320.411, 205.692 )
 frames = SubResource( 1 )
-frame = 20
+frame = 16
 playing = true
 
 [node name="BurgerSelection2" type="AnimatedSprite" parent="BurgerSelection"]
 position = Vector2( 392, 0 )
 frames = SubResource( 1 )
-frame = 19
+frame = 15
 playing = true
 flip_h = true
 

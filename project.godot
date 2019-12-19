@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="BurgerHour"
 run/main_scene="res://scenes/Main.tscn"
+boot_splash/image="res://sprites/backgrounds/banner.png"
 config/icon="res://icon.png"
 
 [autoload]
