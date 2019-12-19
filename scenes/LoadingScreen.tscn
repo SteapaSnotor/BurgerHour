@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/LoadingScreen.gd" type="Script" id=1]
 [ext_resource path="res://sprites/backgrounds/score_background.png" type="Texture" id=2]
@@ -6,6 +6,59 @@
 [ext_resource path="res://sprites/ui/bar_background.png" type="Texture" id=4]
 [ext_resource path="res://sprites/ui/progress_ui.png" type="Texture" id=5]
 [ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "label"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Loading:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.3, 0.6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Loading:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.003, 1 ), Vector2( 1.005, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Loading2:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -0.1, -0.2 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Loading2:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.997, 1.067 ), Vector2( 1, 1.093 ) ]
+}
 
 [node name="LoadingScreen" type="Node2D"]
 z_index = 2
@@ -24,7 +77,6 @@ z_index = 10
 texture = ExtResource( 3 )
 
 [node name="GUI" type="Node2D" parent="."]
-editor/display_folded = true
 z_index = 80
 
 [node name="LoadingBar" type="TextureProgress" parent="GUI"]
@@ -36,13 +88,32 @@ texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 5 )
 
 [node name="Loading" type="Label" parent="GUI/LoadingBar"]
-margin_left = -135.654
-margin_top = -165.32
-margin_right = 903.346
-margin_bottom = -38.32
+margin_left = -135.641
+margin_top = -163.312
+margin_right = 903.359
+margin_bottom = -36.3117
+rect_rotation = 0.307557
+rect_scale = Vector2( 1.00305, 1 )
+rect_pivot_offset = Vector2( 514.811, -73.3387 )
 custom_fonts/font = ExtResource( 6 )
 text = "LOADING..."
 align = 1
+
+[node name="Loading2" type="Label" parent="GUI/LoadingBar"]
+margin_left = -136.534
+margin_top = -161.298
+margin_right = 902.466
+margin_bottom = -34.2977
+rect_rotation = -0.102519
+rect_scale = Vector2( 0.997076, 1.06765 )
+rect_pivot_offset = Vector2( 765.549, 86.0325 )
+custom_fonts/font = ExtResource( 6 )
+text = "LOADING..."
+align = 1
+
+[node name="ShakingLabel" type="AnimationPlayer" parent="GUI/LoadingBar"]
+autoplay = "label"
+anims/label = SubResource( 1 )
 
 [node name="FakeDelay" type="Timer" parent="."]
 wait_time = 0.5

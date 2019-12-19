@@ -502,7 +502,6 @@ scale = Vector2( 0.678782, 0.678782 )
 texture = ExtResource( 4 )
 
 [node name="Screens" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_top = -80.0
 margin_right = 40.0
@@ -551,6 +550,7 @@ scale = Vector2( 1e-005, 1e-005 )
 anims/WonLevel = SubResource( 5 )
 
 [node name="LostLevel" type="Control" parent="Screens"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -560,8 +560,8 @@ margin_left = 384.704
 margin_top = 197.332
 margin_right = 634.704
 margin_bottom = 324.332
-rect_rotation = 0.642706
-rect_scale = Vector2( 1.00939, 1 )
+rect_rotation = 0.8
+rect_scale = Vector2( 1.009, 1 )
 rect_pivot_offset = Vector2( 122, 73 )
 custom_fonts/font = ExtResource( 5 )
 text = "You lose!"
@@ -572,8 +572,8 @@ margin_left = 384.497
 margin_top = 196.877
 margin_right = 634.497
 margin_bottom = 323.877
-rect_rotation = -0.642706
-rect_scale = Vector2( 0.998393, 1 )
+rect_rotation = -0.8
+rect_scale = Vector2( 0.998, 1 )
 rect_pivot_offset = Vector2( 122, 73 )
 custom_fonts/font = ExtResource( 5 )
 text = "You lose!"
@@ -606,13 +606,13 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 6
+frame = 19
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/LostLevel/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 6
+frame = 19
 playing = true
 flip_h = true
 
@@ -670,13 +670,13 @@ texture_hover = ExtResource( 9 )
 editor/display_folded = true
 position = Vector2( 351.898, 360.417 )
 frames = SubResource( 8 )
-frame = 5
+frame = 18
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Screens/GameOver/Selection"]
 position = Vector2( 295, 0 )
 frames = SubResource( 8 )
-frame = 5
+frame = 18
 playing = true
 flip_h = true
 

@@ -74,7 +74,7 @@ func init_menu():
 	
 	_audio.play_music('Menu')
 	_world.connect('loading_level',_menu,'hide_elements',[['PlayBtn',
-	'OptionsBtn','HOFBtn','AboutBtn','Title','Version','BurgerSelection']])
+	'OptionsBtn','HOFBtn','AboutBtn','Title','Title2','Version','BurgerSelection']])
 	
 	return _menu
 

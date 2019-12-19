@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/play_btn_test.png" type="Texture" id=2]
@@ -40,6 +40,59 @@
 [ext_resource path="res://sprites/backgrounds/bananaman.png" type="Texture" id=38]
 [ext_resource path="res://sprites/backgrounds/brocc.png" type="Texture" id=39]
 [ext_resource path="res://sprites/backgrounds/tomato.png" type="Texture" id=40]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Label"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.43, 0.53 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title2:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -0.15, -0.67 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.998 ), Vector2( 1, 0.958 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title2:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.002, 1.057 ) ]
+}
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -100,14 +153,36 @@ enabled_focus_mode = 0
 texture_normal = ExtResource( 8 )
 texture_hover = ExtResource( 9 )
 
+[node name="TitleAnim" type="AnimationPlayer" parent="."]
+autoplay = "Label"
+anims/Label = SubResource( 2 )
+
+[node name="Title2" type="Label" parent="."]
+margin_left = -3.80046
+margin_top = 14.3653
+margin_right = 1026.2
+margin_bottom = 141.365
+rect_rotation = -0.537523
+rect_scale = Vector2( 1.00051, 1.01452 )
+rect_pivot_offset = Vector2( 530.23, 4.6744 )
+custom_fonts/font = ExtResource( 10 )
+text = "BURGER HOUR!"
+align = 1
+
 [node name="Title" type="Label" parent="."]
-margin_right = 1030.0
-margin_bottom = 127.0
+margin_left = -3.66507
+margin_top = 15.1067
+margin_right = 1026.33
+margin_bottom = 142.107
+rect_rotation = 0.504524
+rect_scale = Vector2( 1, 0.968191 )
+rect_pivot_offset = Vector2( 273.77, 13.7537 )
 custom_fonts/font = ExtResource( 10 )
 text = "BURGER HOUR!"
 align = 1
 
 [node name="Version" type="Label" parent="."]
+editor/display_folded = true
 margin_left = 841.946
 margin_top = 670.656
 margin_right = 1020.95
@@ -125,13 +200,13 @@ enabled_focus_mode = 0
 editor/display_folded = true
 position = Vector2( 320.411, 205.692 )
 frames = SubResource( 1 )
-frame = 16
+frame = 9
 playing = true
 
 [node name="BurgerSelection2" type="AnimatedSprite" parent="BurgerSelection"]
 position = Vector2( 392, 0 )
 frames = SubResource( 1 )
-frame = 15
+frame = 8
 playing = true
 flip_h = true
 
