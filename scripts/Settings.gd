@@ -9,7 +9,7 @@ signal sound_changed
 signal music_changed
 
 var sound_volume = 50 setget set_sound_volume, get_sound_volume
-var music_volume = 40 setget set_music_volume, get_music_volume
+var music_volume = 0 setget set_music_volume, get_music_volume
 
 var no_music = false
 var no_sound = false
@@ -31,3 +31,17 @@ func set_music_volume(value):
 
 func get_music_volume():
 	return music_volume
+
+#full screen mode
+func _input(event):
+	if event.is_action_pressed("fullscreen"):
+		OS.set_window_fullscreen(!OS.is_window_fullscreen())
+
+
+
+
+
+
+
+
+

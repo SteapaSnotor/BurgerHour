@@ -69,6 +69,7 @@ func add_score(score):
 func get_score(target):
 	if busy: yield(self,"free")
 	var final_list = {'names':[],'points':[]}
+	var target_ref = weakref(target)
 	#if not is_connected: 
 	#	target.table = final_list
 	#	return
@@ -76,8 +77,7 @@ func get_score(target):
 	
 	$NewGroundsAPI.ScoreBoard.getScores(8813,$NewGroundsAPI.session_id,5,0,false,null,'A')
 	_result = yield($NewGroundsAPI, 'ng_request_complete')
-	if $NewGroundsAPI.is_ok(_result):
-		
+	if $NewGroundsAPI.is_ok(_result) and target_ref.get_ref() != null:
 		for id in range(_result.response['scores'].size()):
 			final_list['names'].insert(id,_result.response['scores'][0]['user']['name'])
 			final_list['points'].insert(id,_result.response['scores'][0]['formatted_value'])

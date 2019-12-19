@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ui/play_btn_test.png" type="Texture" id=2]
@@ -10,39 +10,40 @@
 [ext_resource path="res://sprites/ui/about_normal.png" type="Texture" id=8]
 [ext_resource path="res://sprites/ui/about_hover.png" type="Texture" id=9]
 [ext_resource path="res://resources/fonts/GUIfontInfo.tres" type="DynamicFont" id=10]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0001.png" type="Texture" id=11]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0002.png" type="Texture" id=12]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0003.png" type="Texture" id=13]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0004.png" type="Texture" id=14]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0005.png" type="Texture" id=15]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0006.png" type="Texture" id=16]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0007.png" type="Texture" id=17]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0008.png" type="Texture" id=18]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0009.png" type="Texture" id=19]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0010.png" type="Texture" id=20]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0011.png" type="Texture" id=21]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0012.png" type="Texture" id=22]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0013.png" type="Texture" id=23]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0014.png" type="Texture" id=24]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0015.png" type="Texture" id=25]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0016.png" type="Texture" id=26]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0017.png" type="Texture" id=27]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0018.png" type="Texture" id=28]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0019.png" type="Texture" id=29]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0020.png" type="Texture" id=30]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0021.png" type="Texture" id=31]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0022.png" type="Texture" id=32]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0023.png" type="Texture" id=33]
-[ext_resource path="res://sprites/ui/button_selection/selection.png0024.png" type="Texture" id=34]
-[ext_resource path="res://sprites/backgrounds/score_background.png" type="Texture" id=35]
-[ext_resource path="res://sprites/backgrounds/peter_running.png" type="Texture" id=36]
-[ext_resource path="res://sprites/backgrounds/bananaman.png" type="Texture" id=37]
-[ext_resource path="res://sprites/backgrounds/brocc.png" type="Texture" id=38]
-[ext_resource path="res://sprites/backgrounds/tomato.png" type="Texture" id=39]
+[ext_resource path="res://resources/fonts/GUfontScoreI.tres" type="DynamicFont" id=11]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0001.png" type="Texture" id=12]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0002.png" type="Texture" id=13]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0003.png" type="Texture" id=14]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0004.png" type="Texture" id=15]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0005.png" type="Texture" id=16]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0006.png" type="Texture" id=17]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0007.png" type="Texture" id=18]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0008.png" type="Texture" id=19]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0009.png" type="Texture" id=20]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0010.png" type="Texture" id=21]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0011.png" type="Texture" id=22]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0012.png" type="Texture" id=23]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0013.png" type="Texture" id=24]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0014.png" type="Texture" id=25]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0015.png" type="Texture" id=26]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0016.png" type="Texture" id=27]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0017.png" type="Texture" id=28]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0018.png" type="Texture" id=29]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0019.png" type="Texture" id=30]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0020.png" type="Texture" id=31]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0021.png" type="Texture" id=32]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0022.png" type="Texture" id=33]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0023.png" type="Texture" id=34]
+[ext_resource path="res://sprites/ui/button_selection/selection.png0024.png" type="Texture" id=35]
+[ext_resource path="res://sprites/backgrounds/score_background.png" type="Texture" id=36]
+[ext_resource path="res://sprites/backgrounds/peter_running.png" type="Texture" id=37]
+[ext_resource path="res://sprites/backgrounds/bananaman.png" type="Texture" id=38]
+[ext_resource path="res://sprites/backgrounds/brocc.png" type="Texture" id=39]
+[ext_resource path="res://sprites/backgrounds/tomato.png" type="Texture" id=40]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "default",
 "speed": 24.0
@@ -107,52 +108,59 @@ text = "BURGER HOUR!"
 align = 1
 
 [node name="Version" type="Label" parent="."]
-margin_left = 913.622
-margin_top = 703.236
-margin_right = 1005.62
-margin_bottom = 717.236
+margin_left = 841.946
+margin_top = 670.656
+margin_right = 1020.95
+margin_bottom = 728.656
+custom_fonts/font = ExtResource( 11 )
 text = "VERSION X.X.X"
+
+[node name="ChangelogBtn" type="TextureButton" parent="Version"]
+margin_right = 181.0
+margin_bottom = 48.0
+focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="BurgerSelection" type="AnimatedSprite" parent="."]
 editor/display_folded = true
 position = Vector2( 320.411, 205.692 )
 frames = SubResource( 1 )
-frame = 8
+frame = 20
 playing = true
 
 [node name="BurgerSelection2" type="AnimatedSprite" parent="BurgerSelection"]
 position = Vector2( 392, 0 )
 frames = SubResource( 1 )
-frame = 7
+frame = 19
 playing = true
 flip_h = true
 
 [node name="Background" type="Sprite" parent="."]
 scale = Vector2( 1.247, 1.247 )
 z_index = -1
-texture = ExtResource( 35 )
+texture = ExtResource( 36 )
 offset = Vector2( 512, 300 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 114.887, 478.462 )
 scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 36 )
+texture = ExtResource( 37 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 234.067, 474.761 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 1
-texture = ExtResource( 37 )
+texture = ExtResource( 38 )
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 178.557, 443.338 )
 scale = Vector2( 0.4, 0.4 )
 z_index = -1
-texture = ExtResource( 38 )
+texture = ExtResource( 39 )
 
 [node name="Sprite4" type="Sprite" parent="."]
 position = Vector2( 913.677, 436.161 )
 scale = Vector2( 0.523409, 0.523409 )
 z_index = -1
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 

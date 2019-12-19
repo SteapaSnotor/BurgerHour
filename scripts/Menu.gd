@@ -9,6 +9,7 @@ signal options
 signal hof
 signal about
 signal entered
+signal clog
 
 onready var buttons = [$PlayBtn,$OptionsBtn,$HOFBtn,$AboutBtn]
 
@@ -19,6 +20,8 @@ var is_locked = false
 #TODO: maybe the main node shoud call this instead
 func _ready():
 	init()
+	
+		
 
 #initialize menu
 func init():
@@ -29,6 +32,9 @@ func init():
 	for button in buttons:
 		button.connect('pressed',self,'btn_pressed',[button])
 		button.connect('mouse_entered',self,'btn_hovered',[button])
+	
+	#buttons without hovering effect
+	$Version/ChangelogBtn.connect('pressed',self,'btn_pressed',[$Version/ChangelogBtn])
 	
 	btn_hovered(buttons[selelected_btn])
 	
@@ -81,6 +87,12 @@ func btn_pressed(btn):
 			add_child(_hall)
 			lock_btns()
 			emit_signal("hof")
+		'ChangelogBtn':
+			var _log = preload('res://scenes/Changelog.tscn').instance()
+			_log.connect('exited',self,'unlock_btns')
+			add_child(_log)
+			lock_btns()
+			emit_signal("clog")
 
 func btn_hovered(btn):
 	buttons[selelected_btn].texture_normal = normal_selected
