@@ -16,6 +16,7 @@ signal level_loaded
 var current_level = null
 var current_level_id = -1
 var new_enemy_data = {}
+var current_food_configuration = {}
 var lives = 3
 var sprays = 3
 var level_new_score = 0
@@ -23,7 +24,6 @@ var level_old_score = 0
 var bonus_points = 0
 var spray_points = 0
 var live_points = 0
-
 
 #world rules
 const max_lives = 3

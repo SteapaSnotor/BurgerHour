@@ -16,6 +16,7 @@ var lives_points = 0
 var bonus_points = 0
 var spray_points = 0
 var started_animation = false
+var can_skip = false
 
 #initialize
 func init(new_score,old_score,lives_points,bonus_points,spray_points):
@@ -28,6 +29,7 @@ func init(new_score,old_score,lives_points,bonus_points,spray_points):
 	
 #skip animation
 func _input(event):
+	if not can_skip: return
 	if Input.is_action_just_pressed("spray"):
 		if old_score != new_score + old_temp:
 			lives_points = 0
@@ -48,6 +50,7 @@ func start():
 	
 	update_labels()
 	started_animation = true
+	can_skip = true
 	
 func update_total():
 	if not started_animation: return

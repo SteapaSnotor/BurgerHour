@@ -14,7 +14,7 @@ var music_volume = 40 setget set_music_volume, get_music_volume
 var no_music = false
 var no_sound = false
 
-var version = "1.0.0"
+var version = "1.0.3"
 
 func _ready():
 	set_pause_mode(Node.PAUSE_MODE_PROCESS)

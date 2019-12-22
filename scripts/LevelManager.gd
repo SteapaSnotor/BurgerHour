@@ -16,6 +16,8 @@ signal new_sprays
 signal food_hit
 signal player_broke_food
 signal enemy_killed
+signal food_spawned
+signal new_food_config
 
 var player
 var spawning = {} #data of the last enemy to start to spawn on the level
@@ -175,6 +177,9 @@ func spawn_food():
 		food.connect('hit',self,'check_food_state',['hit'])
 		food.connect('player_broke',self,'check_food_state',['player_broke'])
 		food.connect('broke_free',self,'add_points',[10,food])
+		food.connect('new_configuration',self,'on_new_food_configuration')
+		
+	emit_signal("food_spawned")
 	
 #spawn all solid bases the food will fall
 func spawn_base():
@@ -252,6 +257,17 @@ func get_powerup_count():
 func get_last_enemy_killed():
 	return last_enemy_killed
 
+#returns all the foods current positions/states
+func get_food_state():
+	var states = {}
+	var parts = tree.get_nodes_in_group('FoodPart')
+	
+	for part in parts:
+		states[part.initial_position] = [part.global_position,
+		part.on_final_base,part.get_z_index()]
+		
+	return states
+
 #check if the level has been finished
 func check_level_progress():
 	food_count -= 1
@@ -301,6 +317,25 @@ func add_sprays(value,at=Vector2(0,0)):
 	new_sprays_position = at
 	player.has_sprays = true
 	emit_signal("new_sprays")
+
+func add_food_states(states):
+	#states[part.initial_position] = [part.global_position,part.on_final_base]
+	for part in tree.get_nodes_in_group('FoodPart'):
+		if part.initial_position != states[part.initial_position][0]:
+			part.global_position = states[part.initial_position][0]
+		if states[part.initial_position][1]:
+			part.ignore_index = true
+			part.on_final_base = states[part.initial_position][1]
+			part.set_z_index(states[part.initial_position][2])
+			#print(part.get_z_index())
+
+func on_new_food_configuration():
+	emit_signal("new_food_config")
+
+
+
+
+
 
 
 

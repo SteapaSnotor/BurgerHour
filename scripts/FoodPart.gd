@@ -8,6 +8,7 @@ signal on_final_base
 signal broke_free
 signal player_broke
 signal hit
+signal new_configuration
 
 #store all food part animations to each id
 var anims_data = {
@@ -24,12 +25,16 @@ var is_falling = false
 var falling_base = null
 var on_final_base = false setget set_on_final_base
 var current_state = [0,0,0,0]
+var initial_position = Vector2(0,0)
+var was_falling = false
+var ignore_index = false
 
 const max_step_points = 100
 
 #initialize
 func init(id):
 	self.id = id
+	self.initial_position = global_position
 	#change the animations according to the part ID
 	$States.set_sprite_frames(anims_data[id])
 	
@@ -49,6 +54,13 @@ func _physics_process(delta):
 	var anim = str(current_state[0]) + str(current_state[1]) + str(current_state[2]) + str(current_state[3])
 	$States.play(anim)
 	
+	if is_falling and not was_falling:
+		was_falling = true
+	elif was_falling and not is_falling:
+		was_falling = false
+		emit_signal("new_configuration")
+	
+	
 	#print(is_falling)
 	if on_final_base:
 		#prevent from falling when on the final base
@@ -65,6 +77,7 @@ func _physics_process(delta):
 			falling_base = null
 			is_falling = false
 			#reset points
+	
 			
 func connect_parts():
 	for part in $Parts.get_children():
@@ -126,7 +139,7 @@ func set_on_final_base(value):
 	if not on_final_base: emit_signal("on_final_base")
 	on_final_base = value
 	
-	if on_final_base: 
+	if on_final_base and not ignore_index: 
 		set_z_index(get_z_index()+7)
 	current_state = [0,0,0,0]
 

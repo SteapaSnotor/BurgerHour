@@ -54,6 +54,7 @@ func init_world():
 	_world.current_level.connect('food_hit',self,'on_food_hit')
 	_world.current_level.connect('player_broke_food',self,'on_player_broke_food')
 	_world.current_level.connect('enemy_killed',self,'on_enemy_killed')
+	_world.current_level.connect('new_food_config',self,'on_food_config')
 	
 func init_gui():
 	_gui.init(_world.level_new_score,_world.current_level.sprays,
@@ -99,7 +100,8 @@ func update_world():
 	_world.current_level.connect('food_hit',self,'on_food_hit')
 	_world.current_level.connect('player_broke_food',self,'on_player_broke_food')
 	_world.current_level.connect('enemy_killed',self,'on_enemy_killed')
-
+	_world.current_level.connect('new_food_config',self,'on_food_config')
+	
 func clear_score():
 	for id in score:
 		score[id] = 0
@@ -141,6 +143,9 @@ func on_level_finished():
 
 func on_level_loaded():
 	_audio.play_music(_world.current_level.music,true)
+	
+	if not _world.current_food_configuration.empty():
+		_world.current_level.add_food_states(_world.current_food_configuration)
 
 #when the player pressed enter on the score animation and is ready to 
 #to continue.
@@ -197,6 +202,7 @@ func on_player_lose():
 		#_audio.play_music('YouLose',true)
 	else:
 		_gui.show_screen('GameOver')
+		_world.current_food_configuration = {}
 		clear_score()
 
 func on_player_hit():
@@ -205,7 +211,8 @@ func on_player_hit():
 
 func on_next_level():
 	selected_level += 1
-
+	
+	_world.current_food_configuration = {}
 	_world.exit_level()
 	if not _world.load_level(selected_level):
 		print('No more levels! The game has been beaten!')
@@ -257,6 +264,10 @@ func on_reloading_level():
 func on_food_hit():
 	_audio.play_sound('Bounce',true)
 
+#when theres a new food configuration
+func on_food_config():
+	_world.current_food_configuration = _world.current_level.get_food_state()
+
 func on_player_broke_food():
 	_audio.play_sound('Fall')
 
@@ -280,6 +291,9 @@ func on_beat_game():
 	if not _newgrounds.medals_data[58579]:
 		_newgrounds.unlock_medal(58579)
 	selected_level = 0
+	_world.lives = 3
+	_world.current_food_configuration = {}
+	_world.sprays = 3
 	_gui.hide_ui()
 	_world.disconnect('new_enemy',self,'on_new_enemy')
 	_world.disconnect('new_score',self,'on_new_score')
@@ -305,6 +319,7 @@ func on_quit():
 	_world.lives = 3
 	_world.sprays = 3
 	selected_level = 0
+	_world.current_food_configuration = {}
 	clear_score()
 	_gui.hide_ui()
 	_world.disconnect('new_enemy',self,'on_new_enemy')
