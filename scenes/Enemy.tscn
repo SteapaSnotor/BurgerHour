@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=2]
+[gd_scene load_steps=234 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemies/broccoli/walking/walking.png0001.png" type="Texture" id=2]
@@ -109,34 +109,123 @@
 [ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0010.png" type="Texture" id=107]
 [ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0011.png" type="Texture" id=108]
 [ext_resource path="res://sprites/enemies/tomato/climbing/climbing.png0012.png" type="Texture" id=109]
-[ext_resource path="res://sprites/enemies/badbanana/shadow_walking.png" type="Texture" id=110]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching1.png" type="Texture" id=111]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching2.png" type="Texture" id=112]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching3.png" type="Texture" id=113]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching4.png" type="Texture" id=114]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching5.png" type="Texture" id=115]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching6.png" type="Texture" id=116]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching7.png" type="Texture" id=117]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching8.png" type="Texture" id=118]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching9.png" type="Texture" id=119]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching10.png" type="Texture" id=120]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching11.png" type="Texture" id=121]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching12.png" type="Texture" id=122]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching13.png" type="Texture" id=123]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching14.png" type="Texture" id=124]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching15.png" type="Texture" id=125]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching16.png" type="Texture" id=126]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching17.png" type="Texture" id=127]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching18.png" type="Texture" id=128]
-[ext_resource path="res://sprites/enemies/broccoli/shadows/searching19.png" type="Texture" id=129]
-[ext_resource path="res://sprites/enemies/tomato/tomato_shadow.png" type="Texture" id=130]
-[ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=131]
-[ext_resource path="res://scripts/ai/ai_states/Spawning.gd" type="Script" id=132]
-[ext_resource path="res://scripts/ai/ai_states/Idle.gd" type="Script" id=133]
-[ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=134]
-[ext_resource path="res://scripts/ai/ai_states/Climbing.gd" type="Script" id=135]
-[ext_resource path="res://scripts/ai/ai_states/Falling.gd" type="Script" id=136]
-[ext_resource path="res://scripts/ai/ai_states/Attacking.gd" type="Script" id=137]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0001.png" type="Texture" id=110]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0002.png" type="Texture" id=111]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0003.png" type="Texture" id=112]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0004.png" type="Texture" id=113]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0005.png" type="Texture" id=114]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0006.png" type="Texture" id=115]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0007.png" type="Texture" id=116]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0008.png" type="Texture" id=117]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0009.png" type="Texture" id=118]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0010.png" type="Texture" id=119]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0011.png" type="Texture" id=120]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0012.png" type="Texture" id=121]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0013.png" type="Texture" id=122]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0014.png" type="Texture" id=123]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0015.png" type="Texture" id=124]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0016.png" type="Texture" id=125]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0017.png" type="Texture" id=126]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0018.png" type="Texture" id=127]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0019.png" type="Texture" id=128]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0020.png" type="Texture" id=129]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0021.png" type="Texture" id=130]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0022.png" type="Texture" id=131]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0023.png" type="Texture" id=132]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0024.png" type="Texture" id=133]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0025.png" type="Texture" id=134]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0026.png" type="Texture" id=135]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0027.png" type="Texture" id=136]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0028.png" type="Texture" id=137]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0029.png" type="Texture" id=138]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0030.png" type="Texture" id=139]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0031.png" type="Texture" id=140]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0032.png" type="Texture" id=141]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0033.png" type="Texture" id=142]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0034.png" type="Texture" id=143]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0035.png" type="Texture" id=144]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0036.png" type="Texture" id=145]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0037.png" type="Texture" id=146]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0038.png" type="Texture" id=147]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0039.png" type="Texture" id=148]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0040.png" type="Texture" id=149]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0041.png" type="Texture" id=150]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0042.png" type="Texture" id=151]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0043.png" type="Texture" id=152]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0044.png" type="Texture" id=153]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0045.png" type="Texture" id=154]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0046.png" type="Texture" id=155]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0047.png" type="Texture" id=156]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0048.png" type="Texture" id=157]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0049.png" type="Texture" id=158]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0050.png" type="Texture" id=159]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0051.png" type="Texture" id=160]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0052.png" type="Texture" id=161]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0053.png" type="Texture" id=162]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0054.png" type="Texture" id=163]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0055.png" type="Texture" id=164]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0056.png" type="Texture" id=165]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0057.png" type="Texture" id=166]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0058.png" type="Texture" id=167]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0059.png" type="Texture" id=168]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0060.png" type="Texture" id=169]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0061.png" type="Texture" id=170]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0062.png" type="Texture" id=171]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0063.png" type="Texture" id=172]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0064.png" type="Texture" id=173]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0065.png" type="Texture" id=174]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0066.png" type="Texture" id=175]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0067.png" type="Texture" id=176]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0068.png" type="Texture" id=177]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0069.png" type="Texture" id=178]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0070.png" type="Texture" id=179]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0071.png" type="Texture" id=180]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0072.png" type="Texture" id=181]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0073.png" type="Texture" id=182]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0074.png" type="Texture" id=183]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0075.png" type="Texture" id=184]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0076.png" type="Texture" id=185]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0077.png" type="Texture" id=186]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0078.png" type="Texture" id=187]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0079.png" type="Texture" id=188]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0080.png" type="Texture" id=189]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0081.png" type="Texture" id=190]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0082.png" type="Texture" id=191]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0083.png" type="Texture" id=192]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0084.png" type="Texture" id=193]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0085.png" type="Texture" id=194]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0086.png" type="Texture" id=195]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0087.png" type="Texture" id=196]
+[ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0088.png" type="Texture" id=197]
+[ext_resource path="res://sprites/enemies/tomato/tomato_shadow.png" type="Texture" id=198]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching1.png" type="Texture" id=199]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching2.png" type="Texture" id=200]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching3.png" type="Texture" id=201]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching4.png" type="Texture" id=202]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching5.png" type="Texture" id=203]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching6.png" type="Texture" id=204]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching7.png" type="Texture" id=205]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching8.png" type="Texture" id=206]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching9.png" type="Texture" id=207]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching10.png" type="Texture" id=208]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching11.png" type="Texture" id=209]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching12.png" type="Texture" id=210]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching13.png" type="Texture" id=211]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching14.png" type="Texture" id=212]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching15.png" type="Texture" id=213]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching16.png" type="Texture" id=214]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching17.png" type="Texture" id=215]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching18.png" type="Texture" id=216]
+[ext_resource path="res://sprites/enemies/broccoli/shadows/searching19.png" type="Texture" id=217]
+[ext_resource path="res://sprites/enemies/badbanana/shadow_walking.png" type="Texture" id=218]
+[ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=219]
+[ext_resource path="res://scripts/ai/ai_states/Spawning.gd" type="Script" id=220]
+[ext_resource path="res://scripts/ai/ai_states/Idle.gd" type="Script" id=221]
+[ext_resource path="res://scripts/ai/ai_states/Searching.gd" type="Script" id=222]
+[ext_resource path="res://scripts/ai/ai_states/Climbing.gd" type="Script" id=223]
+[ext_resource path="res://scripts/ai/ai_states/Falling.gd" type="Script" id=224]
+[ext_resource path="res://scripts/ai/ai_states/Attacking.gd" type="Script" id=225]
+[ext_resource path="res://scripts/ai/ai_states/Stunned.gd" type="Script" id=226]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -234,23 +323,28 @@ animations = [ {
 "loop": true,
 "name": "2:Idle",
 "speed": 24.0
+}, {
+"frames": [ ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 132 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ), ExtResource( 179 ), ExtResource( 180 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 187 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 194 ), ExtResource( 195 ), ExtResource( 196 ), ExtResource( 197 ) ],
+"loop": false,
+"name": "1:Stunned",
+"speed": 24.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 110 ) ],
+"frames": [ ExtResource( 198 ) ],
 "loop": true,
-"name": "0",
+"name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 128 ), ExtResource( 129 ) ],
+"frames": [ ExtResource( 199 ), ExtResource( 200 ), ExtResource( 201 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 213 ), ExtResource( 214 ), ExtResource( 215 ), ExtResource( 216 ), ExtResource( 217 ) ],
 "loop": true,
 "name": "1",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 130 ) ],
+"frames": [ ExtResource( 218 ) ],
 "loop": true,
-"name": "2",
+"name": "0",
 "speed": 5.0
 } ]
 
@@ -279,7 +373,7 @@ script = ExtResource( 1 )
 editor/display_folded = true
 frames = SubResource( 1 )
 animation = "0:Searching"
-frame = 3
+frame = 8
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -391,25 +485,28 @@ __meta__ = {
 [node name="AttackingRay" type="RayCast2D" parent="."]
 
 [node name="FSM" type="Node" parent="."]
-script = ExtResource( 131 )
+script = ExtResource( 219 )
 
 [node name="Spawning" type="Node" parent="FSM"]
-script = ExtResource( 132 )
+script = ExtResource( 220 )
 
 [node name="Idle" type="Node" parent="FSM"]
-script = ExtResource( 133 )
+script = ExtResource( 221 )
 
 [node name="Searching" type="Node" parent="FSM"]
-script = ExtResource( 134 )
+script = ExtResource( 222 )
 
 [node name="Climbing" type="Node" parent="FSM"]
-script = ExtResource( 135 )
+script = ExtResource( 223 )
 
 [node name="Falling" type="Node" parent="FSM"]
-script = ExtResource( 136 )
+script = ExtResource( 224 )
 
 [node name="Attacking" type="Node" parent="FSM"]
-script = ExtResource( 137 )
+script = ExtResource( 225 )
+
+[node name="Stunned" type="Node" parent="FSM"]
+script = ExtResource( 226 )
 
 [connection signal="area_entered" from="HitDetection" to="." method="on_hit_detection"]
 [connection signal="body_entered" from="HitDetection" to="." method="on_hit_detection"]

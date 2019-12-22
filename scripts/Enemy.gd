@@ -14,6 +14,7 @@ $FSM/Idle: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetect
 $FSM/Searching: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching],
 $FSM/Climbing: [$HitDetection/BananaClimbing,$HitDetection/BrocClimbing,$HitDetection/TomatoSearching],
 $FSM/Falling: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching],
+$FSM/Stunned: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching],
 $FSM/Attacking: [$HitDetection/BananaSearching,$HitDetection/BrocSearching,$HitDetection/TomatoSearching]}
 
 var current_collider = null
@@ -100,6 +101,11 @@ func on_hit_detection(body):
 		#TODO: delegate this to a new state
 		emit_signal("sprayed")
 		call_deferred('free')
+	elif body.name == 'SmokeDetection' and spray_immune[id]:
+		var cstate = FSM.get_current_state().name
+		if cstate != 'Stunned' and cstate != 'Climbing' and cstate != 'Falling': 
+			FSM.force_state("Stunned")
+			#body.get_parent().queue_free()
 	elif body.name == 'PlayerHit':
 		body.get_parent().hit = true
 		set_level_finished(true)

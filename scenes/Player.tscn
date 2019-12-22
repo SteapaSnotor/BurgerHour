@@ -197,7 +197,7 @@ valign = 1
 [node name="Animations" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Idle-Down"
-frame = 23
+frame = 9
 playing = true
 
 [node name="FSM" type="Node" parent="."]
@@ -222,7 +222,6 @@ script = ExtResource( 127 )
 script = ExtResource( 128 )
 
 [node name="PlayerHit" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 4
 collision_mask = 4
 

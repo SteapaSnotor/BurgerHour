@@ -139,6 +139,7 @@ func on_level_finished():
 	print('sprays ' + str(_world.spray_points))
 	print('total: ' + str(_world.level_new_score))
 	"""
+	
 
 
 func on_level_loaded():
@@ -162,6 +163,7 @@ func on_new_score():
 	_gui.set_total_score(get_total_score()+_world.level_new_score)
 	_gui.flying_label(_world.current_level.new_points_position,str(_world.level_new_score - _world.level_old_score))
 	_world.bonus_points += _world.level_new_score - _world.level_old_score 
+	
 	
 func on_new_spray_count(powerup=false):
 	if not powerup: _world.sprays -= 1
