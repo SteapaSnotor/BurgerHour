@@ -197,7 +197,7 @@
 [ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0086.png" type="Texture" id=195]
 [ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0087.png" type="Texture" id=196]
 [ext_resource path="res://sprites/enemies/broccoli/stunned/stunned.png0088.png" type="Texture" id=197]
-[ext_resource path="res://sprites/enemies/tomato/tomato_shadow.png" type="Texture" id=198]
+[ext_resource path="res://sprites/enemies/badbanana/shadow_walking.png" type="Texture" id=198]
 [ext_resource path="res://sprites/enemies/broccoli/shadows/searching1.png" type="Texture" id=199]
 [ext_resource path="res://sprites/enemies/broccoli/shadows/searching2.png" type="Texture" id=200]
 [ext_resource path="res://sprites/enemies/broccoli/shadows/searching3.png" type="Texture" id=201]
@@ -217,7 +217,7 @@
 [ext_resource path="res://sprites/enemies/broccoli/shadows/searching17.png" type="Texture" id=215]
 [ext_resource path="res://sprites/enemies/broccoli/shadows/searching18.png" type="Texture" id=216]
 [ext_resource path="res://sprites/enemies/broccoli/shadows/searching19.png" type="Texture" id=217]
-[ext_resource path="res://sprites/enemies/badbanana/shadow_walking.png" type="Texture" id=218]
+[ext_resource path="res://sprites/enemies/tomato/tomato_shadow.png" type="Texture" id=218]
 [ext_resource path="res://scripts/ai/FSM.gd" type="Script" id=219]
 [ext_resource path="res://scripts/ai/ai_states/Spawning.gd" type="Script" id=220]
 [ext_resource path="res://scripts/ai/ai_states/Idle.gd" type="Script" id=221]
@@ -334,7 +334,7 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 198 ) ],
 "loop": true,
-"name": "2",
+"name": "0",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 199 ), ExtResource( 200 ), ExtResource( 201 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 212 ), ExtResource( 213 ), ExtResource( 214 ), ExtResource( 215 ), ExtResource( 216 ), ExtResource( 217 ) ],
@@ -344,7 +344,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 218 ) ],
 "loop": true,
-"name": "0",
+"name": "2",
 "speed": 5.0
 } ]
 
@@ -373,7 +373,6 @@ script = ExtResource( 1 )
 editor/display_folded = true
 frames = SubResource( 1 )
 animation = "0:Searching"
-frame = 8
 playing = true
 __meta__ = {
 "_edit_lock_": true

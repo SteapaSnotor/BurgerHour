@@ -24,7 +24,7 @@ onready var anim_node = $AnimatedSprite
 onready var shadows = $AnimatedSprite/Shadows
 
 #stats
-var speed = [70,120,70] #70
+var speed = [90,120,90] #70
 var facing_dir = Vector2(0,0)
 
 var id = 1 #will define things like animations and stats etc
@@ -43,7 +43,7 @@ var finished = false setget set_level_finished #when the player wins/loses
 #var initial_spawn = Vector2(0,0)
 
 const base_z_index = 5
-const climbing_speed = 70
+const climbing_speed = 85
 
 #initialize
 func _ready():
@@ -161,6 +161,11 @@ func set_level_finished(value):
 		FSM.force_state('Idle')
 
 func update_animations():
+	if finished: 
+		$AnimatedSprite.stop()
+		set_z_index(6)
+		return
+	
 	$AnimatedSprite.set_flip_h(facing_dir.x == 1)
 	#$HitDetection.set_scale(Vector2(1 - (int(facing_dir.x == 1)+ int(facing_dir.x == 1)),1))
 	$AnimatedSprite.play(str(id)+':'+FSM.get_current_state().name)

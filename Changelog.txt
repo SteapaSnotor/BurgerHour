@@ -11,3 +11,7 @@
 22/12, 1.0.3
 - Now you don't to start the whole level again when dying.
 - Now the broccoli will get "stunned" when peper sprayed.
+
+23/12, 1.0.4
+- Increased the game speed.
+- Pause the current animation of enemies when the player wins.
