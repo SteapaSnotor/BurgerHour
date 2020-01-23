@@ -15,3 +15,7 @@
 23/12, 1.0.4
 - Increased the game speed.
 - Pause the current animation of enemies when the player wins.
+
+26/12, 1.0.5
+- Decrease game speed a bit.
+- Fixed a bug where the score table wasn't being reseted after beating the game.

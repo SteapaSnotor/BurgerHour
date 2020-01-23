@@ -240,6 +240,7 @@ func on_restart_game():
 
 #when the player starts choice to start the game
 func on_start_game():
+	clear_score()
 	init_world()
 	yield(_world,'level_loaded')
 	init_gui()

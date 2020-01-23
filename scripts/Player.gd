@@ -37,7 +37,7 @@ Vector2(0,-1):{'anim':'TotallyDead','flip':false}}
 }
 
 #stats
-var speed = 130
+var speed = 120
 var hit = false setget set_hit
 
 #nodes
